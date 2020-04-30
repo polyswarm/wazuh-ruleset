@@ -812,6 +812,23 @@ checks:
       - 'f:/etc/gdm3/greeter.dconf-defaults -> r:banner-message-enable=true'
       - 'f:/etc/gdm3/greeter.dconf-defaults -> r:banner-message-text='
 
+# 1.9 Ensure updates, patches, and additional security software are installed(Scored)
+  - id: 5549 
+    title: "Ensure updates, patches, and additional security software are installed"
+    description: "Periodically patches are released for included software either due to security flaws or to include additional functionality."
+    rationale: "Newer patches may contain security enhancements that would not be available through the latest full update. As a result, it is recommended that the latest software patches be used to take advantage of the latest functionality. As with any software installation, organizations need to determine if a given update meets their requirements and verify the compatibility and supportability of any additional software against the update revision that is selected."
+    remediation: "Site policy may mandate a testing period before install onto production systems for available updates. The audit and remediation here only cover security updates. Non-security updates can be audited with and comparing against site policy: # yum check-update"
+    compliance:
+      - cis: ["1.9"]
+      - cis_csc: ["3.4"]
+      - pci_dss: ["5.2"]
+      - nist_800_53: ["AU.6","SI.4"]
+      - gpg_13: ["4.2"]
+      - gdpr_IV: ["35.7.d"]
+      - hipaa: ["164.312.b"]
+    condition: all
+    rules:
+      - 'c:yum check-update --security -> r:No packages needed for security'
 
 
 # 1.10 Ensure system-wide crypto policy is not legacy (Scored)
