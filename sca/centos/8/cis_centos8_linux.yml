@@ -415,6 +415,8 @@ checks:
     compliance:
       - cis: ["1.3.1"]
       - cis_csc: ["4.3"]
+      - pci_dss: ["2.2.4"]
+      - nist_800_53: ["CM.1"]
     condition: all
     rules:
       - 'c:rpm -q sudo -> r:sudo-\S*'
@@ -428,6 +430,8 @@ checks:
     compliance:
       - cis: ["1.3.2"]
       - cis_csc: ["5.1"]
+      - pci_dss: ["2.2.4"]
+      - nist_800_53: ["CM.1"]
     references: "AIDE stable manual: http://aide.sourceforge.net/stable/manual.html"
     condition: any
     rules:
@@ -443,6 +447,8 @@ checks:
     compliance:
       - cis: ["1.3.3"]
       - cis_csc: ["6.3"]
+      - pci_dss: ["2.2.4"]
+      - nist_800_53: ["CM.1"]
     references: "AIDE stable manual: http://aide.sourceforge.net/stable/manual.html"
     condition: any
     rules:
@@ -811,6 +817,8 @@ checks:
     compliance:
       - cis: ["1.10"]
       - cis_csc: ["14.4"]
+      - pci_dss: ["2.2.4"]
+      - nist_800_53: ["CM.1"]
     condition: none
     rules:
       - 'f:/etc/crypto-policies/config -> r:^\s*LEGACY'
@@ -824,6 +832,8 @@ checks:
     compliance:
       - cis: ["1.11"]
       - cis_csc: ["14.4"]
+      - pci_dss: ["2.2.4"]
+      - nist_800_53: ["CM.1"]
     condition: none
     rules:
       - 'f:/etc/crypto-policies/config -> r:^\s*FUTURE|^\s*FIPS'
@@ -1005,6 +1015,8 @@ checks:
     compliance:
       - cis: ["2.2.9"]
       - cis_csc: ["9.2"]
+      - pci_dss: ["2.2.4"]
+      - nist_800_53: ["CM.1"]
     condition: none
     rules:
       - 'c:systemctl is-enabled httpd -> r:^enabled'
@@ -1226,10 +1238,12 @@ checks:
     compliance:
       - cis: ["3.1.1"]
       - cis_csc: ["5.1"]
+      - pci_dss: ["2.2.4"]
+      - nist_800_53: ["CM.1"]
     condition: all
     rules:
-      - 'c:grep -Rh -E -s ^\s*net\.ipv4\.ip_forward\s*=\s*1 /etc/sysctl.conf /etc/sysctl.d/*.conf /usr/lib/sysctl.d/*.conf /run/sysctl.d/*.conf -> !r:\w+'
-      - 'c:grep -Rh -E -s ^\s*net\.ipv6\.conf\.all\.forwarding\s*=\s*1 /etc/sysctl.conf /etc/sysctl.d/*.conf /usr/lib/sysctl.d/*.conf /run/sysctl.d/*.conf -> !r:\w+'
+      - 'c:grep -Rh -E -s ^\s*net.ipv4.ip_forward\s*=\s*1 /etc/sysctl.conf /etc/sysctl.d/*.conf /usr/lib/sysctl.d/*.conf /run/sysctl.d/*.conf -> !r:\w+'
+      - 'c:grep -Rh -E -s ^\s*net.ipv6.conf.all.forwarding\s*=\s*1 /etc/sysctl.conf /etc/sysctl.d/*.conf /usr/lib/sysctl.d/*.conf /run/sysctl.d/*.conf -> !r:\w+'
       - 'c:sysctl net.ipv4.ip_forward -> !r:^\s*net.ipv4.ip_forward\s*=\s*0'
       - 'c:sysctl net.ipv6.conf.all.forwarding -> !r:^\s*net.ipv6.conf.all.forwarding\s*=\s*0'
 
@@ -1243,10 +1257,12 @@ checks:
     compliance:
       - cis: ["3.1.2"]
       - cis_csc: ["5.1"]
+      - pci_dss: ["2.2.4"]
+      - nist_800_53: ["CM.1"]
     condition: all
     rules:
-      - 'c:grep -Rh net\.ipv4\.conf\.all\.send_redirects /etc/sysctl.conf /etc/sysctl.d/* -> r:^\s*net.ipv4.conf.all.send_redirects\s*=\s*0'
-      - 'c:grep -Rh net\.ipv4\.conf\.default\.send_redirects /etc/sysctl.conf /etc/sysctl.d/* -> r:^\s*net.ipv4.conf.default.send_redirects\s*=\s*0'
+      - 'c:grep -Rh net.ipv4.conf.all.send_redirects /etc/sysctl.conf /etc/sysctl.d/* -> r:^\s*net.ipv4.conf.all.send_redirects\s*=\s*0'
+      - 'c:grep -Rh net.ipv4.conf.default.send_redirects /etc/sysctl.conf /etc/sysctl.d/* -> r:^\s*net.ipv4.conf.default.send_redirects\s*=\s*0'
       - 'c:sysctl net.ipv4.conf.all.send_redirects -> r:^\s*net.ipv4.conf.all.send_redirects\s*=\s*0'
       - 'c:sysctl net.ipv4.conf.default.send_redirects -> r:^\s*net.ipv4.conf.default.send_redirects\s*=\s*0'
 
@@ -1262,16 +1278,18 @@ checks:
     compliance:
       - cis: ["3.2.1"]
       - cis_csc: ["5.1"]
+      - pci_dss: ["2.2.4"]
+      - nist_800_53: ["CM.1"]
     condition: all
     rules:
       - 'c:sysctl net.ipv4.conf.all.accept_source_route -> r:^\s*net.ipv4.conf.all.accept_source_route\s*=\s*0'
       - 'c:sysctl net.ipv4.conf.default.accept_source_route -> r:^\s*net.ipv4.conf.default.accept_source_route\s*=\s*0'
-      - 'c:grep -Rh net\.ipv4\.conf\.all\.accept_source_route /etc/sysctl.conf /etc/sysctl.d/* -> r:^\s*net.ipv4.conf.all.accept_source_route\s*=\s*0'
-      - 'c:grep -Rh net\.ipv4\.conf\.default\.accept_source_route /etc/sysctl.conf /etc/sysctl.d/* -> r:^\s*net.ipv4.conf.default.accept_source_route\s*=\s*0'
-      - 'c:sysctl net.ipv6.conf.all.accept_source_route -> r:^\s*net.ipv6.conf.all.accept_source_route\s*=\s*0'
-      - 'c:sysctl net.ipv6.conf.default.accept_source_route -> r:^\s*net.ipv6.conf.default.accept_source_route\s*=\s*0'
-      - 'c:grep -Rh net\.ipv6\.conf\.all\.accept_source_route /etc/sysctl.conf /etc/sysctl.d/* -> r:^\s*net.ipv6.conf.all.accept_source_route\s*=\s*0'
-      - 'c:grep -Rh net\.ipv6\.conf\.default\.accept_source_route /etc/sysctl.conf /etc/sysctl.d/* -> r:^\s*net.ipv6.conf.default.accept_source_route\s*=\s*0'
+      - 'c:grep -Rh net.ipv4.conf.all.accept_source_route /etc/sysctl.conf /etc/sysctl.d/* -> r:^\s*net.ipv4.conf.all.accept_source_route\s*=\s*0'
+      - 'c:grep -Rh net.ipv4.conf.default.accept_source_route /etc/sysctl.conf /etc/sysctl.d/* -> r:^\s*net.ipv4.conf.default.accept_source_route\s*=\s*0'
+      - 'c:sysctl net.ipv6.conf.all.accept_source_route -> r:^\s*net.ipv6.conf.all.accept_source_route\s*=\s*0|No such file or directory'
+      - 'c:sysctl net.ipv6.conf.default.accept_source_route -> r:^\s*net.ipv6.conf.default.accept_source_route\s*=\s*0|No such file or directory'
+      - 'c:grep -Rh net.ipv6.conf.all.accept_source_route /etc/sysctl.conf /etc/sysctl.d/* -> r:^\s*net.ipv6.conf.all.accept_source_route\s*=\s*0'
+      - 'c:grep -Rh net.ipv6.conf.default.accept_source_route /etc/sysctl.conf /etc/sysctl.d/* -> r:^\s*net.ipv6.conf.default.accept_source_route\s*=\s*0'
      
 
 
@@ -1285,16 +1303,18 @@ checks:
     compliance:
       - cis: ["3.2.2"]
       - cis_csc: ["5.1"]
+      - pci_dss: ["2.2.4"]
+      - nist_800_53: ["CM.1"]
     condition: all
     rules:
       - 'c:sysctl net.ipv4.conf.all.accept_redirects -> r:^\s*net.ipv4.conf.all.accept_redirects\s*=\s*0'
       - 'c:sysctl net.ipv4.conf.default.accept_redirects -> r:^\s*net.ipv4.conf.default.accept_redirects\s*=\s*0'
-      - 'c:grep -Rh net\.ipv4\.conf\.all\.accept_redirects /etc/sysctl.conf /etc/sysctl.d/* -> r:^\s*net.ipv4.conf.all.accept_redirects\s*=\s*0'
-      - 'c:grep -Rh net\.ipv4\.conf\.default\.accept_redirects /etc/sysctl.conf /etc/sysctl.d/* -> r:^\s*net.ipv4.conf.default.accept_redirects\s*=\s*0'
+      - 'c:grep -Rh net.ipv4.conf.all.accept_redirects /etc/sysctl.conf /etc/sysctl.d/* -> r:^\s*net.ipv4.conf.all.accept_redirects\s*=\s*0'
+      - 'c:grep -Rh net.ipv4.conf.default.accept_redirects /etc/sysctl.conf /etc/sysctl.d/* -> r:^\s*net.ipv4.conf.default.accept_redirects\s*=\s*0'
       - 'c:sysctl net.ipv6.conf.all.accept_redirects -> r:^\s*net.ipv6.conf.all.accept_redirects\s*=\s*0'
       - 'c:sysctl net.ipv6.conf.default.accept_redirects -> r:^\s*net.ipv6.conf.default.accept_redirects\s*=\s*0'
-      - 'c:grep -Rh net\.ipv6\.conf\.all\.accept_redirects /etc/sysctl.conf /etc/sysctl.d/* -> r:^\s*net.ipv6.conf.all.accept_redirects\s*=\s*0'
-      - 'c:grep -Rh net\.ipv6\.conf\.default\.accept_redirects /etc/sysctl.conf /etc/sysctl.d/* -> r:^\s*net.ipv6.conf.default.accept_redirects\s*=\s*0'
+      - 'c:grep -Rh net.ipv6.conf.all.accept_redirects /etc/sysctl.conf /etc/sysctl.d/* -> r:^\s*net.ipv6.conf.all.accept_redirects\s*=\s*0'
+      - 'c:grep -Rh net.ipv6.conf.default.accept_redirects /etc/sysctl.conf /etc/sysctl.d/* -> r:^\s*net.ipv6.conf.default.accept_redirects\s*=\s*0'
 
 
 # 3.2.3 Ensure secure ICMP redirects are not accepted (Scored)
@@ -1306,12 +1326,14 @@ checks:
     compliance:
       - cis: ["3.2.3"]
       - cis_csc: ["5.1"]
+      - pci_dss: ["2.2.4"]
+      - nist_800_53: ["CM.1"]
     condition: all
     rules:
       - 'c:sysctl net.ipv4.conf.all.secure_redirects -> r:^\s*net.ipv4.conf.all.secure_redirects\s*=\s*0'
       - 'c:sysctl net.ipv4.conf.default.secure_redirects -> r:^\s*net.ipv4.conf.default.secure_redirects\s*=\s*0'
-      - 'c:grep -Rh net\.ipv4\.conf\.all\.secure_redirects /etc/sysctl.conf /etc/sysctl.d/* -> r:^\s*net.ipv4.conf.all.secure_redirects\s*=\s*0'
-      - 'c:grep -Rh net\.ipv4\.conf\.default\.secure_redirects /etc/sysctl.conf /etc/sysctl.d/* -> r:^\s*net.ipv4.conf.default.secure_redirects\s*=\s*0'
+      - 'c:grep -Rh net.ipv4.conf.all.secure_redirects /etc/sysctl.conf /etc/sysctl.d/* -> r:^\s*net.ipv4.conf.all.secure_redirects\s*=\s*0'
+      - 'c:grep -Rh net.ipv4.conf.default.secure_redirects /etc/sysctl.conf /etc/sysctl.d/* -> r:^\s*net.ipv4.conf.default.secure_redirects\s*=\s*0'
 
 # 3.2.4 Ensure suspicious packets are logged (Scored)
   - id: 5577 
@@ -1322,12 +1344,14 @@ checks:
     compliance:
       - cis: ["3.2.4"]
       - cis_csc: ["6.2", "6.3"]
+      - pci_dss: ["2.2.4"]
+      - nist_800_53: ["CM.1"]
     condition: all
     rules:
       - 'c:sysctl net.ipv4.conf.all.log_martians -> r:^\s*net.ipv4.conf.all.log_martians\s*=\s*1'
       - 'c:sysctl net.ipv4.conf.default.log_martians -> r:^\s*net.ipv4.conf.default.log_martians\s*=\s*1'
-      - 'c:grep -Rh net\.ipv4\.conf\.all\.log_martians /etc/sysctl.conf /etc/sysctl.d/* -> r:^\s*net.ipv4.conf.all.log_martians\s*=\s*1'
-      - 'c:grep -Rh net\.ipv4\.conf\.default\.log_martians /etc/sysctl.conf /etc/sysctl.d/* -> r:^\s*net\.ipv4\.conf\.default\.log_martians\s*=\s*1'
+      - 'c:grep -Rh net.ipv4.conf.all.log_martians /etc/sysctl.conf /etc/sysctl.d/* -> r:^\s*net.ipv4.conf.all.log_martians\s*=\s*1'
+      - 'c:grep -Rh net.ipv4.conf.default.log_martians /etc/sysctl.conf /etc/sysctl.d/* -> r:^\s*net.ipv4.conf.default.log_martians\s*=\s*1'
 
 # 3.2.5 Ensure broadcast ICMP requests are ignored (Scored)
   - id: 5578 
@@ -1338,10 +1362,12 @@ checks:
     compliance:
       - cis: ["3.2.5"]
       - cis_csc: ["5.1"]
+      - pci_dss: ["2.2.4"]
+      - nist_800_53: ["CM.1"]
     condition: all
     rules:
       - 'c:sysctl net.ipv4.icmp_echo_ignore_broadcasts -> r:^\s*net.ipv4.icmp_echo_ignore_broadcasts\s*=\s*1'
-      - 'c:grep -E -s -Rh ^\s*net\.ipv4\.icmp_echo_ignore_broadcasts\s*=\s*0 /etc/sysctl.conf /etc/sysctl.d/*.conf /usr/lib/sysctl.d/*.conf /run/sysctl.d/*.conf -> !r:\w+' 
+      - 'c:grep -E -s -Rh ^\s*net.ipv4.icmp_echo_ignore_broadcasts\s*=\s*0 /etc/sysctl.conf /etc/sysctl.d/*.conf /usr/lib/sysctl.d/*.conf /run/sysctl.d/*.conf -> !r:\w+' 
 
 # 3.2.6 Ensure bogus ICMP responses are ignored (Scored)
   - id: 5579 
@@ -1352,10 +1378,12 @@ checks:
     compliance:
       - cis: ["3.2.6"]
       - cis_csc: ["5.1"]
+      - pci_dss: ["2.2.4"]
+      - nist_800_53: ["CM.1"]
     condition: all
     rules:
       - 'c:sysctl net.ipv4.icmp_ignore_bogus_error_responses -> r:^\s*net.ipv4.icmp_ignore_bogus_error_responses\s*=\s*1'
-      - 'c:grep -E -s -Rh ^\s*net\.ipv4\.icmp_ignore_bogus_error_responses\s*=\s*0 /etc/sysctl.conf /etc/sysctl.d/*.conf /usr/lib/sysctl.d/*.conf /run/sysctl.d/*.conf -> !r:\w+'
+      - 'c:grep -E -s -Rh ^\s*net.ipv4.icmp_ignore_bogus_error_responses\s*=\s*0 /etc/sysctl.conf /etc/sysctl.d/*.conf /usr/lib/sysctl.d/*.conf /run/sysctl.d/*.conf -> !r:\w+'
 
 # 3.2.7 Ensure Reverse Path Filtering is enabled (Scored)
   - id: 5580 
@@ -1366,12 +1394,14 @@ checks:
     compliance:
       - cis: ["3.2.7"]
       - cis_csc: ["5.1"]
+      - pci_dss: ["2.2.4"]
+      - nist_800_53: ["CM.1"]
     condition: all
     rules:
       - 'c:sysctl net.ipv4.conf.all.rp_filter -> r:^\s*net.ipv4.conf.all.rp_filter\s*=\s*1'
       - 'c:sysctl net.ipv4.conf.default.rp_filter -> r:^\s*net.ipv4.conf.default.rp_filter\s*=\s*1'
-      - 'c:grep -E -s -Rh ^\s*net\.ipv4\.conf\.all\.rp_filter\s*=\s*0 /etc/sysctl.conf /etc/sysctl.d/*.conf /usr/lib/sysctl.d/*.conf /run/sysctl.d/*.conf -> !r:\w+'
-      - 'c:grep -E -s -Rh ^\s*net\.ipv4\.conf\.default\.rp_filter\s*=\s*1 /etc/sysctl.conf /etc/sysctl.d/*.conf /usr/lib/sysctl.d/*.conf /run/sysctl.d/*.conf -> r:^\s*net.ipv4.conf.default.rp_filter\s*=\s*1'
+      - 'c:grep -E -s -Rh ^\s*net.ipv4.conf.all.rp_filter\s*=\s*0 /etc/sysctl.conf /etc/sysctl.d/*.conf /usr/lib/sysctl.d/*.conf /run/sysctl.d/*.conf -> !r:\w+'
+      - 'c:grep -E -s -Rh ^\s*net.ipv4.conf.default.rp_filter\s*=\s*1 /etc/sysctl.conf /etc/sysctl.d/*.conf /usr/lib/sysctl.d/*.conf /run/sysctl.d/*.conf -> r:^\s*net.ipv4.conf.default.rp_filter\s*=\s*1'
 
 # 3.2.8 Ensure TCP SYN Cookies is enabled (Scored)
   - id: 5581 
@@ -1382,10 +1412,12 @@ checks:
     compliance:
       - cis: ["3.2.8"]
       - cis_csc: ["5.1"]
+      - pci_dss: ["2.2.4"]
+      - nist_800_53: ["CM.1"]
     condition: all
     rules:
       - 'c:sysctl net.ipv4.tcp_syncookies -> r:^\s*net.ipv4.tcp_syncookies\s*=\s*1'
-      - 'c:grep -E -r -Rh ^\s*net\.ipv4\.tcp_syncookies\s*=\s*[02] /etc/sysctl.conf /etc/sysctl.d/*.conf /usr/lib/sysctl.d/*.conf /run/sysctl.d/*.conf -> !r:\w+'
+      - 'c:grep -E -r -Rh ^\s*net.ipv4.tcp_syncookies\s*=\s*[02] /etc/sysctl.conf /etc/sysctl.d/*.conf /usr/lib/sysctl.d/*.conf /run/sysctl.d/*.conf -> !r:\w+'
 
 # 3.2.9 Ensure IPv6 router advertisements are not accepted (Scored)
   - id: 5582 
@@ -1396,12 +1428,17 @@ checks:
     compliance:
       - cis: ["3.2.9"]
       - cis_csc: ["5.1"]
+      - pci_dss: ["2.2.3"]
+      - nist_800_53: ["CM.1"]
+      - gpg_13: ["4.3"]
+      - gdpr_IV: ["35.7.d"]
+      - hipaa: ["164.312.b"]
     condition: all
     rules:
       - 'c:sysctl net.ipv6.conf.all.accept_ra -> r:^\s*net.ipv6.conf.all.accept_ra\s*=\s*0'
       - 'c:sysctl net.ipv6.conf.default.accept_ra -> r:^\s*net.ipv6.conf.default.accept_ra\s*=\s*0'
-      - 'c:grep -Rh net\.ipv6\.conf\.all\.accept_ra /etc/sysctl.conf /etc/sysctl.d/* -> r:^\s*net.ipv6.conf.all.accept_ra\s*=\s*0'
-      - 'c:grep -Rh net\.ipv6\.conf\.default\.accept_ra /etc/sysctl.conf /etc/sysctl.d/* -> r:^\s*net.ipv6.conf.default.accept_ra\s*=\s*0'
+      - 'c:grep -Rh net.ipv6.conf.all.accept_ra /etc/sysctl.conf /etc/sysctl.d/* -> r:^\s*net.ipv6.conf.all.accept_ra\s*=\s*0'
+      - 'c:grep -Rh net.ipv6.conf.default.accept_ra /etc/sysctl.conf /etc/sysctl.d/* -> r:^\s*net.ipv6.conf.default.accept_ra\s*=\s*0'
 
 ###############################################
 # 3.3 Uncommon Network Protocols
@@ -1415,6 +1452,11 @@ checks:
     compliance:
       - cis: ["3.3.1"]
       - cis_csc: ["9.2"]
+      - pci_dss: ["2.2.3"]
+      - nist_800_53: ["CM.1"]
+      - gpg_13: ["4.3"]
+      - gdpr_IV: ["35.7.d"]
+      - hipaa: ["164.312.b"]
     condition: all
     rules:
       - 'c:modprobe -n -v dccp -> r:^\s*install\s*/bin/true'
@@ -1429,6 +1471,11 @@ checks:
     compliance:
       - cis: ["3.3.2"]
       - cis_csc: ["9.2"]
+      - pci_dss: ["2.2.3"]
+      - nist_800_53: ["CM.1"]
+      - gpg_13: ["4.3"]
+      - gdpr_IV: ["35.7.d"]
+      - hipaa: ["164.312.b"]
     condition: all
     rules:
       - 'c:modprobe -n -v sctp -> r:^\s*install\s*/bin/true'
@@ -1443,6 +1490,11 @@ checks:
     compliance:
       - cis: ["3.3.3"]
       - cis_csc: ["9.2"]
+      - pci_dss: ["2.2.3"]
+      - nist_800_53: ["CM.1"]
+      - gpg_13: ["4.3"]
+      - gdpr_IV: ["35.7.d"]
+      - hipaa: ["164.312.b"]
     condition: all
     rules:
       - 'c:modprobe -n -v rds -> r:^\s*install\s*/bin/true'
@@ -1458,6 +1510,11 @@ checks:
     compliance:
       - cis: ["3.3.4"]
       - cis_csc: ["9.2"]
+      - pci_dss: ["2.2.3"]
+      - nist_800_53: ["CM.1"]
+      - gpg_13: ["4.3"]
+      - gdpr_IV: ["35.7.d"]
+      - hipaa: ["164.312.b"]
     condition: all
     rules:
       - 'c:modprobe -n -v tipc -> r:^\s*install\s*/bin/true'
@@ -1478,7 +1535,8 @@ checks:
     compliance:
       - cis: ["3.4.1.1"]
       - cis_csc: ["9.4"]
-    condition: all
+      - pci_dss: ["1.1"]
+    condition: any
     rules:
       - 'c:rpm -q firewalld -> r:^firewalld-'
       - 'c:rpm -q nftables -> r:^nftables-'
@@ -1497,6 +1555,7 @@ checks:
     compliance:
       - cis: ["3.4.2.1"]
       - cis_csc: ["9.4"]
+      - pci_dss: ["1.2"]
     condition: all
     rules:
       - 'c:systemctl is-enabled firewalld -> r:^enabled'
@@ -1509,13 +1568,14 @@ checks:
     rationale: "Running firewalld and nftables concurrently may lead to conflict, therefore nftables should be stopped and masked when using firewalld."
     remediation: "Run the following command to mask and stop nftables: systemctl --now mask nftables"
     compliance:
-      - cis: ["3.4.2.2"]
+      - cis: ["3.4.2.3"]
       - cis_csc: ["9.4"]
+      - pci_dss: ["1.2"]
     condition: all
     rules:
-      - 'c:systemctl status iptables -> r:Loaded:\s*disabled | r:Loaded:\s*masked'
-      - 'c:systemctl status iptables -> r:Active: inactive (dead)'
-      - 'c:systemctl is-enabled iptables -> r:disabled | r:masked'
+      - 'c:systemctl status nftables -> r:Loaded:\s*disabled|Loaded:\s*masked'
+      - 'c:systemctl status nftables -> r:Active:\s*inactive\s*\(dead\)'
+      - 'c:systemctl is-enabled nftables -> !r:^enabled'
 
 ###############################################
 # 3.4.3 Configure nftables
@@ -1530,10 +1590,11 @@ checks:
     compliance:
       - cis: ["3.4.3.1"]
       - cis_csc: ["9.4"]
+      - pci_dss: ["1.2"]
     condition: all
     rules:
-      - 'c:iptables -L -> !r:^\s*Chain && !r:^\s*target'
-      - 'c:ip6tables -L -> !r:^\s*Chain && !r:^\s*target'
+      - 'c:iptables -L -> !r:^\s*Chain | !r:^\s*target'
+      - 'c:ip6tables -L -> !r:^\s*Chain | !r:^\s*target'
 
 # 3.4.3.2 Ensure a table exists (Scored)
   - id: 5592 
@@ -1544,6 +1605,7 @@ checks:
     compliance:
       - cis: ["3.4.3.2"]
       - cis_csc: ["9.4"]
+      - pci_dss: ["1.2"]
     condition: all
     rules:
       - 'c:nft list tables -> r:\w+'
@@ -1558,6 +1620,7 @@ checks:
     compliance:
       - cis: ["3.4.3.3"]
       - cis_csc: ["9.4"]
+      - pci_dss: ["1.2"]
     condition: all
     rules:
       - 'c:nft list ruleset -> r:hook input'
@@ -1573,6 +1636,7 @@ checks:
     compliance:
       - cis: ["3.4.3.6"]
       - cis_csc: ["9.4"]
+      - pci_dss: ["1.2.1"]
     condition: all
     rules:
       - 'c:nft list ruleset -> r:hook input && r:policy drop'
@@ -1588,6 +1652,7 @@ checks:
     compliance:
       - cis: ["3.4.3.7"]
       - cis_csc: ["9.4"]
+      - pci_dss: ["1.2"]
     condition: all
     rules:
       - 'c:systemctl is-enabled nftables -> r:^enabled'
@@ -1607,11 +1672,12 @@ checks:
     compliance:
       - cis: ["3.4.4.1.1"]
       - cis_csc: ["9.4"]
+      - pci_dss: ["1.2.1"]
     condition: all
     rules:
-      - 'c:iptables -L -> r:Chain INPUT \(policy DROP\)'
-      - 'c:iptables -L -> r:Chain FORWARD \(policy DROP\)'
-      - 'c:iptables -L -> r:Chain OUTPUT \(policy DROP\)'
+      - 'c:iptables -L -> r:Chain INPUT \(policy DROP\)|Chain INPUT \(policy REJECT\)'
+      - 'c:iptables -L -> r:Chain FORWARD \(policy DROP\)|Chain FORWARD \(policy REJECT\)'
+      - 'c:iptables -L -> r:Chain OUTPUT \(policy DROP\)|Chain OUTPUT \(policy REJECT\)'
 
 # 3.4.4.1.2 Ensure loopback traffic is configured (Scored)
   - id: 5597 
@@ -1622,6 +1688,7 @@ checks:
     compliance:
       - cis: ["3.4.4.1.2"]
       - cis_csc: ["9.4"]
+      - pci_dss: ["1.2.1"]
     condition: all
     rules:
       - 'c:iptables -L INPUT -v -n -> r:\.*ACCEPT\.*all\.*lo\.**\.*0.0.0.0/0\.*0.0.0.0/0'
@@ -1640,11 +1707,12 @@ checks:
     compliance:
       - cis: ["3.4.4.2.1"]
       - cis_csc: ["9.4"]
+      - pci_dss: ["1.2.1"]
     condition: all
     rules:
-      - 'c:ip6tables -L -> r:Chain INPUT \(policy DROP\)'
-      - 'c:ip6tables -L -> r:Chain FORWARD \(policy DROP\)'
-      - 'c:ip6tables -L -> r:Chain OUTPUT \(policy DROP\)'
+      - 'c:ip6tables -L -> r:Chain INPUT \(policy DROP\)|Chain INPUT \(policy REJECT\)'
+      - 'c:ip6tables -L -> r:Chain FORWARD \(policy DROP\)|Chain FORWARD \(policy REJECT\)'
+      - 'c:ip6tables -L -> r:Chain OUTPUT \(policy DROP\)|Chain OUTPUT \(policy REJECT\)'
 
 # 3.4.4.2.2 Ensure IPv6 loopback traffic is configured (Scored)
   - id: 5599 
@@ -1655,6 +1723,7 @@ checks:
     compliance:
       - cis: ["3.4.4.2.2"]
       - cis_csc: ["9.4"]
+      - pci_dss: ["1.2.1"]
     condition: all
     rules:
       - 'c:ip6tables -L INPUT -v -n -> r:\.*ACCEPT\.*all\.*lo\.**\.*::/0\.*::/0'
@@ -1670,11 +1739,13 @@ checks:
     compliance:
       - cis: ["3.5"]
       - cis_csc: ["15.4", "15.5"]
+      - pci_dss: ["1.2.3"]
     references:
       - nmcli(1) - Linux man page
     condition: all
     rules:
       - 'c:nmcli radio wifi -> r:^disabled'
+      - 'c:nmcli radio wwan -> r:^disabled'
 
 # 3.6 Disable IPv6 (Not Scored)
   - id: 5601 
@@ -1685,10 +1756,14 @@ checks:
     compliance:
       - cis: ["3.6"]
       - cis_csc: ["9.2"]
+      - pci_dss: ["2.2.3"]
+      - nist_800_53: ["CM.1"]
+      - gpg_13: ["4.3"]
+      - gdpr_IV: ["35.7.d"]
+      - hipaa: ["164.312.b"]
     condition: all
     rules:
-      - 'f:/boot/grub2/grubenv -> r:^\s*kernelopts=(\S+\s+)*ipv6\.disable=1\b\s*(\S+\s*)*$'
-
+      - 'f:/boot/grub2/grubenv -> r:^\s*kernelopts=\.+ipv6.disable=1'
 ###############################################
 # 4 Logging and Auditing
 ###############################################
@@ -1757,6 +1832,7 @@ checks:
     compliance:
       - cis: ["4.1.1.4"]
       - cis_csc: ["6.2","6.3"]
+      - pci_dss: ["10.7"]
       - nist_800_53: ["AU.4"]
       - hipaa: ["164.312.b"]
     condition: all
@@ -2214,6 +2290,8 @@ checks:
     compliance:
       - cis: ["5.1.1"]
       - cis_csc: ["5.1"]
+      - pci_dss: ["2.2.4"]
+      - nist_800_53: ["CM.1"]
     condition: all
     rules:
       - 'c:systemctl is-enabled crond -> r:^enabled'
@@ -2376,6 +2454,8 @@ checks:
     compliance:
       - cis: ["5.2.3"]
       - cis_csc: ["5.1"]
+      - pci_dss: ["2.2.4"]
+      - nist_800_53: ["CM.1"]
     condition: all
     rules:
       - 'c:stat /etc/ssh/ssh_host_rsa_key -> r:^Access: \(0600/-rw-------\)  Uid: \(    0/    root\)   Gid: \(    0/    root\)$'
@@ -2391,6 +2471,8 @@ checks:
     compliance:
       - cis: ["5.2.4"]
       - cis_csc: ["5.1"]
+      - pci_dss: ["2.2.4"]
+      - nist_800_53: ["CM.1"]
     condition: all
     rules:
       - 'c:stat /etc/ssh/ssh_host_rsa_key.pub -> r:^Access: \(0644/-rw-r--r--\)  Uid: \(    0/    root\)   Gid: \(    0/    root\)$'
@@ -2406,6 +2488,9 @@ checks:
     compliance:
       - cis: ["5.2.5"]
       - cis_csc: ["6.2", "6.3"]
+      - pci_dss: ["4.1"]
+      - hipaa: ["164.312.a.2.IV", "164.312.e.1", "164.312.e.2.I", "164.312.e.2.II"]
+      - nist_800_53: ["SC.8"]
     references:
       - https://www.ssh.com/ssh/sshd_config/
     condition: all
@@ -2578,6 +2663,8 @@ checks:
     compliance:
       - cis: ["5.2.16"]
       - cis_csc: ["5.1"]
+      - pci_dss: ["2.2.4"]
+      - nist_800_53: ["CM.1"]
     condition: all
     rules:
       - 'c:sshd -T -> r:^\s*usepam\s+yes'
@@ -2591,6 +2678,9 @@ checks:
     compliance:
       - cis: ["5.2.17"]
       - cis_csc: ["9.2"]
+      - pci_dss: ["4.1"]
+      - hipaa: ["164.312.a.2.IV", "164.312.e.1", "164.312.e.2.I", "164.312.e.2.II"]
+      - nist_800_53: ["SC.8"]
     references:
       - https://www.ssh.com/ssh/tunneling/example
     condition: all
@@ -2606,9 +2696,11 @@ checks:
     compliance:
       - cis: ["5.2.19"]
       - cis_csc: ["5.1"]
+      - pci_dss: ["2.2.4"]
+      - nist_800_53: ["CM.1"]
     condition: all
     rules:
-      - 'c:sshd -T -> d:^\s*maxsessions\s+(\d+) compare <= 4'
+      - 'c:sshd -T -> n:^\s*MaxSessions\s+(\d+) compare <= 4'
 
 # 5.2.20 Ensure system-wide crypto policy is not over-ridden (Scored)
   - id: 5656 
@@ -2619,9 +2711,12 @@ checks:
     compliance:
       - cis: ["5.2.20"]
       - cis_csc: ["14.4"]
-    condition: none
+      - pci_dss: ["4.1"]
+      - hipaa: ["164.312.a.2.IV", "164.312.e.1", "164.312.e.2.I", "164.312.e.2.II"]
+      - nist_800_53: ["SC.8"]
+    condition: all
     rules:
-      - 'f:/etc/sysconfig/sshd -> r:^\s*CRYPTO_POLICY='
+      - 'f:/etc/sysconfig/sshd -> !r:^\s*CRYPTO_POLICY='
 
 ###############################################
 # 5.3 Configure authselect
@@ -2634,6 +2729,7 @@ checks:
     remediation: "Run the following command to create a custom authselect profile: # authselect create-profile <custom-profile name> -b <default profile to copy> .Example: # authselect create-profile custom-profile -b sssd --symlink-meta"
     compliance:
       - cis: ["5.3.1"]
+      - pci_dss: ["8.1"]
     condition: all
     rules:
       - 'c:authselect current -> r:^Profile ID: custom/'
@@ -2646,6 +2742,7 @@ checks:
     remediation: "Run the following command to include the with-faillock option: # authselect select <PROFILE NAME> with-faillock .Example: # authselect select custom/custom-profile with-sudo with-faillock without-nullok"
     compliance:
       - cis: ["5.3.3"]
+      - pci_dss: ["8.1"]
     condition: all
     rules:
       - 'c:authselect current -> r:with-faillock'
@@ -2663,10 +2760,11 @@ checks:
     compliance:
       - cis: ["5.4.1"]
       - cis_csc: ["4.4"]
+      - pci_dss: ["8.2.3"]
     condition: all
     rules:
-      - 'c:grep pam_pwquality.so /etc/pam.d/password-auth -> r:try_first_pass'
-      - 'c:grep pam_pwquality.so /etc/pam.d/system-auth -> r:try_first_pass'
+      - 'f:/etc/pam.d/password-auth -> r:pam_pwquality.so && r:try_first_pass'
+      - 'f:/etc/pam.d/system-auth -> r:pam_pwquality.so && r:try_first_pass'
       - 'f:/etc/security/pwquality.conf -> n:^\s*minlen\s+\t*=\s+\t*(\d+) compare >= 14'
 
 # 5.4.2 Ensure lockout for failed password attempts is configured (Scored)
@@ -2678,10 +2776,12 @@ checks:
     compliance:
       - cis: ["5.4.2"]
       - cis_csc: ["16.7"]
-    condition: none
+      - pci_dss: ["8.2.5"]
+    condition: all
     rules:
-      - 'f:/etc/pam.d/password-auth -> r:^\s*auth\s+required\s+pam_faillock.so\s+ && n:deny\s+=\s+(\d+) compare > 5 && n:unlock_time\s+=\s+(\d+) compare < 900'
-      - 'f:/etc/pam.d/system-auth -> r:^\s*auth\s+required\s+pam_faillock.so\s+ && n:deny\s+=\s+(\d+) compare > 5 && n:unlock_time\s+=\s+(\d+) compare < 900'
+      - 'f:/etc/pam.d/password-auth -> r:^\s*auth\.+required\.+pam_faillock.so\.+ && n:deny=(\d+) compare <= 5 && n:unlock_time=(\d+) compare >= 900'
+      - 'f:/etc/pam.d/system-auth -> r:^\s*auth\.+required\.+pam_faillock.so\.+ && n:deny=(\d+) compare <= 5 && n:unlock_time=(\d+) compare >= 900'
+
 
 # 5.4.3 Ensure password reuse is limited (Scored)
   - id: 5661 
@@ -2692,10 +2792,11 @@ checks:
     compliance:
       - cis: ["5.4.3"]
       - cis_csc: ["16"]
-    condition: none
+      - pci_dss: ["8.2.5"]
+    condition: all
     rules:
-      - 'f:/etc/pam.d/system-auth -> r:^\s*password\s+requisite\s+pam_pwquality\.so\s+ && n:remember\s+=\s+(\d+) compare < 5'
-      - 'f:/etc/pam.d/system-auth -> r:^\s*password\s+sufficient\s+pam_unix\.so\s+ && n:remember\s+=\s+(\d+) compare < 5'
+      - 'f:/etc/pam.d/system-auth -> r:^\s*password\.+requisite\.+pam_pwquality\.so\.+ && n:remember=(\d+) compare >= 5'
+      - 'f:/etc/pam.d/system-auth -> r:^\s*password\.+sufficient\.+pam_unix\.so\.+ && n:remember=(\d+) compare >= 5'
 
 # 5.4.4 Ensure password hashing algorithm is SHA-512 (Scored)
   - id: 5662 
@@ -2706,10 +2807,11 @@ checks:
     compliance:
       - cis: ["5.4.4"]
       - cis_csc: ["16.4"]
+      - pci_dss: ["3.6.1"]
     condition: all
     rules:
-      - 'f:/etc/pam.d/password-auth -> r:^\s*password\s+requisite\s+pam_unix\.so\s+ && r:sha512'
-      - 'f:/etc/pam.d/system-auth -> r:^\s*password\s+sufficient\s+pam_unix\.so\s+ && r:sha512'
+      - 'f:/etc/pam.d/password-auth -> r:^\s*password\.+sufficient\.+pam_unix\.so && r:sha512'
+      - 'f:/etc/pam.d/system-auth -> r:^\s*password\.+sufficient\.+pam_unix\.so && r:sha512'
 
 ###############################################
 # 5.5 User Accounts and Environment
@@ -2782,11 +2884,12 @@ checks:
     compliance:
       - cis: ["5.5.3"]
       - cis_csc: ["16.11"]
+      - pci_dss: ["12.3.8"]
     condition: all
     rules:
-      - 'f:/etc/bashrc -> n:TMOUT\s*=\s*(\d+) compare <= 900'
-      - 'f:/etc/profile -> n:TMOUT\s*=\s*(\d+) compare <= 900'
-      - 'd:/etc/profile.d -> .sh -> n:TMOUT\s*=\s*(\d+) compare <= 900'
+      - 'f:/etc/bashrc -> !r:^# && n:TMOUT\s*=\s*(\d+) compare <= 900'
+      - 'f:/etc/profile -> !r:^# && n:TMOUT\s*=\s*(\d+) compare <= 900'
+      - 'd:/etc/profile.d -> .sh -> !r:^# && n:TMOUT\s*=\s*(\d+) compare <= 900'
 
 # 5.5.4 Ensure default group for the root account is GID 0 (Scored)
   - id: 5668 
@@ -2834,7 +2937,7 @@ checks:
       - gdpr_IV: ["35.7","32.2"]
     condition: all
     rules:
-      - 'f:/etc/pam.d/su -> r:^auth\s*\t*required\s*\t*pam_wheel.so\s*\t*use_uid'
+      - 'f:/etc/pam.d/su -> !r:# && r:auth\s*\t*required\s*\t*pam_wheel.so\s*\t*use_uid'
 
 
 
