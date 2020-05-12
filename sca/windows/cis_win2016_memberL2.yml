@@ -106,6 +106,7 @@ checks:
     compliance:
       - cis: ["18.4.5"]
       - cis_csc: ["9"]
+      - nist_800_53: ["SC.5"]
     references:
       - 'CCE-36868-8'
     condition: all
@@ -137,6 +138,7 @@ checks:
     compliance:
       - cis: ["18.4.10"]
       - cis_csc: ["9"]
+      - nist_800_53: ["SC.5"]
     references:
       - 'CCE-37846-3'
       - 'https://blogs.technet.microsoft.com/secguide/2016/10/02/the-mss-settings/'
@@ -153,6 +155,7 @@ checks:
     compliance:
       - cis: ["18.4.11"]
       - cis_csc: ["9"]
+      - nist_800_53: ["SC.5"]
     references:
       - 'CCE-36051-1'
     condition: all
@@ -175,6 +178,7 @@ checks:
     compliance:
       - cis: ["18.5.5.1"]
       - cis_csc: ["3", "13"]
+      - pci_dss: ["1.3.5"]
     condition: all
     rules:
       - 'r:HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\System -> EnableFontProviders -> 0'
@@ -189,6 +193,7 @@ checks:
     compliance:
       - cis: ["18.5.9.1"]
       - cis_csc: ["9"]
+      - pci_dss: ["2.2.5"]
     references:
       - 'CCE-38170-7'
     condition: all
@@ -207,6 +212,7 @@ checks:
     compliance:
       - cis: ["18.5.9.2"]
       - cis_csc: ["9"]
+      - pci_dss: ["2.2.5"]
     references:
       - 'CCE-37959-4'
     condition: all
@@ -225,6 +231,7 @@ checks:
     compliance:
       - cis: ["18.5.10.2"]
       - cis_csc: ["9.1"]
+      - pci_dss: ["2.2.5"]
     references:
       - 'CCE-37699-6'
     condition: all
@@ -240,6 +247,8 @@ checks:
     compliance:
       - cis: ["18.5.19.2.1"]
       - cis_csc: ["9"]
+      - pci_dss: ["2.2.2"]
+      - nist_800_53: ["CM.1"]
     condition: all
     rules:
       - 'r:HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\TCPIP6\Parameters -> DisabledComponents -> 255'
@@ -254,6 +263,7 @@ checks:
     compliance:
       - cis: ["18.5.20.1"]
       - cis_csc: ["15.4"]
+      - pci_dss: ["2.2.5"]
     references:
       - 'CCE-37481-9'
     condition: all
@@ -273,6 +283,7 @@ checks:
     compliance:
       - cis: ["18.5.20.2"]
       - cis_csc: ["15.4"]
+      - pci_dss: ["2.2.5"]
     references:
       - 'CCE-36109-7'
     condition: all
@@ -305,6 +316,7 @@ checks:
     compliance:
       - cis: ["18.8.22.1.2"]
       - cis_csc: ["13"]
+      - pci_dss: ["2.2.5"]
     condition: all
     rules:
       - 'r:HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\TabletPC -> PreventHandwritingDataSharing -> 1'
@@ -318,6 +330,7 @@ checks:
     compliance:
       - cis: ["18.8.22.1.3"]
       - cis_csc: ["13"]
+      - pci_dss: ["2.2.5"]
     references:
       - 'CCE-37911-5'
     condition: all
@@ -333,6 +346,7 @@ checks:
     compliance:
       - cis: ["18.8.22.1.4"]
       - cis_csc: ["13"]
+      - pci_dss: ["2.2.5"]
     references:
       - 'CCE-37163-3'
     condition: all
@@ -347,6 +361,7 @@ checks:
     remediation: "To establish the recommended configuration via GP, set the following UI path to Enabled: Computer Configuration\\Policies\\Administrative Templates\\System\\Internet Communication Management\\Internet Communication settings\\Turn off Registration if URL connection is referring to Microsoft.com"
     compliance:
       - cis: ["18.8.22.1.7"]
+      - pci_dss: ["2.2.5"]
     references:
       - 'CCE-36352-3'
     condition: all
@@ -362,6 +377,7 @@ checks:
     compliance:
       - cis: ["18.8.22.1.8"]
       - cis_csc: ["13"]
+      - pci_dss: ["2.2.5"]
     references:
       - 'CCE-36884-5'
     condition: all
@@ -377,6 +393,7 @@ checks:
     compliance:
       - cis: ["18.8.22.1.9"]
       - cis_csc: ["13"]
+      - pci_dss: ["2.2.5"]
     references:
       - 'CCE-38275-4'
     condition: all
@@ -392,6 +409,7 @@ checks:
     compliance:
       - cis: ["18.8.22.1.10"]
       - cis_csc: ["13"]
+      - pci_dss: ["2.2.5"]
     references:
       - 'CCE-37090-8'
     condition: all
@@ -407,6 +425,7 @@ checks:
     compliance:
       - cis: ["18.8.22.1.11"]
       - cis_csc: ["13"]
+      - pci_dss: ["2.2.5"]
     references:
       - 'CCE-36628-6'
     condition: all
@@ -422,6 +441,7 @@ checks:
     compliance:
       - cis: ["18.8.22.1.12"]
       - cis_csc: ["13"]
+      - pci_dss: ["2.2.5"]
     references:
       - 'CCE-36174-1'
     condition: all
@@ -437,6 +457,7 @@ checks:
     compliance:
       - cis: ["18.8.22.1.13"]
       - cis_csc: ["13"]
+      - pci_dss: ["2.2.5"]
     references:
       - 'CCE-35964-6'
     condition: all
@@ -456,6 +477,9 @@ checks:
     compliance:
       - cis: ["18.8.25.1"]
       - cis_csc: ["1.6"]
+      - pci_dss: ["4.1"]
+      - hipaa: ["164.312.a.2.IV", "164.312.e.1", "164.312.e.2.I", "164.312.e.2.II"]
+      - nist_800_53: ["SC.8"]
     condition: all
     rules:
       - 'r:HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System\kerberos\parameters -> DevicePKInitBehavior -> 0'
@@ -474,6 +498,7 @@ checks:
     compliance:
       - cis: ["18.8.26.1"]
       - cis_csc: ["16.5"]
+      - pci_dss: ["2.2.5"]
     references:
       - 'CCE-36343-2'
     condition: all
@@ -495,6 +520,7 @@ checks:
     compliance:
       - cis: ["18.8.33.6.1"]
       - cis_csc: ["9"]
+      - pci_dss: ["2.2.4"]
     condition: all
     rules:
       - 'r:HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Power\PowerSettings\f15576e8-98b7-4186-b944-eafa664402d9 -> DCSettingIndex -> 0'
@@ -508,6 +534,7 @@ checks:
     compliance:
       - cis: ["18.8.33.6.2"]
       - cis_csc: ["9"]
+      - pci_dss: ["2.2.4"]
     condition: all
     rules:
       - 'r:HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Power\PowerSettings\f15576e8-98b7-4186-b944-eafa664402d9 -> ACSettingIndex -> 0'
@@ -524,6 +551,11 @@ checks:
     compliance:
       - cis: ["18.8.36.2"]
       - cis_csc: ["9.1"]
+      - pci_dss: ["2.2.3"]
+      - nist_800_53: ["CM.1"]
+      - gpg_13: ["4.3"]
+      - gdpr_IV: ["35.7.d"]
+      - hipaa: ["164.312.b"]
     references:
       - 'CCE-36559-3'
     condition: all
@@ -540,6 +572,7 @@ checks:
     compliance:
       - cis: ["18.8.44.5.1"]
       - cis_csc: ["13"]
+      - pci_dss: ["2.2.5"]
     references:
       - 'CCE-38161-6'
     condition: all
@@ -556,6 +589,7 @@ checks:
     compliance:
       - cis: ["18.8.44.11.1"]
       - cis_csc: ["13"]
+      - pci_dss: ["2.2.5"]
     references:
       - 'CCE-36648-4'
     condition: all
@@ -572,6 +606,7 @@ checks:
     compliance:
       - cis: ["18.8.46.1"]
       - cis_csc: ["13"]
+      - pci_dss: ["2.2.5"]
     references:
       - 'CCE-36931-4'
     condition: all
@@ -588,6 +623,8 @@ checks:
     compliance:
       - cis: ["18.8.49.1.1"]
       - cis_csc: ["6.1"]
+      - pci_dss: ["10.4"]
+      - nist_800_53: ["AU.8"]
     references:
       - 'CCE-37843-0'
     condition: all
@@ -603,6 +640,8 @@ checks:
     compliance:
       - cis: ["18.8.49.1.2"]
       - cis_csc: ["9.1"]
+      - pci_dss: ["2.2.5"]
+      - nist_800_53: ["AU.8"]
     references:
       - 'CCE-37319-1'
     condition: all
@@ -620,6 +659,9 @@ checks:
     compliance:
       - cis: ["18.9.4.1"]
       - cis_csc: ["14.4"]
+      - pci_dss: ["4.1"]
+      - hipaa: ["164.312.a.2.IV", "164.312.e.1", "164.312.e.2.I", "164.312.e.2.II"]
+      - nist_800_53: ["SC.8"]
     condition: all
     rules:
       - 'r:HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\CurrentVersion\AppModel\StateManager -> AllowSharedLocalAppData -> 0'
@@ -633,6 +675,7 @@ checks:
     compliance:
       - cis: ["18.9.12.1"]
       - cis_csc: ["13"]
+      - pci_dss: ["2.2.5"]
     condition: all
     rules:
       - 'r:HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Camera -> AllowCamera -> 0'
@@ -646,10 +689,14 @@ checks:
     compliance:
       - cis: ["18.9.16.2"]
       - cis_csc: ["13"]
+      - pci_dss: ["4.1"]
+      - hipaa: ["164.312.a.2.IV", "164.312.e.1", "164.312.e.2.I", "164.312.e.2.II"]
+      - nist_800_53: ["SC.8"]
     condition: all
     rules:
       - 'r:HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\DataCollection -> DisableEnterpriseAuthProxy -> 1'
 
+# 18.9.39.2 Ensure 'Turn off location' is set to 'Enabled'
   - id: 12531
     title: "Ensure 'Turn off location' is set to 'Enabled'"
     description: "This policy setting turns off the location feature for the computer."
@@ -658,6 +705,7 @@ checks:
     compliance:
       - cis: ["18.9.39.2"]
       - cis_csc: ["13"]
+      - pci_dss: ["2.2.5"]
     references:
       - 'CCE-36886-0'
     condition: all
@@ -673,11 +721,14 @@ checks:
     compliance:
       - cis: ["18.9.43.1"]
       - cis_csc: ["9.1", "13"]
+      - pci_dss: ["4.1"]
+      - hipaa: ["164.312.a.2.IV", "164.312.e.1", "164.312.e.2.I", "164.312.e.2.II"]
+      - nist_800_53: ["SC.8"]
     condition: all
     rules:
       - 'r:HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\Messaging -> AllowMessageSync -> 0'
 
-# Section 18.9.58.3.2 - Connections
+# 18.9.58.3.2.1 Ensure 'Restrict Remote Desktop Services users to a single Remote Desktop Services session' is set to 'Enabled'
   - id: 12532
     title: "Ensure 'Restrict Remote Desktop Services users to a single Remote Desktop Services session' is set to 'Enabled'"
     description: "This policy setting allows you to restrict users to a single Remote Desktop Services session."
@@ -685,6 +736,7 @@ checks:
     remediation: "To establish the recommended configuration via GP, set the following UI path to Enabled: Computer Configuration\\Policies\\Administrative Templates\\Windows Components\\Remote Desktop Services\\Remote Desktop Session Host\\Connections\\Restrict Remote Desktop Services users to a single Remote Desktop Services session."
     compliance:
       - cis: ["18.9.58.3.2.1"]
+      - pci_dss: ["7.2"]
     references:
       - 'CCE-37708-5'
     condition: all
@@ -692,6 +744,7 @@ checks:
       - 'r:HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows NT\Terminal Services -> fSingleSessionPerUser -> 1'
 
 # Section 18.9.58.3.3 Device and Resource Redirection
+# 18.9.58.3.3.1 Ensure 'Do not allow COM port redirection' is set to 'Enabled'
   - id: 12533
     title: "Ensure 'Do not allow COM port redirection' is set to 'Enabled'"
     description: "This policy setting specifies whether to prevent the redirection of data to client COM ports from the remote computer in a Remote Desktop Services session."
@@ -700,12 +753,14 @@ checks:
     compliance:
       - cis: ["18.9.58.3.3.1"]
       - cis_csc: ["9.1"]
+      - pci_dss: ["2.2.5"]
     references:
       - 'CCE-37696-2'
     condition: all
     rules:
       - 'r:HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows NT\Terminal Services -> fDisableCcm -> 1'
 
+# 18.9.58.3.3.3 Ensure 'Do not allow LPT port redirection' is set to 'Enabled'
   - id: 12534
     title: "Ensure 'Do not allow LPT port redirection' is set to 'Enabled'"
     description: "This policy setting specifies whether to prevent the redirection of data to client LPT ports during a Remote Desktop Services session."
@@ -714,12 +769,14 @@ checks:
     compliance:
       - cis: ["18.9.58.3.3.3"]
       - cis_csc: ["9.1"]
+      - pci_dss: ["2.2.5"]
     references:
       - 'CCE-37778-8'
     condition: all
     rules:
       - 'r:HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows NT\Terminal Services -> fDisableLPT -> 1'
 
+# 18.9.58.3.3.4 Ensure 'Do not allow supported Plug and Play device redirection' is set to 'Enabled'
   - id: 12535
     title: "Ensure 'Do not allow supported Plug and Play device redirection' is set to 'Enabled'"
     description: "This policy setting allows you to control the redirection of supported Plug and Play devices, such as Windows Portable Devices, to the remote computer in a Remote Desktop Services session."
@@ -728,6 +785,7 @@ checks:
     compliance:
       - cis: ["18.9.58.3.3.4"]
       - cis_csc: ["9.1"]
+      - pci_dss: ["2.2.5"]
     references:
       - 'CCE-37477-7'
     condition: all
@@ -735,6 +793,7 @@ checks:
       - 'r:HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows NT\Terminal Services -> fDisablePNPRedir -> 1'
 
 # Section 18.9.58.3.10 - Session Time Limits
+# 18.9.58.3.10.1 Ensure 'Set time limit for active but idle Remote Desktop Services sessions' is set to 'Enabled: 15 minutes or less'
   - id: 12536
     title: "Ensure 'Set time limit for active but idle Remote Desktop Services sessions' is set to 'Enabled: 15 minutes or less'"
     description: "This policy setting allows you to specify the maximum amount of time that an active Remote Desktop Services session can be idle (without user input) before it is automatically disconnected."
@@ -743,12 +802,14 @@ checks:
     compliance:
       - cis: ["18.9.58.3.10.1"]
       - cis_csc: ["16.5"]
+      - pci_dss: ["8.1.8"]
     references:
       - 'CCE-37562-6'
     condition: all
     rules:
       - 'r:HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows NT\Terminal Services -> MaxIdleTime -> n:^(\d+) compare <= 900000'
 
+# 18.9.58.3.10.2 Ensure 'Set time limit for disconnected sessions' is set to 'Enabled: 1 minute'
   - id: 12537
     title: "Ensure 'Set time limit for disconnected sessions' is set to 'Enabled: 1 minute'"
     description: "This policy setting allows you to configure a time limit for disconnected Remote Desktop Services sessions."
@@ -757,6 +818,7 @@ checks:
     compliance:
       - cis: ["18.9.58.3.10.2"]
       - cis_csc: ["16.5"]
+      - pci_dss: ["8.1"]
     references:
       - 'CCE-37949-5'
     condition: all
@@ -776,12 +838,14 @@ checks:
     compliance:
       - cis: ["18.9.60.2"]
       - cis_csc: ["9.1"]
+      - pci_dss: ["2.2.5"]
     condition: all
     rules:
       - 'r:HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\Windows Search -> AllowCloudSearch -> 0'
 
 
 # Section 18.9.56 - Software Protection Platform
+# 18.9.65.1 Ensure 'Turn off KMS Client Online AVS Validation' is set to 'Enabled'
   - id: 12539
     title: "Ensure 'Turn off KMS Client Online AVS Validation' is set to 'Enabled'"
     description: "The Key Management Service (KMS) is a Microsoft license activation method that entails setting up a local server to store the software licenses."
@@ -789,11 +853,13 @@ checks:
     remediation: "To establish the recommended configuration via GP, set the following UI path to Enabled: Computer Configuration\\Policies\\Administrative Templates\\Windows Components\\Software Protection Platform\\Turn off KMS Client Online AVS Validation."
     compliance:
       - cis: ["18.9.65.1"]
+      - pci_dss: ["2.2.5"]
     condition: all
     rules:
       - 'r:HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows NT\CurrentVersion\Software Protection Platform -> NoGenTicket -> 1'
 
 # Section 18.9.76.3 - MAPS
+# 18.9.76.3.2 Ensure 'Join Microsoft MAPS' is set to 'Disabled'
   - id: 12540
     title: "Ensure 'Join Microsoft MAPS' is set to 'Disabled'"
     description: "This policy setting allows you to join Microsoft Active Protection Service (MAPS), which Microsoft has now renamed to \"Windows Defender Antivirus Cloud Protection Service\"."
@@ -801,6 +867,7 @@ checks:
     remediation: "To establish the recommended configuration via GP, set the following UI path to Disabled: Computer Configuration\\Policies\\Administrative Templates\\Windows Components\\Windows Defender Antivirus\\MAPS\\Join Microsoft MAPS."
     compliance:
       - cis: ["18.9.76.3.2"]
+      - pci_dss: ["2.2.5"]
     condition: all
     rules:
       - 'r:HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows Defender\Spynet -> SpynetReporting -> 0'
@@ -814,6 +881,7 @@ checks:
     compliance:
       - cis: ["18.9.76.9.1"]
       - cis_csc: ["13"]
+      - pci_dss: ["2.2.5"]
     references:
       - 'CCE-36950-4'
     condition: all
@@ -829,11 +897,13 @@ checks:
     compliance:
       - cis: ["18.9.84.1"]
       - cis_csc: ["13"]
+      - pci_dss: ["2.2.5"]
     condition: all
     rules:
       - 'r:HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\WindowsInkWorkspace -> AllowSuggestedAppsInWindowsInkWorkspace -> 0'
 
 # Section 18.9.85 - Windows Installer
+# 18.9.85.3 Ensure 'Prevent Internet Explorer security prompt for Windows Installer scripts' is set to 'Disabled'
   - id: 12542
     title: "Ensure 'Prevent Internet Explorer security prompt for Windows Installer scripts' is set to 'Disabled'"
     description: "This policy setting controls whether Web-based programs are allowed to install software on the computer without notifying the user."
@@ -842,6 +912,7 @@ checks:
     compliance:
       - cis: ["18.9.85.3"]
       - cis_csc: ["7"]
+      - pci_dss: ["2.2.5"]
     references:
       - 'CCE-37524-6'
     condition: all
@@ -849,6 +920,7 @@ checks:
       - 'r:HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\Installer -> SafeForScripting -> 0'
 
 # Section 18.9.97.2 - WinRM Service
+# 18.9.97.2.2 Ensure 'Allow remote server management through WinRM' is set to 'Disabled'
   - id: 12543
     title: "Ensure 'Allow remote server management through WinRM' is set to 'Disabled'"
     description: "This policy setting allows you to manage whether the Windows Remote Management (WinRM) service automatically listens on the network for requests on the HTTP transport over the default HTTP port."
@@ -857,6 +929,7 @@ checks:
     compliance:
       - cis: ["18.9.97.2.2"]
       - cis_csc: ["3.4"]
+      - pci_dss: ["4.1"]
     references:
       - 'CCE-37927-1'
     condition: all
@@ -864,6 +937,7 @@ checks:
       - 'r:HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\WinRM\Service -> AllowAutoConfig -> 0'
 
 # Section 18.9.98 - Windows Remote Shell
+# 18.9.98.1 Ensure 'Allow Remote Shell Access' is set to 'Disabled'
   - id: 12544
     title: "Ensure 'Allow Remote Shell Access' is set to 'Disabled'"
     description: "This policy setting allows you to manage configuration of remote access to all supported shells to execute scripts and commands."
@@ -872,6 +946,7 @@ checks:
     compliance:
       - cis: ["18.9.98.1"]
       - cis_csc: ["3.4"]
+      - pci_dss: ["4.1"]
     references:
       - 'CCE-36499-2'
     condition: all
@@ -883,4 +958,3 @@ checks:
 ###############################################
 # 19 Administrative Templates (User)
 ###############################################
-
