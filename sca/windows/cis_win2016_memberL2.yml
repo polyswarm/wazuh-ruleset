@@ -42,7 +42,7 @@ checks:
 ###############################################
 
 #  2.3.7.6 - Interactive logon: Number of previous logons to cache (in case domain controller is not available)' is set to '4 or fewer logon(s)
-  - id: 16500 
+  - id: 12500
     title: "Ensure 'Interactive logon: Number of previous logons to cache (in case domain controller is not available)' is set to '4 or fewer logon(s)'"
     description: "This policy setting determines whether a user can log on to a Windows domain using cached account information."
     rationale: "The number that is assigned to this policy setting indicates the number of users whose logon information the computer will cache locally."
@@ -81,7 +81,7 @@ checks:
 # 18.1 Control Panel
 ###############################################
 # 18.1.3 Ensure 'Allow Online Tips' is set to 'Disabled' (Scored)
-  - id: 16501 
+  - id: 12701
     title: "Ensure 'Allow Online Tips' is set to 'Disabled'"
     description: "This policy setting configures the retrieval of online tips and help for the Settings app. The recommended state for this setting is: Disabled ."
     rationale: "Due to privacy concerns, data should never be sent to any 3rd party since this data could contain sensitive information."
@@ -98,7 +98,7 @@ checks:
 # 18.4 MSS (Legacy)
 ###############################################
 # 18.4.5 Ensure 'MSS: (KeepAliveTime) How often keep-alive packets are sent in milliseconds' is set to 'Enabled: 300,000 or 5 minutes'
-  - id: 16502 
+  - id: 12502
     title: "Ensure 'MSS: (KeepAliveTime) How often keep-alive packets are sent in milliseconds' is set to 'Enabled: 300,000 or 5 minutes (recommended)'"
     description: "This value controls how often TCP attempts to verify that an idle connection is still intact by sending a keep-alive packet."
     rationale: "An attacker who is able to connect to network applications could establish numerous connections to cause a DoS condition."
@@ -113,7 +113,7 @@ checks:
       - 'r:HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\Tcpip\Parameters -> KeepAliveTime -> 300000'
 
 # 18.4.7 Ensure 'MSS: (PerformRouterDiscovery) Allow IRDP to detect and configure Default Gateway addresses (could lead to DoS)' is set to 'Disabled'
-  - id: 16503 
+  - id: 12503
     title: "Ensure 'MSS: (PerformRouterDiscovery) Allow IRDP to detect and configure Default Gateway addresses (could lead to DoS)' is set to 'Disabled'"
     description: "This setting is used to enable or disable the Internet Router Discovery Protocol (IRDP), which allows the system to detect and configure default gateway addresses automatically as described in RFC 1256 on a per-interface basis."
     rationale: "An attacker who has gained control of a computer on the same network segment could configure a computer on the network to impersonate a router."
@@ -129,7 +129,7 @@ checks:
       - 'r:HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\Tcpip\Parameters -> PerformRouterDiscovery -> 0'
 
 # 18.4.10 Ensure 'MSS: (TcpMaxDataRetransmissions IPv6) How many times unacknowledged data is retransmitted' is set to 'Enabled: 3'
-  - id: 16504 
+  - id: 12504
     title: "Ensure 'MSS: (TcpMaxDataRetransmissions IPv6) How many times unacknowledged data is retransmitted' is set to 'Enabled: 3'"
     description: "This setting controls the number of times that TCP retransmits an individual data segment (non-connect segment) before the connection is aborted."
     rationale: "A malicious user could exhaust a target computer's resources if it never sent any acknowledgment messages for data that was transmitted by the target computer."
@@ -145,7 +145,7 @@ checks:
       - 'r:HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\TCPIP6\Parameters -> TcpMaxDataRetransmissions -> 3'
 
 # 18.4.11 Ensure 'MSS: (TcpMaxDataRetransmissions) How many times unacknowledged data is retransmitted' is set to 'Enabled: 3'
-  - id: 16505 
+  - id: 12505
     title: "Ensure 'MSS: (TcpMaxDataRetransmissions) How many times unacknowledged data is retransmitted' is set to 'Enabled: 3'"
     description: "This setting controls the number of times that TCP retransmits an individual data segment (non-connect segment) before the connection is aborted."
     rationale: "A malicious user could exhaust a target computer's resources if it never sent any acknowledgment messages for data that was transmitted by the target computer."
@@ -167,7 +167,7 @@ checks:
 # 18.5.5 Fonts
 ###############################################
 # 18.5.5.1 Ensure 'Enable Font Providers' is set to 'Disabled' (Scored)
-  - id: 16506 
+  - id: 12706
     title: "Ensure 'Enable Font Providers' is set to 'Disabled'"
     description: "This policy setting determines whether Windows is allowed to download fonts and font catalog data from an online font provider.The recommended state for this setting is: Disabled ."
     rationale: "In an enterprise managed environment the IT department should be managing the changes to the system configuration, to ensure all changes are tested and approved."
@@ -181,7 +181,7 @@ checks:
 
 # Section 18.5.9 - Link-Layer Topology Discovery
 # 18.5.9.1 Ensure 'Turn on Mapper I/O (LLTDIO) driver' is set to 'Disabled'
-  - id: 16507 
+  - id: 12506
     title: "Ensure 'Turn on Mapper I/O (LLTDIO) driver' is set to 'Disabled'"
     description: "This policy setting changes the operational behavior of the Mapper I/O network protocol driver."
     rationale: "To help protect from potentially discovering and connecting to unauthorized devices, this setting should be disabled to prevent responding to network traffic for network topology discovery."
@@ -199,7 +199,7 @@ checks:
       - 'r:HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\LLTD -> ProhibitLLTDIOOnPrivateNet -> 0'
 
 # 18.5.9.2 (L2) Ensure 'Turn on Responder (RSPNDR) driver' is set to 'Disabled'
-  - id: 16508 
+  - id: 12507
     title: "Ensure 'Turn on Responder (RSPNDR) driver' is set to 'Disabled'"
     description: "This policy setting changes the operational behavior of the Responder network protocol driver."
     rationale: "To help protect from potentially discovering and connecting to unauthorized devices, this setting should be disabled to prevent responding to network traffic for network topology discovery."
@@ -217,7 +217,7 @@ checks:
       - 'r:HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\LLTD -> ProhibitRspndrOnPrivateNet -> 0'
 
 # Section 18.5.10 - Microsoft Peer-to-Peer Networking Services
-  - id: 16509 
+  - id: 12508
     title: "Ensure 'Turn off Microsoft Peer-to-Peer Networking Services' is set to 'Enabled'"
     description: "The Peer Name Resolution Protocol (PNRP) allows for distributed resolution of a name to an IPv6 address and port number."
     rationale: "This setting enhances the security of the environment and reduces the overall risk exposure related to peer-to-peer networking."
@@ -233,7 +233,7 @@ checks:
 
 # Section 18.5.19.2 - Parameters
 # 18.5.19.2.1 (L2) Disable IPv6 (Ensure TCPIP6 Parameter 'DisabledComponents' is set to '0xff (255)') (Scored)
-  - id: 16510 
+  - id: 12509
     title: "Disable IPv6 (Ensure TCPIP6 Parameter 'DisabledComponents' is set to '0xff (255)')"
     rationale: "Since the vast majority of private enterprise managed networks have no need to utilize IPv6 (because they have access to private IPv4 addressing), disabling IPv6 components reduces a possible attack surface that is also harder to monitor the traffic on."
     remediation: "To establish the recommended configuration, set the following Registry value to 0xff (255) (DWORD): HKEY_LOCAL_MACHINE\\SYSTEM\\CurrentControlSet\\Services\\TCPIP6\\Parameters:DisabledComponents."
@@ -246,7 +246,7 @@ checks:
 
 # Section 18.5.20 - Windows Connect Now
 # 18.5.20.1 (L2) Ensure 'Configuration of wireless settings using Windows Connect Now' is set to 'Disabled' (Scored)
-  - id: 16511 
+  - id: 12510
     title: "Ensure 'Configuration of wireless settings using Windows Connect Now' is set to 'Disabled'"
     description: "This policy setting allows the configuration of wireless settings using Windows Connect Now (WCN)."
     rationale: "This setting enhances the security of the environment and reduces the overall risk exposure related to user configuration of wireless settings."
@@ -265,7 +265,7 @@ checks:
       - 'r:HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\WCN\Registrars -> DisableWPDRegistrar -> 0'
 
 # 18.5.20.2 (L2) Ensure 'Prohibit access of the Windows Connect Now wizards' is set to 'Enabled' (Scored)
-  - id: 16512 
+  - id: 12511
     title: "Ensure 'Prohibit access of the Windows Connect Now wizards' is set to 'Enabled'"
     description: "This policy setting prohibits access to Windows Connect Now (WCN) wizards."
     rationale: "Allowing standard users to access the Windows Connect Now wizard increases the risk and attack surface."
@@ -281,7 +281,7 @@ checks:
 
 # Section 18.5.21 - Windows Connection Manager
 # 18.5.21.2 (L2) Ensure 'Prohibit connection to non-domain networks when connected to domain authenticated network' is set to 'Enabled' (MS only) (Scored)
-  - id: 16513 
+  - id: 12512
     title: "Ensure 'Prohibit connection to non-domain networks when connected to domain authenticated network' is set to 'Enabled'"
     description: "This policy setting prevents computers from connecting to both a domain based network and a non-domain based network at the same time."
     rationale: "The potential concern is that a user would unknowingly allow network traffic to flow between the insecure public network and the enterprise managed network."
@@ -297,7 +297,7 @@ checks:
 
 # Section 18.8.22.1 - Internet Communication settings
 # 18.8.22.1.2 (L2) Ensure 'Turn off handwriting personalization data sharing' is set to 'Enabled' (Scored)
-  - id: 16514 
+  - id: 12513
     title: "Ensure 'Turn off handwriting personalization data sharing' is set to 'Enabled'"
     description: "This setting turns off data sharing from the handwriting recognition personalization tool."
     rationale: "A person's handwriting is Personally Identifiable Information (PII), especially when it comes to your signature."
@@ -310,7 +310,7 @@ checks:
       - 'r:HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\TabletPC -> PreventHandwritingDataSharing -> 1'
 
 # 18.8.22.1.3 (L2) Ensure 'Turn off handwriting recognition error reporting' is set to 'Enabled' (Scored)
-  - id: 16515 
+  - id: 12514
     title: "Ensure 'Turn off handwriting recognition error reporting' is set to 'Enabled'"
     description: "Turns off the handwriting recognition error reporting tool."
     rationale: "A person's handwriting is Personally Identifiable Information (PII), especially when it comes to your signature."
@@ -325,7 +325,7 @@ checks:
       - 'r:HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\HandwritingErrorReports -> PreventHandwritingErrorReports -> 1'
 
 # 18.8.22.1.4 (L2) Ensure 'Turn off Internet Connection Wizard if URL connection is referring to Microsoft.com' is set to 'Enabled' (Scored)
-  - id: 16516 
+  - id: 12515
     title: "Ensure 'Turn off Internet Connection Wizard if URL connection is referring to Microsoft.com' is set to 'Enabled'"
     description: "This policy setting specifies whether the Internet Connection Wizard can connect to Microsoft to download a list of Internet Service Providers (ISPs)."
     rationale: "In an enterprise managed environment we want to lower the risk of a user unknowingly exposing sensitive data."
@@ -340,7 +340,7 @@ checks:
       - 'r:HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\Internet Connection Wizard -> ExitOnMSICW -> 1'
 
 # 18.8.22.1.7 (L2) Ensure 'Turn off Registration if URL connection is referring to Microsoft.com' is set to 'Enabled' (Scored)
-  - id: 16517 
+  - id: 12516
     title: "Ensure 'Turn off Registration if URL connection is referring to Microsoft.com' is set to 'Enabled'"
     description: "This policy setting specifies whether the Windows Registration Wizard connects to Microsoft.com for online registration."
     rationale: "Users in an enterprise managed environment should not be registering their own copies of Windows, providing their own PII in the process."
@@ -354,7 +354,7 @@ checks:
       - 'r:HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\Registration Wizard Control -> NoRegistration -> 1'
 
 # 18.8.22.1.8 (L2) Ensure 'Turn off Search Companion content file updates' is set to 'Enabled' (Scored)
-  - id: 16518 
+  - id: 12517
     title: "Ensure 'Turn off Search Companion content file updates' is set to 'Enabled'"
     description: "This policy setting specifies whether Search Companion should automatically download content updates during local and Internet searches."
     rationale: "There is a small risk that users will unknowingly reveal sensitive information because of the topics they are searching for."
@@ -369,7 +369,7 @@ checks:
       - 'r:HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\SearchCompanion -> DisableContentFileUpdates -> 1'
 
 # 18.8.22.1.9 (L2) Ensure 'Turn off the "Order Prints" picture task' is set to 'Enabled' (Scored)
-  - id: 16519 
+  - id: 12518
     title: "Ensure 'Turn off the \"Order Prints\" picture task' is set to 'Enabled'"
     description: "This policy setting specifies whether the \"Order Prints Online\" task is available from Picture Tasks in Windows folders."
     rationale: "In an enterprise managed environment we want to lower the risk of a user unknowingly exposing sensitive data."
@@ -384,7 +384,7 @@ checks:
       - 'r:HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\Explorer -> NoOnlinePrintsWizard -> 1'
 
 # 18.8.22.1.10 (L2) Ensure 'Turn off the "Publish to Web" task for files and folders' is set to 'Enabled' (Scored)
-  - id: 16520 
+  - id: 12519
     title: "Ensure 'Turn off the \"Publish to Web\" task for files and folders' is set to 'Enabled'"
     description: "This policy setting specifies whether the tasks Publish this file to the Web, Publish this folder to the Web, and Publish the selected items to the Web are available from File and Folder Tasks in Windows folders."
     rationale: "Users may publish confidential or sensitive information to a public service outside of the control of the organization."
@@ -399,7 +399,7 @@ checks:
       - 'r:HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\Explorer -> NoPublishingWizard -> 1'
 
 # 18.8.22.1.11 (L2) Ensure 'Turn off the Windows Messenger Customer Experience Improvement Program' is set to 'Enabled' (Scored)
-  - id: 16521 
+  - id: 12520
     title: "Ensure 'Turn off the Windows Messenger Customer Experience Improvement Program' is set to 'Enabled'"
     description: "This policy setting specifies whether Windows Messenger can collect anonymous information about how the Windows Messenger software and service is used."
     rationale: "Large enterprise managed environments may not want to have information collected by Microsoft from managed client computers."
@@ -414,7 +414,7 @@ checks:
       - 'r:HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Messenger\Client -> CEIP -> 2'
 
 # 18.8.22.1.12 (L2) Ensure 'Turn off Windows Customer Experience Improvement Program' is set to 'Enabled' (Scored)
-  - id: 16522 
+  - id: 12521
     title: "Ensure 'Turn off Windows Customer Experience Improvement Program' is set to 'Enabled'"
     description: "This policy setting specifies whether Windows Messenger can collect anonymous information about how the Windows Messenger software and service is used."
     rationale: "Large enterprise managed environments may not want to have information collected by Microsoft from managed client computers."
@@ -429,7 +429,7 @@ checks:
       - 'r:HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\SQMClient\Windows -> CEIPEnable -> 0'
 
 # 18.8.22.1.13 (L2) Ensure 'Turn off Windows Error Reporting' is set to 'Enabled' (Scored)
-  - id: 16523 
+  - id: 12522
     title: "Ensure 'Turn off Windows Error Reporting' is set to 'Enabled'"
     description: "This policy setting controls whether or not errors are reported to Microsoft."
     rationale: "If a Windows Error occurs in a secure, enterprise managed environment, the error should be reported directly to IT staff for troubleshooting and remediation."
@@ -448,7 +448,7 @@ checks:
 # 18.8.25 Kerberos
 ######################################
 # 18.8.25.1 (L2) Ensure 'Support device authentication using certificate' is set to 'Enabled: Automatic' (Scored)
-  - id: 16524 
+  - id: 12720
     title: "Ensure 'Support device authentication using certificate' is set to 'Enabled: Automatic'"
     description: "This policy setting allows you to set support for Kerberos to attempt authentication using the certificate for the device to the domain. Support for device authentication using certificate will require connectivity to a DC in the device account domain which supports certificate authentication for computer accounts. The recommended state for this setting is: Enabled: Automatic ."
     rationale: "Having stronger device authentication with the use of certificates is strongly encouraged over standard username and password authentication. Having this set to Automatic will allow certificate based authentication to be used whenever possible."
@@ -466,7 +466,7 @@ checks:
 #######################################
 # Section 18.8.26 - Locale Services
 # 18.8.26.1 (L2) Ensure 'Disallow copying of user input methods to the system account for sign-in' is set to 'Enabled' (Scored)
-  - id: 16525 
+  - id: 12523
     title: Ensure 'Disallow copying of user input methods to the system account for sign-in' is set to 'Enabled'"
     description: "This policy prevents automatic copying of user input methods to the system account for use on the sign-in screen."
     rationale: "This is a way to increase the security of the system account."
@@ -487,7 +487,7 @@ checks:
 # 18.8.33.6 Sleep Settings
 #######################################
 # 18.8.33.6.1 (L2) Ensure 'Allow network connectivity during connected-standby (on battery)' is set to 'Disabled' (Scored)
-  - id: 16526 
+  - id: 12730
     title: "Ensure 'Allow network connectivity during connected-standby (on battery)' is set to 'Disabled'"
     description: "This policy setting allows you to control the network connectivity state in standby on modern standby-capable systems. The recommended state for this setting is: Disabled ."
     rationale: "Disabling this setting ensures that the computer will not be accessible to attackers over a WLAN network while left unattended, on battery and in a sleep state."
@@ -500,7 +500,7 @@ checks:
       - 'r:HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Power\PowerSettings\f15576e8-98b7-4186-b944-eafa664402d9 -> DCSettingIndex -> 0'
 
 # 18.8.33.6.2 (L2) Ensure 'Allow network connectivity during connected-standby (plugged in)' is set to 'Disabled' (Scored)
-  - id: 16527 
+  - id: 12731
     title: "Ensure 'Allow network connectivity during connected-standby (plugged in)' is set to 'Disabled'"
     description: "This policy setting allows you to control the network connectivity state in standby on modern standby-capable systems. The recommended state for this setting is: Disabled ."
     rationale: "Disabling this setting ensures that the computer will not be accessible to attackers over a WLAN network while left unattended, plugged in and in a sleep state."
@@ -516,7 +516,7 @@ checks:
 # Section 18.8.36 - Remote Procedure Call
 
 # 18.8.36.2 (L2) Ensure 'Restrict Unauthenticated RPC clients' is set to 'Enabled: Authenticated' (MS only) (Scored)
-  - id: 16528 
+  - id: 12524
     title: "Ensure 'Restrict Unauthenticated RPC clients' is set to 'Enabled: Authenticated'"
     description: "This policy setting controls how the RPC server runtime handles unauthenticated RPC clients connecting to RPC servers."
     rationale: "Unauthenticated RPC communication can create a security vulnerability."
@@ -532,7 +532,7 @@ checks:
 
 # Section 18.8.44.5 - Microsoft Support Diagnostic Tool
 # 18.8.44.5.1 (L2) Ensure 'Microsoft Support Diagnostic Tool: Turn on MSDT interactive communication with support provider' is set to'Disabled' (Scored) 
-  - id: 16529 
+  - id: 12525
     title: "Ensure 'Microsoft Support Diagnostic Tool: Turn on MSDT interactive communication with support provider' is set to 'Disabled'"
     description: "This policy setting configures Microsoft Support Diagnostic Tool (MSDT) interactive communication with the support provider."
     rationale: "Due to privacy concerns, data should never be sent to any 3rd party since this data could contain sensitive information."
@@ -548,7 +548,7 @@ checks:
 
 # Section 18.8.44.11 - Windows Performance PerfTrack
 # 18.8.44.11.1 (L2) Ensure 'Enable/Disable PerfTrack' is set to 'Disabled' (Scored)
-  - id: 16530 
+  - id: 12526
     title: "Ensure 'Enable/Disable PerfTrack' is set to 'Disabled'"
     description: "This policy setting specifies whether to enable or disable tracking of responsiveness events."
     rationale: "When enabled the aggregated data of a given event will be transmitted to Microsoft."
@@ -564,7 +564,7 @@ checks:
 
 # Section 18.8.46 User Profiles
 # 18.8.46.1 (L2) Ensure 'Turn off the advertising ID' is set to 'Enabled' (Scored)
-  - id: 16531 
+  - id: 12527
     title: "Ensure 'Turn off the advertising ID' is set to 'Enabled'"
     description: "This policy setting turns off the advertising ID, preventing apps from using the ID for experiences across apps."
     rationale: "Tracking user activity for advertising purposes, even anonymously, may be a privacy concern."
@@ -580,7 +580,7 @@ checks:
 
 # Section 18.8.49.1 - Time Providers
 # 18.8.49.1.1 (L2) Ensure 'Enable Windows NTP Client' is set to 'Enabled' (Scored)
-  - id: 16532 
+  - id: 12528
     title: "Ensure 'Enable Windows NTP Client' is set to 'Enabled'"
     description: "This policy setting specifies whether the Windows NTP Client is enabled."
     rationale: "A reliable and accurate account of time is important for a number of services and security requirements, including but not limited to distributed applications, authentication services, multi-user databases and logging services."
@@ -595,7 +595,7 @@ checks:
       - 'r:HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\W32Time\TimeProviders\NtpClient -> Enabled -> 1'
 
 # 18.8.49.1.2 (L2) Ensure 'Enable Windows NTP Server' is set to 'Disabled' (MS only) (Scored)
-  - id: 16533 
+  - id: 12529
     title: "Ensure 'Enable Windows NTP Server' is set to 'Disabled'"
     description: "This policy setting allows you to specify whether the Windows NTP Server is enabled."
     rationale: "The configuration of proper time synchronization is critically important in an enterprise managed environment both due to the sensitivity of Kerberos authentication timestamps and also to ensure accurate security logging."
@@ -612,7 +612,7 @@ checks:
 
 
 # 18.9.4.1 (L2) Ensure 'Allow a Windows app to share application data between users' is set to 'Disabled' (Scored)
-  - id: 16534 
+  - id: 12900
     title: "Ensure 'Allow a Windows app to share application data between users' is set to 'Disabled'"
     description: "Manages a Windows app's ability to share data between users who have installed the app. Data is shared through the SharedLocal folder. This folder is available through the Windows.Storage API. The recommended state for this setting is: Disabled ."
     rationale: "Users of a system could accidentally share sensitive data with other users on the same system."
@@ -625,7 +625,7 @@ checks:
       - 'r:HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\CurrentVersion\AppModel\StateManager -> AllowSharedLocalAppData -> 0'
 
 # 18.9.12.1 (L2) Ensure 'Allow Use of Camera' is set to 'Disabled' (Scored)
-  - id: 16535 
+  - id: 12800
     title: "Ensure 'Allow Use of Camera' is set to 'Disabled'"
     description: "This policy setting controls whether the use of Camera devices on the machine are permitted. The recommended state for this setting is: Disabled ."
     rationale: "Cameras in a high security environment can pose serious privacy and data exfiltration risks - they should be disabled to help mitigate that risk."
@@ -638,7 +638,7 @@ checks:
       - 'r:HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Camera -> AllowCamera -> 0'
 
 # 18.9.16.2 (L2) Ensure 'Configure Authenticated Proxy usage for the Connected User Experience and Telemetry service' is set to 'Enabled: Disable Authenticated Proxy usage' (Scored)
-  - id: 16536 
+  - id: 12801
     title: "Ensure 'Configure Authenticated Proxy usage for the Connected User Experience and Telemetry service' is set to 'Enabled: Disable Authenticated Proxy usage'"
     description: "This policy setting controls whether the Connected User Experience and Telemetry service can automatically use an authenticated proxy to send data back to Microsoft. The recommended state for this setting is: Enabled: Disable Authenticated Proxy usage ."
     rationale: "Sending any data to a 3rd party vendor is a security concern and should only be done on an as needed basis."
@@ -650,7 +650,7 @@ checks:
     rules:
       - 'r:HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\DataCollection -> DisableEnterpriseAuthProxy -> 1'
 
-  - id: 16537 
+  - id: 12531
     title: "Ensure 'Turn off location' is set to 'Enabled'"
     description: "This policy setting turns off the location feature for the computer."
     rationale: "This setting affects the location feature (e.g. GPS or other location tracking)."
@@ -665,7 +665,7 @@ checks:
       - 'r:HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\LocationAndSensors -> DisableLocation -> 1'
 
 # 18.9.43.1 (L2) Ensure 'Allow Message Service Cloud Sync' is set to 'Disabled' (Scored)
-  - id: 16538 
+  - id: 12802
     title: "Ensure 'Allow Message Service Cloud Sync' is set to 'Disabled'"
     description: "This policy setting allows backup and restore of cellular text messages to Microsoft's cloud services. The recommended state for this setting is: Disabled ."
     rationale: "In a high security environment, data should never be sent to any 3rd party since this data could contain sensitive information."
@@ -678,7 +678,7 @@ checks:
       - 'r:HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\Messaging -> AllowMessageSync -> 0'
 
 # Section 18.9.58.3.2 - Connections
-  - id: 16539 
+  - id: 12532
     title: "Ensure 'Restrict Remote Desktop Services users to a single Remote Desktop Services session' is set to 'Enabled'"
     description: "This policy setting allows you to restrict users to a single Remote Desktop Services session."
     rationale: "This setting ensures that users & administrators who Remote Desktop to a server will continue to use the same session - if they disconnect and reconnect, they will go back to the same session they were using before, preventing the creation of a second simultaneous session."
@@ -692,7 +692,7 @@ checks:
       - 'r:HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows NT\Terminal Services -> fSingleSessionPerUser -> 1'
 
 # Section 18.9.58.3.3 Device and Resource Redirection
-  - id: 16540 
+  - id: 12533
     title: "Ensure 'Do not allow COM port redirection' is set to 'Enabled'"
     description: "This policy setting specifies whether to prevent the redirection of data to client COM ports from the remote computer in a Remote Desktop Services session."
     rationale: "In a more security-sensitive environment, it is desirable to reduce the possible attack surface."
@@ -706,7 +706,7 @@ checks:
     rules:
       - 'r:HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows NT\Terminal Services -> fDisableCcm -> 1'
 
-  - id: 16541 
+  - id: 12534
     title: "Ensure 'Do not allow LPT port redirection' is set to 'Enabled'"
     description: "This policy setting specifies whether to prevent the redirection of data to client LPT ports during a Remote Desktop Services session."
     rationale: "In a more security-sensitive environment, it is desirable to reduce the possible attack surface."
@@ -720,7 +720,7 @@ checks:
     rules:
       - 'r:HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows NT\Terminal Services -> fDisableLPT -> 1'
 
-  - id: 16542 
+  - id: 12535
     title: "Ensure 'Do not allow supported Plug and Play device redirection' is set to 'Enabled'"
     description: "This policy setting allows you to control the redirection of supported Plug and Play devices, such as Windows Portable Devices, to the remote computer in a Remote Desktop Services session."
     rationale: "In a more security-sensitive environment, it is desirable to reduce the possible attack surface."
@@ -735,7 +735,7 @@ checks:
       - 'r:HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows NT\Terminal Services -> fDisablePNPRedir -> 1'
 
 # Section 18.9.58.3.10 - Session Time Limits
-  - id: 16543 
+  - id: 12536
     title: "Ensure 'Set time limit for active but idle Remote Desktop Services sessions' is set to 'Enabled: 15 minutes or less'"
     description: "This policy setting allows you to specify the maximum amount of time that an active Remote Desktop Services session can be idle (without user input) before it is automatically disconnected."
     rationale: "This setting helps to prevent active Remote Desktop sessions from tying up the computer for long periods of time while not in use, preventing computing resources from being consumed by large numbers of inactive sessions."
@@ -749,7 +749,7 @@ checks:
     rules:
       - 'r:HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows NT\Terminal Services -> MaxIdleTime -> n:^(\d+) compare <= 900000'
 
-  - id: 16544 
+  - id: 12537
     title: "Ensure 'Set time limit for disconnected sessions' is set to 'Enabled: 1 minute'"
     description: "This policy setting allows you to configure a time limit for disconnected Remote Desktop Services sessions."
     rationale: "This setting helps to prevent active Remote Desktop sessions from tying up the computer for long periods of time while not in use, preventing computing resources from being consumed by large numbers of disconnected but still active sessions."
@@ -768,7 +768,7 @@ checks:
 # Section 18.9.60.1 - OCR
 
 # 18.9.60.2 (L2) Ensure 'Allow Cloud Search' is set to 'Enabled: Disable Cloud Search' (Scored)
-  - id: 16545 
+  - id: 12803
     title: "Ensure 'Allow Cloud Search' is set to 'Enabled: Disable Cloud Search'"
     description: "This policy setting allows search and Cortana to search cloud sources like OneDrive and SharePoint. The recommended state for this setting is: Enabled: Disable Cloud Search ."
     rationale: "Due to privacy concerns, data should never be sent to any 3rd party since this data could contain sensitive information."
@@ -782,7 +782,7 @@ checks:
 
 
 # Section 18.9.56 - Software Protection Platform
-  - id: 16546 
+  - id: 12539
     title: "Ensure 'Turn off KMS Client Online AVS Validation' is set to 'Enabled'"
     description: "The Key Management Service (KMS) is a Microsoft license activation method that entails setting up a local server to store the software licenses."
     rationale: "Even though the KMS licensing method does not require KMS clients to connect to Microsoft, they still send KMS client activation state data to Microsoft automatically."
@@ -794,7 +794,7 @@ checks:
       - 'r:HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows NT\CurrentVersion\Software Protection Platform -> NoGenTicket -> 1'
 
 # Section 18.9.76.3 - MAPS
-  - id: 16547 
+  - id: 12540
     title: "Ensure 'Join Microsoft MAPS' is set to 'Disabled'"
     description: "This policy setting allows you to join Microsoft Active Protection Service (MAPS), which Microsoft has now renamed to \"Windows Defender Antivirus Cloud Protection Service\"."
     rationale: "The information that would be sent can include things like location of detected items on your computer if harmful software was removed."
@@ -806,7 +806,7 @@ checks:
       - 'r:HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows Defender\Spynet -> SpynetReporting -> 0'
 
 # Section - 18.9.76.9 - Reporting
-  - id: 16548 
+  - id: 12541
     title: "Ensure 'Configure Watson events' is set to 'Disabled'"
     description: "This policy setting allows you to configure whether or not Watson events are sent."
     rationale: "Watson events are the reports that get sent to Microsoft when a program or service crashes or fails, including the possibility of automatic submission."
@@ -821,7 +821,7 @@ checks:
       - 'r:HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows Defender\Reporting -> DisableGenericRePorts -> 1'
 
 # 18.9.84.1 (L2) Ensure 'Allow suggested apps in Windows Ink Workspace' is set to 'Disabled' (Scored)
-  - id: 16549 
+  - id: 12804
     title: "Ensure 'Allow suggested apps in Windows Ink Workspace' is set to 'Disabled'"
     description: "This policy setting determines whether suggested apps in Windows Ink Workspace are allowed. The recommended state for this setting is: Disabled ."
     rationale: "This Microsoft feature is designed to collect data and suggest apps based on that data collected. Disabling this setting will help ensure your data is not shared with any third party."
@@ -834,7 +834,7 @@ checks:
       - 'r:HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\WindowsInkWorkspace -> AllowSuggestedAppsInWindowsInkWorkspace -> 0'
 
 # Section 18.9.85 - Windows Installer
-  - id: 16550 
+  - id: 12542
     title: "Ensure 'Prevent Internet Explorer security prompt for Windows Installer scripts' is set to 'Disabled'"
     description: "This policy setting controls whether Web-based programs are allowed to install software on the computer without notifying the user."
     rationale: "Suppressing the system warning can pose a security risk and increase the attack surface on the system."
@@ -849,7 +849,7 @@ checks:
       - 'r:HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\Installer -> SafeForScripting -> 0'
 
 # Section 18.9.97.2 - WinRM Service
-  - id: 16551 
+  - id: 12543
     title: "Ensure 'Allow remote server management through WinRM' is set to 'Disabled'"
     description: "This policy setting allows you to manage whether the Windows Remote Management (WinRM) service automatically listens on the network for requests on the HTTP transport over the default HTTP port."
     rationale: "Any feature is a potential avenue of attack, those that enable inbound network connections are particularly risky."
@@ -864,7 +864,7 @@ checks:
       - 'r:HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\WinRM\Service -> AllowAutoConfig -> 0'
 
 # Section 18.9.98 - Windows Remote Shell
-  - id: 16552 
+  - id: 12544
     title: "Ensure 'Allow Remote Shell Access' is set to 'Disabled'"
     description: "This policy setting allows you to manage configuration of remote access to all supported shells to execute scripts and commands."
     rationale: "Any feature is a potential avenue of attack, those that enable inbound network connections are particularly risky."
