@@ -37,6 +37,7 @@ checks:
     remediation: "Edit or create the file /etc/modprobe.d/CIS.conf and add the following line: install cramfs /bin/true"
     compliance:
       - cis: ["2.18"]
+      - pci_dss: ["2.2.5"]
     condition: all
     rules:
       - 'c:/sbin/modprobe -n -v cramfs -> r:^install /bin/true'
@@ -49,6 +50,7 @@ checks:
     remediation: "Edit or create the file /etc/modprobe.d/CIS.conf and add the following line: install freevxfs /bin/true"
     compliance:
       - cis: ["2.19"]
+      - pci_dss: ["2.2.5"]
     condition: all
     rules:
       - 'c:/sbin/modprobe -n -v freevxfs -> r:^install /bin/true'
@@ -61,6 +63,7 @@ checks:
     remediation: "Edit or create the file /etc/modprobe.d/CIS.conf and add the following line: install jffs2 /bin/true"
     compliance:
       - cis: ["2.20"]
+      - pci_dss: ["2.2.5"]
     condition: all
     rules:
       - 'c:/sbin/modprobe -n -v jffs2 -> r:^install /bin/true'
@@ -73,6 +76,7 @@ checks:
     remediation: "Edit or create the file /etc/modprobe.d/CIS.conf and add the following line: install hfs /bin/true"
     compliance:
       - cis: ["2.21"]
+      - pci_dss: ["2.2.5"]
     condition: all
     rules:
       - 'c:/sbin/modprobe -n -v hfs -> r:^install /bin/true'
@@ -85,6 +89,7 @@ checks:
     remediation: "Edit or create the file /etc/modprobe.d/CIS.conf and add the following line: install hfsplus /bin/true"
     compliance:
       - cis: ["2.22"]
+      - pci_dss: ["2.2.5"]
     condition: all
     rules:
       - 'c:/sbin/modprobe -n -v hfsplus -> r:^install /bin/true'
@@ -97,6 +102,7 @@ checks:
     remediation: "Edit or create the file /etc/modprobe.d/CIS.conf and add the following line: install squashfs /bin/true"
     compliance:
       - cis: ["2.23"]
+      - pci_dss: ["2.2.5"]
     condition: all
     rules:
       - 'c:/sbin/modprobe -n -v squashfs -> r:^install /bin/true'
@@ -109,6 +115,7 @@ checks:
     remediation: "Edit or create the file /etc/modprobe.d/CIS.conf and add the following line: install udf /bin/true"
     compliance:
       - cis: ["2.24"]
+      - pci_dss: ["2.2.5"]
     condition: all
     rules:
       - 'c:/sbin/modprobe -n -v udf -> r:^install /bin/true'

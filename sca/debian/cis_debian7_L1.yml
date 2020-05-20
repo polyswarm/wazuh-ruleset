@@ -37,6 +37,8 @@ checks:
     remediation: "Configure /etc/fstab as appropiate or Run the following commands to enable systemd /tmp mounting: systemctl umask tmp.mount; systemctl enable tmp.mount. Edit /etc/systemd/system/local-fs.target.wants/tmp.mount to configure the /tmp mount."
     compliance:
       - cis: ["2.1"]
+      - pci_dss: ["2.2.4"]
+      - nist_800_53: ["CM.1"]
     references:
       - http://tldp.org/HOWTO/LVM-HOWTO/
     condition: all
@@ -50,6 +52,9 @@ checks:
     remediation: "Edit the /etc/fstab file and add nodev to the fourth field (mounting options). See the fstab(5) manual page for more information.  # mount -o remount,nodev /tmp"
     compliance:
       - cis: ["2.2"]
+      - pci_dss: ["2.2.4"]
+      - nist_800_53: ["CM.1"]
+      - tsc: ["CC5.2"]
     condition: all
     rules:
       - 'not c:mount -> r:\s/tmp\s'
@@ -62,6 +67,9 @@ checks:
     remediation: "Edit the /etc/fstab file and add nosuid to the fourth field (mounting options). See the fstab(5) manual page for more information.  # mount -o remount,nosuid /tmp"
     compliance:
       - cis: ["2.3"]
+      - pci_dss: ["2.2.4"]
+      - nist_800_53: ["CM.1"]
+      - tsc: ["CC5.2"]
     condition: all
     rules:
       - 'not c:mount -> r:\s/tmp\s'
@@ -74,6 +82,9 @@ checks:
     remediation: "Edit the /etc/fstab file and add noexec to the fourth field (mounting options). See the fstab(5) manual page for more information.  # mount -o remount,noexec /tmp"
     compliance:
       - cis: ["2.4"]
+      - pci_dss: ["2.2.4"]
+      - nist_800_53: ["CM.1"]
+      - tsc: ["CC5.2"]
     condition: all
     rules:
       - 'not c:mount -> r:\s/tmp\s'
@@ -86,6 +97,9 @@ checks:
     remediation: "For new installations, during installation create a custom partition setup and specify a separate partition for /var. For systems that were previously installed, use the Logical Volume Manager (LVM) to create partitions."
     compliance:
       - cis: ["2.5"]
+      - pci_dss: ["2.2.4"]
+      - nist_800_53: ["CM.1"]
+      - tsc: ["CC5.2"]
     references:
       - http://tldp.org/HOWTO/LVM-HOWTO/
     condition: all
@@ -99,6 +113,9 @@ checks:
     remediation: "# mount --bind /tmp /var/tmp  and edit the /etc/fstab file to contain the following line: /tmp /var/tmp none bind 0 0"
     compliance:
       - cis: ["2.6"]
+      - pci_dss: ["2.2.4"]
+      - nist_800_53: ["CM.1"]
+      - tsc: ["CC5.2"]
     condition: all
     rules:
       - 'c:findmnt -> r:/var/tmp && r:[/tmp]'
@@ -111,6 +128,9 @@ checks:
     remediation: "For new installations, during installation create a custom partition setup and specify a separate partition for /var/log. For systems that were previously installed, use the Logical Volume Manager (LVM) to create partitions."
     compliance:
       - cis: ["2.7"]
+      - pci_dss: ["2.2.4"]
+      - nist_800_53: ["CM.1"]
+      - tsc: ["CC5.2"]
     references:
       - http://tldp.org/HOWTO/LVM-HOWTO/
     condition: all
@@ -124,6 +144,9 @@ checks:
     remediation: "For new installations, during installation create a custom partition setup and specify a separate partition for /var/log/audit. For systems that were previously installed, use the Logical Volume Manager (LVM) to create partitions."
     compliance:
       - cis: ["2.8"]
+      - pci_dss: ["2.2.4"]
+      - nist_800_53: ["CM.1"]
+      - tsc: ["CC5.2"]
     references:
       - http://tldp.org/HOWTO/LVM-HOWTO/
     condition: all
@@ -137,6 +160,9 @@ checks:
     remediation: "For new installations, during installation create a custom partition setup and specify a separate partition for /home.  For systems that were previously installed, use the Logical Volume Manager (LVM) to create partitions."
     compliance:
       - cis: ["2.9"]
+      - pci_dss: ["2.2.4"]
+      - nist_800_53: ["CM.1"]
+      - tsc: ["CC5.2"]
     references:
       - http://tldp.org/HOWTO/LVM-HOWTO/
     condition: all
@@ -150,10 +176,15 @@ checks:
     remediation: "Edit the /etc/fstab file and add nodev to the fourth field (mounting options). See the fstab(5) manual page for more information. # mount -o remount,nodev /home"
     compliance:
       - cis: ["2.10"]
+      - pci_dss: ["2.2.4"]
+      - nist_800_53: ["CM.1"]
+      - tsc: ["CC5.2"]
     condition: all
     rules:
       - 'not c:mount -> r:\s/home\s'
       - 'c:mount -> r:\s/home\s && r:nodev'
+
+
 
   - id: 1010
     title: "Add nodev Option to /run/shm Partition"
@@ -162,6 +193,9 @@ checks:
     remediation: "Edit the /etc/fstab file and add nodev to the fourth field (mounting options of entries that have mount points that contain /run/shm. See the fstab(5) manual page for more information.  # mount -o remount,nodev /run/shm"
     compliance:
       - cis: ["2.14"]
+      - pci_dss: ["2.2.4"]
+      - nist_800_53: ["CM.1"]
+      - tsc: ["CC5.2"]
     condition: all
     rules:
       - 'not c:mount -> r:\s/run/shm\s'
@@ -174,6 +208,9 @@ checks:
     remediation: "Edit the /etc/fstab file and add nosuid to the fourth field (mounting options). Look for entries that have mount points that contain /run/shm. See the fstab(5) manual page for more information.  # mount -o remount,nosuid /run/shm"
     compliance:
       - cis: ["2.15"]
+      - pci_dss: ["2.2.4"]
+      - nist_800_53: ["CM.1"]
+      - tsc: ["CC5.2"]
     condition: all
     rules:
       - 'not c:mount -> r:\s/run/shm\s'
@@ -186,6 +223,9 @@ checks:
     remediation: "Edit the /etc/fstab file and add noexec to the fourth field (mounting options). Look for entries that have mount points that contain /run/shm. See the fstab(5) manual page for more information. # mount -o remount,noexec /run/shm"
     compliance:
       - cis: ["2.16"]
+      - pci_dss: ["2.2.4"]
+      - nist_800_53: ["CM.1"]
+      - tsc: ["CC5.2"]
     condition: all
     rules:
       - 'not c:mount -> r:\s/run/shm\s'
@@ -198,6 +238,9 @@ checks:
     remediation: "Disable autofs: # update-rc.d autofs disable"
     compliance:
       - cis: ["2.25"]
+      - pci_dss: ["2.2.4"]
+      - nist_800_53: ["CM.1"]
+      - tsc: ["CC5.2"]
     condition: none
     rules:
       - 'c:find /etc/rc* -name *autofsc* -> r:S\.'
@@ -211,6 +254,9 @@ checks:
     remediation: "Create an encrypted password with grub-md5-crypt: # grub-mkpasswd-pbkdf2 Enter password: <password> Reenter password: <password> Your PBKDF2 is <encrypted-password>  Add the following into /etc/grub.d/00_header or a custom /etc/grub.d configuration file: cat <<EOF set superusers=\"<user-list>\" password_pbkdf2 <user> <encrypted-password> EOF Unless the --unrestricted option is added to CLASS in /etc/grub.d/10_linux a password will be required to boot in addition to editing boot parameters: CLASS=\"--class gnu-linux --class gnu --class os --unrestricted\" Run the following to update the grub configuration: # update-grub"
     compliance:
       - cis: ["3.3"]
+      - pci_dss: ["2.2.4"]
+      - nist_800_53: ["CM.1"]
+      - tsc: ["CC5.2"]
     condition: all
     rules:
       - 'f:/boot/grub/grub.cfg -> r:^\s*\t*set superusers'
@@ -223,6 +269,9 @@ checks:
     remediation: "Run the following command and follow the prompts to set a password for the root user: # passwd root"
     compliance:
       - cis: ["3.4"]
+      - pci_dss: ["2.2.4"]
+      - nist_800_53: ["CM.1"]
+      - tsc: ["CC5.2"]
     condition: none
     rules:
       - 'f:/etc/shadow -> r:^root:*:|^root:!:'
