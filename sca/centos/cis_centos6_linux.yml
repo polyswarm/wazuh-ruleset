@@ -488,9 +488,9 @@ checks:
 # 1.4.1 Configure bootloader
   - id: 5528 
     title: "Ensure permissions on bootloader config are configured"
-    description: "The grub configuration file contains information on boot settings and passwords for unlocking boot options. The grub configuration is usually located at /boot/grub2/grub.cfg and linked as /etc/grub2.cfg . Additional settings can be found in the /boot/grub2/user.cfg file."
+    description: "The grub configuration file contains information on boot settings and passwords for unlocking boot options. The grub configuration is usually located at /boot/grub/grub.conf and linked as /boot/grub/menu.lst and /etc/grub.conf ."
     rationale: "Setting the permissions to read and write for root only prevents non-root users from seeing the boot parameters or changing them. Non-root users who read the boot parameters may be able to identify weaknesses in security upon boot and be able to exploit them."
-    remediation: "Run the following commands to set permissions on your grub configuration: chown root:root /boot/grub2/grub.cfg, chmod og-rwx /boot/grub2/grub.cfg, chown root:root /boot/grub2/user.cfg, chmod og-rwx /boot/grub2/user.cfg"
+    remediation: "Run the following commands to set permissions on your grub configuration: # chown root:root /boot/grub/grub.conf # chmod og-rwx /boot/grub/grub.conf"
     compliance:
       - cis: ["1.4.1"]
       - cis_csc: ["5.1"]
@@ -498,15 +498,14 @@ checks:
       - nist_800_53: ["CM.1"]
     condition: all
     rules:
-      - 'c:stat /boot/grub2/grub.cfg -> r:Access:\s*\(0600/-rw-------\)\s*Uid:\s*\(\s*\t*0/\s*\t*root\)\s*\t*Gid:\s*\(\s*\t*0/\s*\t*root\)'
-      - 'c:stat /boot/grub2/user.cfg -> r:Access:\s*\(0600/-rw-------\)\s*Uid:\s*\(\s*\t*0/\s*\t*root\)\s*\t*Gid:\s*\(\s*\t*0/\s*\t*root\)|cannot stat'
+      - 'c:stat /boot/grub/grub.conf -> r:Access:\s*\(0600/-rw-------\)\s*Uid:\s*\(\s*\t*0/\s*\t*root\)\s*\t*Gid:\s*\(\s*\t*0/\s*\t*root\)'
 
 # 1.4.2 Set Boot Loader Password (Scored)
   - id: 5529 
     title: "Ensure bootloader password is set"
     description: "Setting the boot loader password will require that anyone rebooting the system must enter a password before being able to set command line boot parameters."
     rationale: "Requiring a boot password upon execution of the boot loader will prevent an unauthorized user from entering boot parameters or changing the boot partition. This prevents users from weakening security (e.g. turning off SELinux at boot time)."
-    remediation: "Create an encrypted password with grub2-setpassword: # grub2-setpassword"
+    remediation: "Create an encrypted password with grub-md5-crypt :  grub-md5-crypt Password: <password>       Retype Password: <password> <encrypted-password> Copy and paste the <encrypted-password> into the global section of /boot/grub/grub.conf : password --md5 <encrypted-password>"
     compliance:
       - cis: ["1.4.2"]
       - cis_csc: ["5.1"]
@@ -514,14 +513,14 @@ checks:
       - nist_800_53: ["CM.1"]
     condition: all
     rules:
-      - 'f:/boot/grub2/grub.cfg -> r:^GRUB2_PASSWORD\s*=\.+'
+      - 'f:/boot/grub/grub.conf -> r:^password --md5\s\.+'
 
 # 1.4.3 Single user authentication
   - id: 5530 
     title: "Ensure authentication required for single user mode"
     description: "Single user mode (rescue mode) is used for recovery when the system detects an issue during boot or by manual selection from the bootloader."
     rationale: "Requiring authentication in single user mode (rescue mode) prevents an unauthorized user from rebooting the system into single user to gain root privileges without credentials."
-    remediation: "Edit /usr/lib/systemd/system/rescue.service and /usr/lib/systemd/system/emergency.service and set ExecStart to use /sbin/sulogin or /usr/sbin/sulogin: ExecStart=-/bin/sh -c \"/sbin/sulogin; /usr/bin/systemctl --fail --no-block default\" "
+    remediation: "Edit /etc/sysconfig/init and set SINGLE to ' /sbin/sulogin ' SINGLE=/sbin/sulogin"
     compliance:
       - cis: ["1.4.3"]
       - cis_csc: ["5.1"]
@@ -529,8 +528,7 @@ checks:
       - nist_800_53: ["CM.1"]
     condition: all
     rules:
-      - 'f:/usr/lib/systemd/system/rescue.service -> r:ExecStart=-/bin/sh -c "/sbin/sulogin; /usr/bin/systemctl --fail --no-block default"|ExecStart=-/bin/sh -c "/usr/sbin/sulogin; /usr/bin/systemctl --fail --no-block default"'
-      - 'f:/usr/lib/systemd/system/emergency.service -> r:ExecStart=-/bin/sh -c "/sbin/sulogin; /usr/bin/systemctl --fail --no-block default"|ExecStart=-/bin/sh -c "/usr/sbin/sulogin; /usr/bin/systemctl --fail --no-block default"'
+      - 'f:/etc/sysconfig/init -> r:SINGLE\s*=\s*/sbin/sulogin'
 
 # 1.4.4 Ensure interactive boot is not enabled (Scored)
   - id: 5730
@@ -621,7 +619,7 @@ checks:
     title: "Ensure SELinux is not disabled in bootloader configuration"
     description: "Configure SELINUX to be enabled at boot time and verify that it has not been overwritten by the grub boot parameters."
     rationale: "SELinux must be enabled at boot time in your grub configuration to ensure that the controls it provides are not overridden."
-    remediation: "Edit /etc/default/grub and remove all instances of selinux=0 and enforcing=0 from all CMDLINE_LINUX parameters: GRUB_CMDLINE_LINUX_DEFAULT=\"quiet\" GRUB_CMDLINE_LINUX=\"\"  || Run the following command to update the grub2 configuration: grub2-mkconfig -o /boot/grub2/grub.cfg"
+    remediation: "Edit /boot/grub/grub.conf and remove all instances of selinux=0 and enforcing=0 on all kernel lines"
     compliance:
       - cis: ["1.6.1.1"]
       - cis_csc: ["14.4"]
@@ -629,7 +627,7 @@ checks:
       - nist_800_53: ["CM.1"]
     condition: none
     rules:
-      - 'f:/boot/grub2/grub.cfg -> r:linux\.*selinux=0|linux\.*enforcing=0'
+      - 'f:/boot/grub/grub.conf -> r:linux\.*selinux=0|linux\.*enforcing=0'
 # 1.6.1.2 Set selinux state
   - id: 5536 
     title: "Ensure the SELinux state is enforcing"
@@ -1106,7 +1104,6 @@ checks:
       - 'f:/etc/ntp.conf -> r:^restrict\s+-6\s+default && r:\s+kod\s+ && r:\s+nomodify\s+ && r:\s+notrap\s+ && r:\s+nopeer\s+ && r:\s+noquery'
       - 'f:/etc/ntp.conf -> r:^server\.+$|^pool\.+$'
       - 'f:/etc/sysconfig/ntpd -> r:^OPTIONS\s*=\s* && r:-u ntp:ntp'
-      - 'f:/usr/lib/systemd/system/ntpd.service -> r:^Execstart\s*=\s*/usr/sbin/ntpd\s+-u\s+ntp:ntp'
 
 # 2.2.1.3 Configure Network Time Protocol (Chrony) (Scored)
   - id: 5559 
@@ -1331,7 +1328,7 @@ checks:
     title: "Ensure mail transfer agent is configured for local-only mode"
     description: "Mail Transfer Agents (MTA), such as sendmail and Postfix, are used to listen for incoming mail and transfer the messages to the appropriate user or mail server. If the system is not intended to be a mail server, it is recommended that the MTA be configured to only process local mail."
     rationale: "Mail Transfer Agents (MTA), such as sendmail and Postfix, are used to listen for incoming mail and transfer the messages to the appropriate user or mail server. If the system is not intended to be a mail server, it is recommended that the MTA be configured to only process local mail."
-    remediation: "Edit /etc/postfix/main.cf and add the following line to the RECEIVING MAIL section. If the line already exists, change it to look like the line below: inet_interfaces = loopback-only . Restart postfix: # systemctl restart postfix"
+    remediation: "Edit /etc/postfix/main.cf and add the following line to the RECEIVING MAIL section. If the line already exists, change it to look like the line below: inet_interfaces = loopback-only Restart postfix: # service postfix restart"
     compliance:
       - cis: ["2.2.15"]
       - cis_csc: ["9.1"]
@@ -1687,7 +1684,7 @@ checks:
     title: "Ensure IPv6 is disabled"
     description: "Although IPv6 has many advantages over IPv4, few organizations have implemented IPv6."
     rationale: "If IPv6 is not to be used, it is recommended that it be disabled to reduce the attack surface of the system."
-    remediation: "Edit /etc/default/grub and remove add ipv6.disable=1 to the GRUB_CMDLINE_LINUX parameters and update the grub2 configuration."
+    remediation: "Edit /boot/grub/grub.conf to include ipv6.disable=1 on all kernel lines."
     compliance:
       - cis: ["3.3.3"]
       - cis_csc: ["3", "11"]
@@ -1698,7 +1695,7 @@ checks:
       - hipaa: ["164.312.b"]
     condition: none
     rules:
-      - 'f:/boot/grub2/grub.cfg -> r:^\s*\t*linux && !r:ipv6.disable=1'
+      - 'f:/boot/grub/grub.conf -> r:^\s*\t*linux && !r:ipv6.disable=1'
 
 
 ###############################################
