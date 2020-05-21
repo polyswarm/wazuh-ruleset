@@ -24,7 +24,6 @@ requirements:
   condition: any
   rules:
     - 'f:/etc/redhat-release -> r:^Red Hat Enterprise Linux && r:release 6'
- #   - 'f:/etc/redhat-release -> r:^CentOS && r:release 6'
     - 'f:/etc/redhat-release -> r:^Cloud && r:release 6'
     - 'f:/etc/redhat-release -> r:^Oracle && r:release 6'
     - 'f:/etc/redhat-release -> r:^Better && r:release 6'
