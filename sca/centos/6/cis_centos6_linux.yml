@@ -23,12 +23,8 @@ requirements:
   description: "Requirements for running the policy against CentOS 6."
   condition: any
   rules:
-#    - 'f:/etc/redhat-release -> r:^Red Hat Enterprise Linux && r:release 6'
     - 'f:/etc/redhat-release -> r:^CentOS && r:release 6'
-#    - 'f:/etc/redhat-release -> r:^Cloud && r:release 6'
-#    - 'f:/etc/redhat-release -> r:^Oracle && r:release 6'
-#    - 'f:/etc/redhat-release -> r:^Better && r:release 6'
-#    - 'f:/etc/system-release -> r:^Amazon Linux AMI'
+
 
 variables:
   $sshd_file: /etc/ssh/sshd_config
@@ -45,6 +41,7 @@ checks:
       - cis: ["1.1.1.1"]
       - cis_csc: ["13"]
       - pci_dss: ["2.2.5"]
+      - tsc: ["CC6.3"]
     references:
       - AJ Lewis, "LVM HOWTO", https://tldp.org/HOWTO/LVM-HOWTO/
     condition: all
@@ -62,6 +59,7 @@ checks:
       - cis: ["1.1.1.2"]
       - cis_csc: ["13"]
       - pci_dss: ["2.2.5"]
+      - tsc: ["CC6.3"]
     references:
       - AJ Lewis, "LVM HOWTO", https://tldp.org/HOWTO/LVM-HOWTO/
     condition: all
@@ -79,6 +77,7 @@ checks:
       - cis: ["1.1.1.3"]
       - cis_csc: ["13"]
       - pci_dss: ["2.2.5"]
+      - tsc: ["CC6.3"]
     references:
       - AJ Lewis, "LVM HOWTO", https://tldp.org/HOWTO/LVM-HOWTO/
     condition: all
@@ -96,6 +95,7 @@ checks:
       - cis: ["1.1.1.4"]
       - cis_csc: ["13"]
       - pci_dss: ["2.2.5"]
+      - tsc: ["CC6.3"]
     references:
       - AJ Lewis, "LVM HOWTO", https://tldp.org/HOWTO/LVM-HOWTO/
     condition: all
@@ -128,6 +128,7 @@ checks:
       - cis: ["1.1.1.6"]
       - cis_csc: ["13"]
       - pci_dss: ["2.2.5"]
+      - tsc: ["CC6.3"]
     references:
       - AJ Lewis, "LVM HOWTO", https://tldp.org/HOWTO/LVM-HOWTO/
     condition: all
@@ -144,6 +145,7 @@ checks:
       - cis: ["1.1.1.7"]
       - cis_csc: ["13"]
       - pci_dss: ["2.2.5"]
+      - tsc: ["CC6.3"]
     references:
       - AJ Lewis, "LVM HOWTO", https://tldp.org/HOWTO/LVM-HOWTO/
     condition: all
@@ -160,6 +162,7 @@ checks:
       - cis: ["1.1.1.8"]
       - cis_csc: ["13"]
       - pci_dss: ["2.2.5"]
+      - tsc: ["CC6.3"]
     references:
       - AJ Lewis, "LVM HOWTO", https://tldp.org/HOWTO/LVM-HOWTO/
     condition: all
@@ -177,6 +180,7 @@ checks:
       - cis: ["1.1.2"]
       - pci_dss: ["2.2.4"]
       - nist_800_53: ["CM.1"]
+      - tsc: ["CC5.2"]
     references:
       - AJ Lewis, "LVM HOWTO", https://tldp.org/HOWTO/LVM-HOWTO/
     condition: all
@@ -193,6 +197,7 @@ checks:
       - cis: ["1.1.3"]
       - pci_dss: ["2.2.4"]
       - nist_800_53: ["CM.1"]
+      - tsc: ["CC5.2"]
     condition: all
     rules:
       - 'c:mount -> r:\s/tmp\s && r:nodev'
@@ -207,6 +212,7 @@ checks:
       - cis: ["1.1.4"]
       - pci_dss: ["2.2.4"]
       - nist_800_53: ["CM.1"]
+      - tsc: ["CC5.2"]
     condition: all
     rules:
       - 'c:mount -> r:\s/tmp\s && r:nosuid'
@@ -222,6 +228,7 @@ checks:
       - cis_csc: ["2"]
       - pci_dss: ["2.2.4"]
       - nist_800_53: ["CM.1"]
+      - tsc: ["CC5.2"]
     condition: all
     rules:
       - 'c:mount -> r:\s/tmp\s && r:noexec'
@@ -236,6 +243,7 @@ checks:
       - cis: ["1.1.6"]
       - pci_dss: ["2.2.4"]
       - nist_800_53: ["CM.1"]
+      - tsc: ["CC5.2"]
     references:
       - AJ Lewis, "LVM HOWTO", https://tldp.org/HOWTO/LVM-HOWTO/
     condition: all
@@ -252,6 +260,7 @@ checks:
       - cis: ["1.1.7"]
       - pci_dss: ["2.2.4"]
       - nist_800_53: ["CM.1"]
+      - tsc: ["CC5.2"]
     condition: all
     rules:
       - 'c:mount -> r:\s/var/tmp\s'
@@ -266,6 +275,7 @@ checks:
       - cis: ["1.1.8"]
       - pci_dss: ["2.2.4"]
       - nist_800_53: ["CM.1"]
+      - tsc: ["CC5.2"]
     condition: all
     rules:
       - 'c:mount -> r:\s/var/tmp\s && r:nodev'
@@ -280,6 +290,7 @@ checks:
       - cis: ["1.1.9"]
       - pci_dss: ["2.2.4"]
       - nist_800_53: ["CM.1"]
+      - tsc: ["CC5.2"]
     condition: all
     rules:
       - 'c:mount -> r:\s/var/tmp\s && r:nosuid'
@@ -295,6 +306,7 @@ checks:
       - cis_csc: ["2"]
       - pci_dss: ["2.2.4"]
       - nist_800_53: ["CM.1"]
+      - tsc: ["CC5.2"]
     condition: all
     rules:
       - 'c:mount -> r:\s/var/tmp\s && r:noexec'
@@ -310,7 +322,7 @@ checks:
       - cis_csc: ["6.3"]
       - pci_dss: ["2.2.4","10.7"]
       - nist_800_53: ["CM.1"]
-
+      - tsc: ["CC5.2"]
     references:
       - AJ Lewis, "LVM HOWTO", https://tldp.org/HOWTO/LVM-HOWTO/
     condition: all
@@ -328,6 +340,7 @@ checks:
       - cis_csc: ["6.3"]
       - pci_dss: ["2.2.4","10.7"]
       - nist_800_53: ["CM.1"]
+      - tsc: ["CC5.2"]
     references:
       - AJ Lewis, "LVM HOWTO", https://tldp.org/HOWTO/LVM-HOWTO/
     condition: all
@@ -344,6 +357,7 @@ checks:
       - cis: ["1.1.13"]
       - pci_dss: ["2.2.4"]
       - nist_800_53: ["CM.1"]
+      - tsc: ["CC5.2"]
     references:
       - AJ Lewis, "LVM HOWTO", https://tldp.org/HOWTO/LVM-HOWTO/
     condition: all
@@ -360,6 +374,7 @@ checks:
       - cis: ["1.1.14"]
       - pci_dss: ["2.2.4"]
       - nist_800_53: ["CM.1"]
+      - tsc: ["CC5.2"]
     condition: all
     rules:
       - 'c:mount -> r:\s/home\s && r:nodev'
@@ -374,6 +389,7 @@ checks:
       - cis: ["1.1.15"]
       - pci_dss: ["2.2.4"]
       - nist_800_53: ["CM.1"]
+      - tsc: ["CC5.2"]
     condition: all
     rules:
       - 'c:mount -> r:\s/dev/shm\s && r:nodev'
@@ -388,6 +404,7 @@ checks:
       - cis: ["1.1.16"]
       - pci_dss: ["2.2.4"]
       - nist_800_53: ["CM.1"]
+      - tsc: ["CC5.2"]
     condition: all
     rules:
       - 'c:mount -> r:\s/dev/shm\s && r:nosuid'
@@ -403,6 +420,7 @@ checks:
       - cis_csc: ["2"]
       - pci_dss: ["2.2.4"]
       - nist_800_53: ["CM.1"]
+      - tsc: ["CC5.2"]
     condition: all
     rules:
       - 'c:mount -> r:\s/dev/shm\s && r:noexec'
@@ -418,6 +436,7 @@ checks:
       - cis_csc: ["8.3"]
       - pci_dss: ["2.2.4"]
       - nist_800_53: ["CM.1"]
+      - tsc: ["CC5.2"]
     condition: none
     rules:
       - 'c:chkconfig --list -> r:^\s*\t*autofs:\s*\t*on'
@@ -440,7 +459,7 @@ checks:
       - gpg_13: ["4.3"]
       - gdpr_IV: ["35.7.d"]
       - hipaa: ["164.312.b"]
-      
+      - tsc: ["A1.2","CC6.8"]
     condition: all
     rules:
       - 'f:/etc/yum.conf -> r:gpgcheck=1'
@@ -461,6 +480,7 @@ checks:
       - cis: ["1.3.1"]
       - cis_csc: ["3.5"]
       - pci_dss: ["11.5"]
+      - tsc: ["PI1.4","PI1.5","CC6.8","CC7.2","CC7.3","CC7.4"]
     references: "AIDE stable manual: http://aide.sourceforge.net/stable/manual.html"
     condition: all
     rules:
@@ -476,6 +496,7 @@ checks:
       - cis: ["1.3.2"]
       - cis_csc: ["3.5"]
       - pci_dss: ["11.5"]
+      - tsc: ["PI1.4","PI1.5","CC6.8","CC7.2","CC7.3","CC7.4"]
     condition: any
     rules:
       - 'c:crontab -u root -l -> r:aide'
@@ -495,6 +516,7 @@ checks:
       - cis_csc: ["5.1"]
       - pci_dss: ["2.2.4"]
       - nist_800_53: ["CM.1"]
+      - tsc: ["CC5.2"]
     condition: all
     rules:
       - 'c:stat /boot/grub/grub.conf -> r:Access:\s*\(0600/-rw-------\)\s*Uid:\s*\(\s*\t*0/\s*\t*root\)\s*\t*Gid:\s*\(\s*\t*0/\s*\t*root\)'
@@ -510,6 +532,7 @@ checks:
       - cis_csc: ["5.1"]
       - pci_dss: ["2.2.4"]
       - nist_800_53: ["CM.1"]
+      - tsc: ["CC5.2"]
     condition: all
     rules:
       - 'f:/boot/grub/grub.conf -> r:^password --md5\s\.+'
@@ -525,12 +548,13 @@ checks:
       - cis_csc: ["5.1"]
       - pci_dss: ["2.2.4"]
       - nist_800_53: ["CM.1"]
+      - tsc: ["CC5.2"]
     condition: all
     rules:
       - 'f:/etc/sysconfig/init -> r:SINGLE\s*=\s*/sbin/sulogin'
 
 # 1.4.4 Ensure interactive boot is not enabled (Scored)
-  - id: 5730
+  - id: 5531 
     title: "Ensure interactive boot is not enabled"
     description: "Interactive boot allows console users to interactively select which services start on boot. The PROMPT option provides console users the ability to interactively boot the system and select which services to start on boot . "
     rationale: "Turn off the PROMPT option on the console to prevent console users from potentially overriding established security settings. "
@@ -546,7 +570,7 @@ checks:
 # 1.5 Additional Process Hardening
 ###############################################
 # 1.5.1 Restrict Core Dumps (Scored)
-  - id: 5531 
+  - id: 5532 
     title: "Ensure core dumps are restricted"
     description: "A core dump is the memory of an executable program. It is generally used to determine why a program aborted. It can also be used to glean confidential information from a core file."
     rationale: "Setting a hard limit on core dumps prevents users from overriding the soft variable. If core dumps are required, consider setting limits for user groups (see limits.conf). In addition, setting the fs.suid_dumpable variable to 0 will prevent setuid programs from dumping core."
@@ -556,6 +580,7 @@ checks:
       - cis_csc: ["13"]
       - pci_dss: ["2.2.4"]
       - nist_800_53: ["CM.1"]
+      - tsc: ["CC5.2"]
     condition: all
     rules:
       - 'c:grep -Rh ^*[[:space:]]*hard[[:space:]][[:space:]]*core[[:space:]][[:space:]]* /etc/security/limits.conf /etc/security/limits.d -> r:\s*\t*0$'
@@ -563,7 +588,7 @@ checks:
       - 'c:grep -Rh fs\.suid_dumpable /etc/sysctl.conf /etc/sysctl.d -> r:^\s*fs.suid_dumpable\s*=\s*0\s*$'
 
 # 1.5.2 XD/NX enabled
-  - id: 5532 
+  - id: 5533 
     title: "Ensure XD/NX support is enabled"
     description: "Recent processors in the x86 family support the ability to prevent code execution on a per memory page basis. Generically and on AMD processors, this ability is called No Execute (NX), while on Intel processors it is called Execute Disable (XD). This ability can help prevent exploitation of buffer overflow vulnerabilities and should be activated whenever possible. Extra steps must be taken to ensure that this protection is enabled, particularly on 32-bit x86 systems. Other processors, such as Itanium and POWER, have included such support since inception and the standard kernel for those platforms supports the feature."
     rationale: "Enabling any feature that can protect against buffer overflow attacks enhances the security of the system."
@@ -573,12 +598,13 @@ checks:
       - cis_csc: ["8.4"]
       - pci_dss: ["2.2.4"]
       - nist_800_53: ["CM.1"]
+      - tsc: ["CC5.2"]
     condition: all
     rules:
       - 'c:dmesg -> r:NX \(Execute Disable\) protection: active'
 
 # 1.5.3 Enable Randomized Virtual Memory Region Placement (Scored)
-  - id: 5533 
+  - id: 5534 
     title: "Ensure address space layout randomization (ASLR) is enabled"
     description: "Address space layout randomization (ASLR) is an exploit mitigation technique which randomly arranges the address space of key data areas of a process."
     rationale: "Randomly placing virtual memory regions will make it difficult to write memory page exploits as the memory placement will be consistently shifting."
@@ -588,13 +614,14 @@ checks:
       - cis_csc: ["8.4"]
       - pci_dss: ["2.2.4"]
       - nist_800_53: ["CM.1"]
+      - tsc: ["CC5.2"]
     condition: all
     rules:
       - 'c:grep -Rh ^kernel\.randomize_va_space /etc/sysctl.conf /etc/sysctl.d -> r:^\s*kernel.randomize_va_space\s*=\s*2$'
       - 'c:sysctl kernel.randomize_va_space -> r:^\s*kernel.randomize_va_space\s*=\s*2'
 
 # 1.5.4 Disable prelink
-  - id: 5534 
+  - id: 5535 
     title: "Ensure prelink is disabled"
     description: "prelink is a program that modifies ELF shared libraries and ELF dynamically linked binaries in such a way that the time needed for the dynamic linker to perform relocations at startup significantly decreases."
     rationale: "The prelinking feature can interfere with the operation of AIDE, because it changes binaries. Prelinking can also increase the vulnerability of the system if a malicious user is able to compromise a common library such as libc."
@@ -604,6 +631,7 @@ checks:
       - cis_csc: ["3.5"]
       - pci_dss: ["2.2.4"]
       - nist_800_53: ["CM.1"]
+      - tsc: ["CC5.2"]
     condition: all
     rules:
       - 'c:rpm -q prelink -> package prelink is not installed'
@@ -614,7 +642,7 @@ checks:
 # 1.6 Configure SELinux
 ###############################################
 # 1.6.1.1 SELinux not disabled
-  - id: 5535 
+  - id: 5536 
     title: "Ensure SELinux is not disabled in bootloader configuration"
     description: "Configure SELINUX to be enabled at boot time and verify that it has not been overwritten by the grub boot parameters."
     rationale: "SELinux must be enabled at boot time in your grub configuration to ensure that the controls it provides are not overridden."
@@ -624,11 +652,12 @@ checks:
       - cis_csc: ["14.4"]
       - pci_dss: ["2.2.4"]
       - nist_800_53: ["CM.1"]
+      - tsc: ["CC5.2"]
     condition: none
     rules:
       - 'f:/boot/grub/grub.conf -> r:linux\.*selinux=0|linux\.*enforcing=0'
 # 1.6.1.2 Set selinux state
-  - id: 5536 
+  - id: 5537 
     title: "Ensure the SELinux state is enforcing"
     description: "Set SELinux to enable when the system is booted."
     rationale: "SELinux must be enabled at boot time in to ensure that the controls it provides are in effect at all times."
@@ -638,6 +667,7 @@ checks:
       - cis_csc: ["14.4"]
       - pci_dss: ["2.2.4"]
       - nist_800_53: ["CM.1"]
+      - tsc: ["CC5.2"]
     condition: all
     rules:
       - 'c:sestatus -> r:^SELinux status:\s+enabled$'
@@ -646,7 +676,7 @@ checks:
       - 'f:/etc/selinux/config -> r:^\s*SELINUX\s*=\s*enforcing'
 
 # 1.6.1.3 Set selinux policy
-  - id: 5537 
+  - id: 5538 
     title: "Ensure SELinux policy is configured"
     description: "Configure SELinux to meet or exceed the default targeted policy, which constrains daemons and system software only."
     rationale: "Security configuration requirements vary from site to site. Some sites may mandate a policy that is stricter than the default policy, which is perfectly acceptable. This item is intended to ensure that at least the default recommendations are met."
@@ -655,13 +685,14 @@ checks:
       - cis: ["1.6.1.3"]
       - pci_dss: ["2.2.4"]
       - nist_800_53: ["CM.1"]
+      - tsc: ["CC5.2"]
     condition: all
     rules:
       - 'c:sestatus -> r:^Loaded policy name:\s+targeted$'
       - 'f:/etc/selinux/config -> r:^\s*SELINUXTYPE\s*=\s*targeted|^\s*SELINUXTYPE\s*=\s*mls'
 
 # 1.6.1.4 Remove SETroubleshoot
-  - id: 5538 
+  - id: 5539 
     title: "Ensure SETroubleshoot is not installed"
     description: "The SETroubleshoot service notifies desktop users of SELinux denials through a user-friendly interface. The service provides important information around configuration errors, unauthorized intrusions, and other potential errors."
     rationale: "The SETroubleshoot service is an unnecessary daemon to have running on a server, especially if X Windows is disabled."
@@ -670,12 +701,13 @@ checks:
       - cis: ["1.6.1.4"]
       - pci_dss: ["2.2.4"]
       - nist_800_53: ["CM.1"]
+      - tsc: ["CC5.2"]
     condition: none
     rules:
       - 'c:rpm -qa setroubleshoot -> r:setroubleshoot'
 
 # 1.6.1.5 Disable MCS Translation service mcstrans
-  - id: 5539 
+  - id: 5540 
     title: "Ensure the MCS Translation Service (mcstrans) is not installed"
     description: "The mcstransd daemon provides category label information to client processes requesting information. The label translations are defined in /etc/selinux/targeted/setrans.conf"
     rationale: "Since this service is not used very often, remove it to reduce the amount of potentially vulnerable code running on the system."
@@ -684,12 +716,13 @@ checks:
       - cis: ["1.6.1.5"]
       - pci_dss: ["2.2.4"]
       - nist_800_53: ["CM.1"]
+      - tsc: ["CC5.2"]
     condition: none
     rules:
       - 'c:rpm -qa mcstrans -> r:mcstrans'
 
 # 1.6.1.6 Ensure no unconfined daemons exist
-  - id: 5540 
+  - id: 5541 
     title: "Ensure no unconfined daemons exist"
     description: "Daemons that are not defined in SELinux policy will inherit the security context of their parent process."
     rationale: "Since daemons are launched and descend from the init process, they will inherit the security context label initrc_t . This could cause the unintended consequence of giving the process more permission than it requires."
@@ -699,11 +732,12 @@ checks:
       - cis_csc: ["14.4"]
       - pci_dss: ["2.2.4"]
       - nist_800_53: ["CM.1"]
+      - tsc: ["CC5.2"]
     condition: none
     rules:
       - 'c:ps -eZ -> r:initrc && !r:tr|ps|egrep|bash|awk'
 # 1.6.2 Install SELinux
-  - id: 5541 
+  - id: 5542 
     title: "Ensure SELinux is installed"
     description: "SELinux provides Mandatory Access Controls."
     rationale: "Without a Mandatory Access Control system installed only the default Discretionary Access Control system will be available."
@@ -713,6 +747,7 @@ checks:
       - cis_csc: ["14.4"]
       - pci_dss: ["2.2.4"]
       - nist_800_53: ["CM.1"]
+      - tsc: ["CC5.2"]
     condition: all
     rules:
       - 'c:rpm -q libselinux -> r:libselinux-\S+'
@@ -723,7 +758,7 @@ checks:
 # 1.7  Warning Banners
 ###############################################
 # 1.7.1.1 Configure message of the day (Scored)
-  - id: 5542 
+  - id: 5543 
     title: "Ensure message of the day is configured properly"
     description: "The contents of the /etc/motd file are displayed to users after login and function as a message of the day for authenticated users. Unix-based systems have typically displayed information about the OS release and patch level upon logging in to the system. This information can be useful to developers who are developing software for a particular OS platform. If mingetty(8) supports the following options, they display operating system information: \\m - machine architecture \\r - operating system release \\s - operating system name \\v - operating system version"
     rationale: "Warning messages inform users who are attempting to login to the system of their legal status regarding the system and must include the name of the organization that owns the system and any monitoring policies that are in place. Displaying OS and patch level information in login banners also has the side effect of providing detailed system information to attackers attempting to target specific exploits of a system. Authorized users can easily get this information by running the \" uname -a \" command once they have logged in."
@@ -736,7 +771,7 @@ checks:
       - 'f:/etc/motd -> r:\\v|\\r|\\m|\\s'
 
 # 1.7.1.2 Configure local login warning banner (Not Scored)
-  - id: 5543 
+  - id: 5544 
     title: "Ensure local login warning banner is configured properly"
     description: "The contents of the /etc/issue file are displayed to users prior to login for local terminals. Unix-based systems have typically displayed information about the OS release and patch level upon logging in to the system. This information can be useful to developers who are developing software for a particular OS platform. If mingetty(8) supports the following options, they display operating system information: \\m - machine architecture \\r - operating system release \\s - operating system name \\v - operating system version"
     rationale: "Warning messages inform users who are attempting to login to the system of their legal status regarding the system and must include the name of the organization that owns the system and any monitoring policies that are in place. Displaying OS and patch level information in login banners also has the side effect of providing detailed system information to attackers attempting to target specific exploits of a system. Authorized users can easily get this information by running the \" uname -a \" command once they have logged in."
@@ -749,7 +784,7 @@ checks:
       - 'f:/etc/issue -> r:\\v|\\r|\\m|\\s'
 
 # 1.7.1.3 Configure remote login warning banner (Not Scored)
-  - id: 5544 
+  - id: 5545 
     title: "Ensure remote login warning banner is configured properly"
     description: "The contents of the /etc/issue.net file are displayed to users prior to login for remote connections from configured services. Unix-based systems have typically displayed information about the OS release and patch level upon logging in to the system. This information can be useful to developers who are developing software for a particular OS platform. If mingetty(8) supports the following options, they display operating system information: \\m - machine architecture \\r - operating system release \\s - operating system name \\v - operating system version"
     rationale: "Warning messages inform users who are attempting to login to the system of their legal status regarding the system and must include the name of the organization that owns the system and any monitoring policies that are in place. Displaying OS and patch level information in login banners also has the side effect of providing detailed system information to attackers attempting to target specific exploits of a system. Authorized users can easily get this information by running the \" uname -a \" command once they have logged in."
@@ -762,7 +797,7 @@ checks:
       - 'f:/etc/issue.net -> r:\\v|\\r|\\m|\\s'
 
 # 1.7.1.4 Configure /etc/motd permissions (Not Scored)
-  - id: 5545 
+  - id: 5546 
     title: "Ensure permissions on /etc/motd are configured"
     description: "The contents of the /etc/motd file are displayed to users after login and function as a message of the day for authenticated users."
     rationale: "If the /etc/motd file does not have the correct ownership it could be modified by unauthorized users with incorrect or misleading information."
@@ -775,12 +810,13 @@ checks:
       - nist_800_53: ["AU.14", "AC.7"]
       - gpg_13: ["7.8"]
       - gdpr_IV: ["35.7","32.2"]
+      - tsc: ["CC6.1","CC6.8","CC7.2","CC7.3","CC7.4"]
     condition: all
     rules:
       - 'c:stat /etc/motd -> r:Access:\s*\(0644/-rw-r--r--\)\s*Uid:\s*\(\s*\t*0/\s*\t*root\)\s*\t*Gid:\s*\(\s*\t*0/\s*\t*root\)'
 
 # 1.7.1.5 Configure /etc/issue permissions (Scored)
-  - id: 5546 
+  - id: 5547 
     title: "Ensure permissions on /etc/issue are configured"
     description: "The contents of the /etc/issue file are displayed to users prior to login for local terminals."
     rationale: "If the /etc/issue file does not have the correct ownership it could be modified by unauthorized users with incorrect or misleading information."
@@ -793,11 +829,12 @@ checks:
       - nist_800_53: ["AU.14", "AC.7"]
       - gpg_13: ["7.8"]
       - gdpr_IV: ["35.7","32.2"]
+      - tsc: ["CC6.1","CC6.8","CC7.2","CC7.3","CC7.4"]
     condition: all
     rules:
       - 'c:stat /etc/issue -> r:Access:\s*\(0644/-rw-r--r--\)\s*Uid:\s*\(\s*\t*0/\s*\t*root\)\s*\t*Gid:\s*\(\s*\t*0/\s*\t*root\)'
 # 1.7.1.6 Configure /etc/issue.net permissions (Not Scored)
-  - id: 5547 
+  - id: 5548 
     title: "Ensure permissions on /etc/issue.net are configured"
     description: "The contents of the /etc/issue.net file are displayed to users prior to login for remote connections from configured services."
     rationale: "If the /etc/issue.net file does not have the correct ownership it could be modified by unauthorized users with incorrect or misleading information."
@@ -810,12 +847,13 @@ checks:
       - nist_800_53: ["AU.14", "AC.7"]
       - gpg_13: ["7.8"]
       - gdpr_IV: ["35.7","32.2"]
+      - tsc: ["CC6.1","CC6.8","CC7.2","CC7.3","CC7.4"]
     condition: all
     rules:
       - 'c:stat /etc/issue.net -> r:Access:\s*\(0644/-rw-r--r--\)\s*Uid:\s*\(\s*\t*0/\s*\t*root\)\s*\t*Gid:\s*\(\s*\t*0/\s*\t*root\)'
 
 # 1.7.2 Ensure GDM login banner is configured (Scored)
-  - id: 5548 
+  - id: 5549 
     title: "Ensure GDM login banner is configured"
     description: "GDM is the GNOME Display Manager which handles graphical login for GNOME based systems."
     rationale: "Warning messages inform users who are attempting to login to the system of their legal status regarding the system and must include the name of the organization that owns the system and any monitoring policies that are in place."
@@ -833,7 +871,7 @@ checks:
 
 
 # 1.8 Ensure updates, patches, and additional security software are installed(Scored)
-  - id: 5549 
+  - id: 5550 
     title: "Ensure updates, patches, and additional security software are installed"
     description: "Periodically patches are released for included software either due to security flaws or to include additional functionality."
     rationale: "Newer patches may contain security enhancements that would not be available through the latest full update. As a result, it is recommended that the latest software patches be used to take advantage of the latest functionality. As with any software installation, organizations need to determine if a given update meets their requirements and verify the compatibility and supportability of any additional software against the update revision that is selected."
@@ -846,6 +884,7 @@ checks:
       - gpg_13: ["4.2"]
       - gdpr_IV: ["35.7.d"]
       - hipaa: ["164.312.b"]
+       tsc: ["A1.2"]
     condition: all
     rules:
       - 'c:yum check-update --security -> r:No packages needed for security'
@@ -860,7 +899,7 @@ checks:
 # 2.1 inetd Services
 ###############################################
 # 2.1.1 Disable chargen services (Scored)
-  - id: 5550 
+  - id: 5551 
     title: "Ensure chargen services are not enabled"
     description: "chargen is a network service that responds with 0 to 512 ASCII characters for each connection it receives. This service is intended for debugging and testing purposes. It is recommended that this service be disabled."
     rationale: "Disabling this service will reduce the remote attack surface of the system."
@@ -873,13 +912,14 @@ checks:
       - gpg_13: ["4.3"]
       - gdpr_IV: ["35.7.d"]
       - hipaa: ["164.312.b"]
+      - tsc: ["CC5.2"]
     condition: none
     rules:
       - 'c:chkconfig --list -> r:^\s*\t*chargen-dgram:\s*\t*on'
       - 'c:chkconfig --list -> r:^\s*\t*chargen-stream:\s*\t*on'
 
 # 2.1.2 Disable daytime services (Scored)
-  - id: 5551 
+  - id: 5552 
     title: "Ensure daytime services are not enabled"
     description: "daytime is a network service that responds with the server's current date and time. This service is intended for debugging and testing purposes. It is recommended that this service be disabled."
     rationale: "Disabling this service will reduce the remote attack surface of the system."
@@ -892,13 +932,14 @@ checks:
       - gpg_13: ["4.3"]
       - gdpr_IV: ["35.7.d"]
       - hipaa: ["164.312.b"]
+      - tsc: ["CC5.2"]
     condition: none
     rules:
       - 'c:chkconfig --list -> r:^\s*\t*daytime-dgram:\s*\t*on'
       - 'c:chkconfig --list -> r:^\s*\t*daytime-stream:\s*\t*on'
 
 # 2.1.3 Disable discard services (Scored)
-  - id: 5552 
+  - id: 5553 
     title: "Ensure discard services are not enabled"
     description: "discardis a network service that simply discards all data it receives. This service is intended for debugging and testing purposes. It is recommended that this service be disabled."
     rationale: "Disabling this service will reduce the remote attack surface of the system."
@@ -911,13 +952,14 @@ checks:
       - gpg_13: ["4.3"]
       - gdpr_IV: ["35.7.d"]
       - hipaa: ["164.312.b"]
+      - tsc: ["CC5.2"]
     condition: none
     rules:
       - 'c:chkconfig --list -> r:^\s*\t*discard-dgram:\s*\t*on'
       - 'c:chkconfig --list -> r:^\s*\t*discard-stream:\s*\t*on'
 
 # 2.1.4 Disable echo-dgram (Scored)
-  - id: 5553 
+  - id: 5554 
     title: "Ensure echo services are not enabled"
     description: "echo is a network service that responds to clients with the data sent to it by the client. This service is intended for debugging and testing purposes. It is recommended that this service be disabled."
     rationale: "Disabling this service will reduce the remote attack surface of the system."
@@ -930,13 +972,14 @@ checks:
       - gpg_13: ["4.3"]
       - gdpr_IV: ["35.7.d"]
       - hipaa: ["164.312.b"]
+      - tsc: ["CC5.2"]
     condition: none
     rules:
       - 'c:chkconfig --list -> r:^\s*\t*echo-dgram:\s*\t*on'
       - 'c:chkconfig --list -> r:^\s*\t*echo-stream:\s*\t*on'
 
 # 2.1.5 Disable time-stream (Scored)
-  - id: 5554 
+  - id: 5555 
     title: "Ensure time services are not enabled"
     description: "time is a network service that responds with the server's current date and time as a 32 bit integer. This service is intended for debugging and testing purposes. It is recommended that this service be disabled."
     rationale: "Disabling this service will reduce the remote attack surface of the system."
@@ -949,13 +992,14 @@ checks:
       - gpg_13: ["4.3"]
       - gdpr_IV: ["35.7.d"]
       - hipaa: ["164.312.b"]
+      - tsc: ["CC5.2"]
     condition: none
     rules:
       - 'c:chkconfig --list -> r:^\s*\t*time-dgram:\s*\t*on'
       - 'c:chkconfig --list -> r:^\s*\t*time-stream:\s*\t*on'
 
 # 2.1.6 Remove rsh-server (Scored)
-  - id: 5575 
+  - id: 5556 
     title: "Ensure rsh server is not enabled"
     description: "The Berkeley rsh-server ( rsh , rlogin , rexec ) package contains legacy services that exchange credentials in clear-text."
     rationale: "These legacy services contain numerous security exposures and have been replaced with the more secure SSH package."
@@ -968,6 +1012,7 @@ checks:
       - gpg_13: ["4.3"]
       - gdpr_IV: ["35.7.d"]
       - hipaa: ["164.312.b"]
+      - tsc: ["CC5.2"]
     condition: none
     rules:
       - 'c:chkconfig --list -> r:^\s*\t*rexec:\s*\t*on'
@@ -976,7 +1021,7 @@ checks:
 
 
 # 2.1.7 Remove talk server (Scored)
-  - id: 5576 
+  - id: 5557 
     title: "Ensure talk server is not enabled"
     description: "The talk software makes it possible for users to send and receive messages across systems through a terminal session. The talk client (allows initiate of talk sessions) is installed by default."
     rationale: "The software presents a security risk as it uses unencrypted protocols for communication."
@@ -989,12 +1034,13 @@ checks:
       - gpg_13: ["4.3"]
       - gdpr_IV: ["35.7.d"]
       - hipaa: ["164.312.b"]
+      - tsc: ["CC5.2"]
     condition: none
     rules:
       - 'c:chkconfig --list -> r:^\s*\t*talk:\s*\t*on'
 
 # 2.1.8 Remove telnet-server (Scored)
-  - id: 5577 
+  - id: 5558 
     title: "Ensure telnet server is not enabled"
     description: "The telnet-server package contains the telnet daemon, which accepts connections from users from other systems via the telnet protocol."
     rationale: "The telnet protocol is insecure and unencrypted. The use of an unencrypted transmission medium could allow a user with access to sniff network traffic the ability to steal credentials. The ssh package provides an encrypted session and stronger security."
@@ -1007,12 +1053,13 @@ checks:
       - gpg_13: ["4.3"]
       - gdpr_IV: ["35.7.d"]
       - hipaa: ["164.312.b"]
+      - tsc: ["CC5.2"]
     condition: none
     rules:
       - 'c:chkconfig --list -> r:^\s*\t*telnet:\s*\t*on'
 
 # 2.1.9 Ensure tftp server is not enabled (Scored)
-  - id: 5555 
+  - id: 5559 
     title: "Ensure tftp server is not enabled"
     description: "Trivial File Transfer Protocol (TFTP) is a simple file transfer protocol, typically used to automatically transfer configuration or boot machines from a boot server. The package tftp-server is used to define and support a TFTP server."
     rationale: "TFTP does not support authentication nor does it ensure the confidentiality or integrity of data. It is recommended that TFTP be removed, unless there is a specific need for TFTP. In that case, extreme caution must be used when configuring the services."
@@ -1025,12 +1072,13 @@ checks:
       - gpg_13: ["4.3"]
       - gdpr_IV: ["35.7.d"]
       - hipaa: ["164.312.b"]
+      - tsc: ["CC5.2"]
     condition: none
     rules:
       - 'c:chkconfig --list -> r:^\s*\t*tftp:\s*\t*on'
 
 # 2.1.10 Remove rsync service (Scored)
-  - id: 5579 
+  - id: 5560 
     title: "Ensure rsync service is not enabled"
     description: "The rsyncd service can be used to synchronize files between systems over network links."
     rationale: "The rsyncd service presents a security risk as it uses unencrypted protocols for communication."
@@ -1043,12 +1091,13 @@ checks:
       - gpg_13: ["4.3"]
       - gdpr_IV: ["35.7.d"]
       - hipaa: ["164.312.b"]
+      - tsc: ["CC5.2"]
     condition: none
     rules:
       - 'c:chkconfig --list -> r:^\s*\t*rsync:\s*\t*on'
 
 # 2.1.11 Remove xinetd (Scored)
-  - id: 5556 
+  - id: 5561 
     title: "Ensure xinetd is not enabled"
     description: "The eXtended InterNET Daemon ( xinetd ) is an open source super daemon that replaced the original inetd daemon. The xinetd daemon listens for well known services and dispatches the appropriate daemon to properly respond to service requests."
     rationale: "If there are no xinetd services required, it is recommended that the daemon be disabled."
@@ -1061,6 +1110,7 @@ checks:
       - gpg_13: ["4.3"]
       - gdpr_IV: ["35.7.d"]
       - hipaa: ["164.312.b"]
+      - tsc: ["CC5.2"]
     condition: none
     rules:
       - 'c:chkconfig --list -> r:^\s*\t*xinetd\.*on'
@@ -1071,7 +1121,7 @@ checks:
 ###############################################
 
 # 2.2.1.1 Ensure time synchronization is in use (Not Scored)
-  - id: 5557 
+  - id: 5562 
     title: "Ensure time synchronization is in use"
     description: "System time should be synchronized between all systems in an environment. This is typically done by establishing an authoritative time server or set of servers and having all systems synchronize their clocks to them."
     rationale: "Time synchronization is important to support time sensitive security mechanisms like Kerberos and also ensures log files have consistent time records across the enterprise, which aids in forensic investigations."
@@ -1081,13 +1131,14 @@ checks:
       - cis_csc: ["6.1"]
       - pci_dss: ["10.4"]
       - nist_800_53: ["AU.8"]
+      - tsc: ["CC6.1","CC6.8","CC7.2","CC7.3","CC7.4"]
     condition: any
     rules:
       - 'not c:rpm -q ntp -> r:^package ntp is not installed'
       - 'not c:rpm -q chrony -> r:^package chrony is not installed'
 
 # 2.2.1.2 Configure Network Time Protocol (NTP) (Scored)
-  - id: 5558 
+  - id: 5563 
     title: "Ensure ntp is configured"
     description: "ntp is a daemon which implements the Network Time Protocol (NTP). It is designed to synchronize system clocks across a variety of systems and use a source that is highly accurate. More information on NTP can be found at https://www.ntp.org. ntp can be configured to be a client and/or a server."
     rationale: "If ntp is in use on the system proper configuration is vital to ensuring time synchronization is working properly."
@@ -1097,6 +1148,7 @@ checks:
       - cis_csc: ["6.1"]
       - pci_dss: ["2.2.2"]
       - nist_800_53: ["CM.1"]
+      - tsc: ["CC5.2"]
     condition: all
     rules:
       - 'f:/etc/ntp.conf -> r:^restrict\s+-4\s+default|^restrict\s+default && r:\s+kod\s+ && r:\s+nomodify\s+ && r:\s+notrap\s+ && r:\s+nopeer\s+ && r:\s+noquery'
@@ -1105,7 +1157,7 @@ checks:
       - 'f:/etc/sysconfig/ntpd -> r:^OPTIONS\s*=\s* && r:-u ntp:ntp'
 
 # 2.2.1.3 Configure Network Time Protocol (Chrony) (Scored)
-  - id: 5559 
+  - id: 5564 
     title: "Ensure chrony is configured"
     description: "chrony is a daemon which implements the Network Time Protocol (NTP). It is designed to synchronize system clocks across a variety of systems and use a source that is highly accurate. More information on NTP can be found at https://www.ntp.org. ntp can be configured to be a client and/or a server."
     rationale: "If chrony is in use on the system proper configuration is vital to ensuring time synchronization is working properly."
@@ -1115,13 +1167,14 @@ checks:
       - cis_csc: ["6.1"]
       - pci_dss: ["2.2.2"]
       - nist_800_53: ["CM.1"]
+      - tsc: ["CC5.2"]
     condition: all
     rules:
       - 'f:/etc/chrony.conf -> r:^server\.+$|^pool\.+$'
       - 'f:/etc/sysconfig/chronyd -> r:^OPTIONS\s*=\s* && r:-u chrony'
 
 # 2.2.2 Remove X Windows (Scored)
-  - id: 5560 
+  - id: 5565 
     title: "Ensure X Window System is not installed"
     description: "The X Window System provides a Graphical User Interface (GUI) where users can have multiple windows in which to run programs and various add on. The X Windows system is typically used on workstations where users login, but not on servers where users typically do not login."
     rationale: "Unless your organization specifically requires graphical login access via X Windows, remove it to reduce the potential attack surface."
@@ -1131,12 +1184,13 @@ checks:
       - cis_csc: ["2"]
       - pci_dss: ["2.2.2"]
       - nist_800_53: ["CM.1"]
+      - tsc: ["CC5.2"]
     condition: none
     rules:
       - 'c:rpm -qa xorg-x11* -> r:^xorg-x11'
 
 # 2.2.3 Disable Avahi Server (Scored)
-  - id: 5561 
+  - id: 5566 
     title: "Ensure Avahi Server is not enabled"
     description: "Avahi is a free zeroconf implementation, including a system for multicast DNS/DNS-SD service discovery. Avahi allows programs to publish and discover services and hosts running on a local network with no specific configuration. For example, a user can plug a computer into a network and Avahi automatically finds printers to print to, files to look at and people to talk to, as well as network services running on the machine."
     rationale: "Automatic discovery of network services is not normally required for system functionality. It is recommended to disable the service to reduce the potential attack surface."
@@ -1146,12 +1200,13 @@ checks:
       - cis_csc: ["9.1"]
       - pci_dss: ["2.2.2"]
       - nist_800_53: ["CM.1"]
+      - tsc: ["CC5.2"]
     condition: none
     rules:
       - 'c:chkconfig --list -> r:^\s*\t*avahi-daemon\.*on'
 
 # 2.2.4 Ensure CUPS is not enabled (Scored)
-  - id: 5562 
+  - id: 5567 
     title: "Ensure CUPS is not enabled"
     description: "The Common Unix Print System (CUPS) provides the ability to print to both local and network printers. A system running CUPS can also accept print jobs from remote systems and print them to local printers. It also provides a web based remote administration capability."
     rationale: "If the system does not need to print jobs or accept print jobs from other systems, it is recommended that CUPS be disabled to reduce the potential attack surface."
@@ -1161,12 +1216,13 @@ checks:
       - cis_csc: ["9.1"]
       - pci_dss: ["2.2.2"]
       - nist_800_53: ["CM.1"]
+      - tsc: ["CC5.2"]
     condition: none
     rules:
       - 'c:chkconfig --list -> r:^\s*\t*cups\.*on'
 
 # 2.2.5 Remove DHCP Server (Scored)
-  - id: 5563 
+  - id: 5568 
     title: "Ensure DHCP Server is not enabled"
     description: "The Dynamic Host Configuration Protocol (DHCP) is a service that allows machines to be dynamically assigned IP addresses."
     rationale: "Unless a system is specifically set up to act as a DHCP server, it is recommended that this service be disabled to reduce the potential attack surface."
@@ -1176,6 +1232,7 @@ checks:
       - cis_csc: ["9.1"]
       - pci_dss: ["2.2.2"]
       - nist_800_53: ["CM.1"]
+      - tsc: ["CC5.2"]
     references:
       - More detailed documentation on DHCP is available at https://www.isc.org/software/dhcp
     condition: none
@@ -1183,7 +1240,7 @@ checks:
       - 'c:chkconfig --list -> r:^\s*\t*dhcpd\.*on'
 
 # 2.2.6 Remove LDAP Server (Scored)
-  - id: 5564 
+  - id: 5569 
     title: "Ensure LDAP Server is not enabled"
     description: "The Lightweight Directory Access Protocol (LDAP) was introduced as a replacement for NIS/YP. It is a service that provides a method for looking up information from a central database."
     rationale: "If the system will not need to act as an LDAP server, it is recommended that the software be disabled to reduce the potential attack surface."
@@ -1193,6 +1250,7 @@ checks:
       - cis_csc: ["9.1"]
       - pci_dss: ["2.2.2"]
       - nist_800_53: ["CM.1"]
+      - tsc: ["CC5.2"]
     references:
       - More detailed documentation on OpenLDAP is available at https://www.openldap.org
     condition: none
@@ -1202,7 +1260,7 @@ checks:
 
 
 # 2.2.7 Disable NFS and RPC (Scored)
-  - id: 5565 
+  - id: 5570 
     title: "Ensure NFS and RPC are not enabled"
     description: "The Network File System (NFS) is one of the first and most widely distributed file systems in the UNIX environment. It provides the ability for systems to mount file systems of other servers through the network."
     rationale: "If the system does not export NFS shares or act as an NFS client, it is recommended that these services be disabled to reduce remote attack surface."
@@ -1212,13 +1270,14 @@ checks:
       - cis_csc: ["9.1"]
       - pci_dss: ["2.2.2"]
       - nist_800_53: ["CM.1"]
+      - tsc: ["CC5.2"]
     condition: none
     rules:
       - 'c:chkconfig --list -> r:^\s*\t*nfs\.*on'
       - 'c:chkconfig --list -> r:^\s*\t*rpcbind\.*on'
 
 # 2.2.8 Ensure DNS Server is not enabled (Scored)
-  - id: 5566 
+  - id: 5571 
     title: "Ensure DNS Server is not enabled"
     description: "The Domain Name System (DNS) is a hierarchical naming system that maps names to IP addresses for computers, services and other resources connected to a network."
     rationale: "Unless a system is specifically designated to act as a DNS server, it is recommended that the service be disabled to reduce the potential attack surface."
@@ -1228,12 +1287,13 @@ checks:
       - cis_csc: ["9.1"]
       - pci_dss: ["2.2.2"]
       - nist_800_53: ["CM.1"]
+      - tsc: ["CC5.2"]
     condition: none
     rules:
       - 'c:chkconfig --list -> r:^\s*\t*named\.*on'
 
 # 2.2.9 Remove FTP Server (Scored)
-  - id: 5567 
+  - id: 5572 
     title: "Ensure FTP Server is not enabled"
     description: "The File Transfer Protocol (FTP) provides networked computers with the ability to transfer files."
     rationale: "FTP does not protect the confidentiality of data or authentication credentials. It is recommended sftp be used if file transfer is required. Unless there is a need to run the system as a FTP server (for example, to allow anonymous downloads), it is recommended that the service be disabled to reduce the potential attack surface."
@@ -1243,12 +1303,13 @@ checks:
       - cis_csc: ["9.1"]
       - pci_dss: ["2.2.2"]
       - nist_800_53: ["CM.1"]
+      - tsc: ["CC5.2"]
     condition: none
     rules:
       - 'c:chkconfig --list -> r:^\s*\t*vsftpd\.*on'
 
 # 2.2.10 Remove HTTP Server (Scored)
-  - id: 5568 
+  - id: 5573 
     title: "Ensure HTTP server is not enabled"
     description: "HTTP or web servers provide the ability to host web site content."
     rationale: "Unless there is a need to run the system as a web server, it is recommended that the service be disabled to reduce the potential attack surface."
@@ -1258,12 +1319,13 @@ checks:
       - cis_csc: ["9.1"]
       - pci_dss: ["2.2.2"]
       - nist_800_53: ["CM.1"]
+      - tsc: ["CC5.2"]
     condition: none
     rules:
       - 'c:chkconfig --list -> r:^\s*\t*httpd\.*on'
 
 # 2.2.11 Remove Dovecot (IMAP and POP3 services) (Scored)
-  - id: 5569 
+  - id: 5574 
     title: "Ensure IMAP and POP3 server is not enabled"
     description: "dovecot is an open source IMAP and POP3 server for Linux based systems."
     rationale: "Unless POP3 and/or IMAP servers are to be provided by this system, it is recommended that the service be disabled to reduce the potential attack surface."
@@ -1273,12 +1335,13 @@ checks:
       - cis_csc: ["9.1"]
       - pci_dss: ["2.2.2"]
       - nist_800_53: ["CM.1"]
+      - tsc: ["CC5.2"]
     condition: none
     rules:
       - 'c:chkconfig --list -> r:^\s*\t*dovecot\.*on'
 
 # 2.2.12 Remove Samba (Scored)
-  - id: 5570 
+  - id: 5575 
     title: "Ensure Samba is not enabled"
     description: "The Samba daemon allows system administrators to configure their Linux systems to share file systems and directories with Windows desktops. Samba will advertise the file systems and directories via the Small Message Block (SMB) protocol. Windows desktop users will be able to mount these directories and file systems as letter drives on their systems."
     rationale: "If there is no need to mount directories and file systems to Windows systems, then this service can be disabled to reduce the potential attack surface."
@@ -1288,12 +1351,13 @@ checks:
       - cis_csc: ["9.1"]
       - pci_dss: ["2.2.2"]
       - nist_800_53: ["CM.1"]
+      - tsc: ["CC5.2"]
     condition: none
     rules:
       - 'c:chkconfig --list -> r:^\s*\t*smb\.*on'
 
 # 2.2.13 Remove HTTP Proxy Server (Scored)
-  - id: 5571 
+  - id: 5576 
     title: "Ensure HTTP Proxy Server is not enabled"
     description: "Squid is a standard proxy server used in many distributions and environments."
     rationale: "If there is no need for a proxy server, it is recommended that the squid proxy be disabled to reduce the potential attack surface."
@@ -1303,12 +1367,13 @@ checks:
       - cis_csc: ["9.1"]
       - pci_dss: ["2.2.2"]
       - nist_800_53: ["CM.1"]
+      - tsc: ["CC5.2"]
     condition: none
     rules:
       - 'c:chkconfig --list -> r:^\s*\t*squid\.*on'
 
 # 2.2.14 Remove SNMP Server (Not Scored)
-  - id: 5572 
+  - id: 5577 
     title: "Ensure SNMP Server is not enabled"
     description: "The Simple Network Management Protocol (SNMP) server is used to listen for SNMP commands from an SNMP management system, execute the commands or collect the information and then send results back to the requesting system."
     rationale: "The SNMP server can communicate using SNMP v1, which transmits data in the clear and does not require authentication to execute commands. Unless absolutely necessary, it is recommended that the SNMP service not be used. If SNMP is required the server should be configured to disallow SNMP v1."
@@ -1318,12 +1383,13 @@ checks:
       - cis_csc: ["9.1"]
       - pci_dss: ["2.2.2"]
       - nist_800_53: ["CM.1"]
+      - tsc: ["CC5.2"]
     condition: none
     rules:
       - 'c:chkconfig --list -> r:^\s*\t*snmpd\.*on'
 
 # 2.2.15 Ensure mail transfer agent is configured for local-only mode (Scored)
-  - id: 5573 
+  - id: 5578 
     title: "Ensure mail transfer agent is configured for local-only mode"
     description: "Mail Transfer Agents (MTA), such as sendmail and Postfix, are used to listen for incoming mail and transfer the messages to the appropriate user or mail server. If the system is not intended to be a mail server, it is recommended that the MTA be configured to only process local mail."
     rationale: "Mail Transfer Agents (MTA), such as sendmail and Postfix, are used to listen for incoming mail and transfer the messages to the appropriate user or mail server. If the system is not intended to be a mail server, it is recommended that the MTA be configured to only process local mail."
@@ -1333,12 +1399,13 @@ checks:
       - cis_csc: ["9.1"]
       - pci_dss: ["2.2.2"]
       - nist_800_53: ["CM.1","AC.4","SC.7"]
+      - tsc: ["CC5.2","CC6.4","CC6.6","CC6.7"]
     condition: none
     rules:
       - 'c:netstat -an -> r:\.*:25\.*LISTEN && !r:127.0.0.1:25\.+LISTEN|::1:25\.*LISTEN'
 
 # 2.2.16 Remove NIS Server (Scored)
-  - id: 5574 
+  - id: 5579 
     title: "Ensure NIS Server is not enabled"
     description: "The Network Information Service (NIS) (formally known as Yellow Pages) is a client-server directory service protocol for distributing system configuration files. The NIS server is a collection of programs that allow for the distribution of configuration files."
     rationale: "The NIS service is inherently an insecure system that has been vulnerable to DOS attacks, buffer overflows and has poor authentication for querying NIS maps. NIS generally been replaced by such protocols as Lightweight Directory Access Protocol (LDAP). It is recommended that the service be disabled and other, more secure services be used"
@@ -1351,6 +1418,7 @@ checks:
       - gpg_13: ["4.3"]
       - gdpr_IV: ["35.7.d"]
       - hipaa: ["164.312.b"]
+      - tsc: ["CC5.2"]
     condition: none
     rules:
       - 'c:chkconfig --list -> r:^\s*\t*ypserv\.*on'
@@ -1373,6 +1441,7 @@ checks:
       - gpg_13: ["4.3"]
       - gdpr_IV: ["35.7.d"]
       - hipaa: ["164.312.b"]
+      - tsc: ["CC5.2"]
     condition: none
     rules:
       - 'c:rpm -qa ypbind -> r:ypbind'
@@ -1391,6 +1460,7 @@ checks:
       - gpg_13: ["4.3"]
       - gdpr_IV: ["35.7.d"]
       - hipaa: ["164.312.b"]
+      - tsc: ["CC5.2"]
     condition: all
     rules:
       - 'c:rpm -q rsh -> r:^package rsh is not installed'
@@ -1409,6 +1479,7 @@ checks:
       - gpg_13: ["4.3"]
       - gdpr_IV: ["35.7.d"]
       - hipaa: ["164.312.b"]
+      - tsc: ["CC5.2"]
     condition: all
     rules:
       - 'c:rpm -q talk -> r:^package talk is not installed'
@@ -1427,6 +1498,7 @@ checks:
       - gpg_13: ["4.3"]
       - gdpr_IV: ["35.7.d"]
       - hipaa: ["164.312.b"]
+      - tsc: ["CC5.2"]
     condition: all
     rules:
       - 'c:rpm -q telnet -> r:^package telnet is not installed'
@@ -1445,6 +1517,7 @@ checks:
       - gpg_13: ["4.3"]
       - gdpr_IV: ["35.7.d"]
       - hipaa: ["164.312.b"]
+      - tsc: ["CC5.2"]
     condition: all
     rules:
       - 'c:rpm -q openldap-clients -> r:^package openldap-clients is not installed'
@@ -1468,6 +1541,7 @@ checks:
       - cis_csc: ["3", "11"]
       - pci_dss: ["2.2.4"]
       - nist_800_53: ["CM.1"]
+      - tsc: ["CC5.2"]
     condition: all
     rules:
       - 'c:sysctl net.ipv4.ip_forward -> r:^net.ipv4.ip_forward\s*=\s*0$'
@@ -1484,6 +1558,7 @@ checks:
       - cis_csc: ["3", "11"]
       - pci_dss: ["2.2.4"]
       - nist_800_53: ["CM.1"]
+      - tsc: ["CC5.2"]
     condition: all
     rules:
       - 'c:sysctl net.ipv4.conf.all.send_redirects -> r:^net.ipv4.conf.all.send_redirects\s*=\s*0$'
@@ -1505,6 +1580,7 @@ checks:
       - cis_csc: ["3", "11"]
       - pci_dss: ["2.2.4"]
       - nist_800_53: ["CM.1"]
+      - tsc: ["CC5.2"]
     condition: all
     rules:
       - 'c:sysctl net.ipv4.conf.all.accept_source_route -> r:^net.ipv4.conf.all.accept_source_route\s*=\s*0$'
@@ -1523,6 +1599,7 @@ checks:
       - cis_csc: ["3", "11"]
       - pci_dss: ["2.2.4"]
       - nist_800_53: ["CM.1"]
+      - tsc: ["CC5.2"]
     condition: all
     rules:
       - 'c:sysctl net.ipv4.conf.all.accept_redirects -> r:^net.ipv4.conf.all.accept_redirects\s*=\s*0$'
@@ -1541,6 +1618,7 @@ checks:
       - cis_csc: ["3", "11"]
       - pci_dss: ["2.2.4"]
       - nist_800_53: ["CM.1"]
+      - tsc: ["CC5.2"]
     condition: all
     rules:
       - 'c:sysctl net.ipv4.conf.all.secure_redirects -> r:^net.ipv4.conf.all.secure_redirects\s*=\s*0$'
@@ -1559,6 +1637,7 @@ checks:
       - cis_csc: ["6"]
       - pci_dss: ["2.2.4"]
       - nist_800_53: ["CM.1"]
+      - tsc: ["CC5.2"]
     condition: all
     rules:
       - 'c:sysctl net.ipv4.conf.all.log_martians -> r:^net.ipv4.conf.all.log_martians\s*=\s*1$'
@@ -1577,6 +1656,7 @@ checks:
       - cis_csc: ["3", "11"]
       - pci_dss: ["2.2.4"]
       - nist_800_53: ["CM.1"]
+      - tsc: ["CC5.2"]
     condition: all
     rules:
       - 'c:sysctl net.ipv4.icmp_echo_ignore_broadcasts -> r:^net.ipv4.icmp_echo_ignore_broadcasts\s*=\s*1$'
@@ -1593,6 +1673,7 @@ checks:
       - cis_csc: ["3", "11"]
       - pci_dss: ["2.2.4"]
       - nist_800_53: ["CM.1"]
+      - tsc: ["CC5.2"]
     condition: all
     rules:
       - 'c:sysctl net.ipv4.icmp_ignore_bogus_error_responses -> r:^net.ipv4.icmp_ignore_bogus_error_responses\s*=\s*1$'
@@ -1609,6 +1690,7 @@ checks:
       - cis_csc: ["3", "11"]
       - pci_dss: ["2.2.4"]
       - nist_800_53: ["CM.1"]
+      - tsc: ["CC5.2"]
     condition: all
     rules:
       - 'c:sysctl net.ipv4.conf.all.rp_filter -> r:^net.ipv4.conf.all.rp_filter\s*=\s*1$'
@@ -1627,6 +1709,7 @@ checks:
       - cis_csc: ["3", "11"]
       - pci_dss: ["2.2.4"]
       - nist_800_53: ["CM.1"]
+      - tsc: ["CC5.2"]
     condition: all
     rules:
       - 'c:sysctl net.ipv4.tcp_syncookies -> r:^net.ipv4.tcp_syncookies\s*=\s*1$'
@@ -1649,6 +1732,7 @@ checks:
       - gpg_13: ["4.3"]
       - gdpr_IV: ["35.7.d"]
       - hipaa: ["164.312.b"]
+      - tsc: ["CC5.2"]
     condition: all
     rules:
       - 'c:sysctl net.ipv6.conf.all.accept_ra -> r:^net.ipv6.conf.all.accept_ra\s*=\s*0$'
@@ -1671,6 +1755,7 @@ checks:
       - gpg_13: ["4.3"]
       - gdpr_IV: ["35.7.d"]
       - hipaa: ["164.312.b"]
+      - tsc: ["CC5.2"]
     condition: all
     rules:
       - 'c:sysctl net.ipv6.conf.all.accept_redirects -> r:^net.ipv6.conf.all.accept_redirects\s*=\s*0$'
@@ -1692,6 +1777,7 @@ checks:
       - gpg_13: ["4.3"]
       - gdpr_IV: ["35.7.d"]
       - hipaa: ["164.312.b"]
+      - tsc: ["CC5.2"]
     condition: none
     rules:
       - 'f:/boot/grub/grub.conf -> r:^\s*\t*linux && !r:ipv6.disable=1'
@@ -1754,6 +1840,8 @@ checks:
       - cis: ["3.4.5"]
       - cis_csc: ["5.1"]
       - pci_dss: ["2.2.4"]
+      - nist_800_53: ["CM.1"]
+      - tsc: ["CC5.2"]
     condition: all
     rules:
       - 'c:stat /etc/hosts.deny -> r:^Access: \(0644/-rw-r--r--\)  Uid: \(    0/    root\)   Gid: \(    0/    root\)$'
@@ -1777,6 +1865,7 @@ the potential attack surface."
       - gpg_13: ["4.3"]
       - gdpr_IV: ["35.7.d"]
       - hipaa: ["164.312.b"]
+      - tsc: ["CC5.2"]
     condition: all
     rules:
       - 'c:modprobe -n -v dccp -> r:install /bin/true'
@@ -1798,6 +1887,7 @@ the potential attack surface."
       - gpg_13: ["4.3"]
       - gdpr_IV: ["35.7.d"]
       - hipaa: ["164.312.b"]
+      - tsc: ["CC5.2"]
     condition: all
     rules:
       - 'c:modprobe -n -v sctp -> r:install /bin/true'
@@ -1818,6 +1908,7 @@ the potential attack surface."
       - gpg_13: ["4.3"]
       - gdpr_IV: ["35.7.d"]
       - hipaa: ["164.312.b"]
+      - tsc: ["CC5.2"]
     condition: all
     rules:
       - 'c:modprobe -n -v rds -> r:install /bin/true'
@@ -1838,6 +1929,7 @@ the potential attack surface."
       - gpg_13: ["4.3"]
       - gdpr_IV: ["35.7.d"]
       - hipaa: ["164.312.b"]
+      - tsc: ["CC5.2"]
     condition: all
     rules:
       - 'c:modprobe -n -v tipc -> r:install /bin/true'
@@ -1856,6 +1948,7 @@ the potential attack surface."
       - cis: ["3.6.1"]
       - cis_csc: ["9.2"]
       - pci_dss: ["1.1"]
+      - tsc: ["CC8.1"]
     condition: all
     rules:
       - 'c:rpm -q iptables -> r:iptables-'
@@ -1870,6 +1963,7 @@ the potential attack surface."
       - cis: ["3.6.2"]
       - cis_csc: ["9.2"]
       - pci_dss: ["1.2.1"]
+      - tsc: ["CC8.1"]
     condition: all
     rules:
       - 'c:iptables -L -> r:Chain INPUT \(policy DROP\)'
@@ -1886,6 +1980,7 @@ the potential attack surface."
       - cis: ["3.6.3"]
       - cis_csc: ["9.2"]
       - pci_dss: ["1.2.1"]
+      - tsc: ["CC8.1"]
     condition: all
     rules:
       - 'c:iptables -L INPUT -v -n -> r:\.*ACCEPT\.*all\.*lo\.**\.*0.0.0.0/0\.*0.0.0.0/0'
@@ -1954,6 +2049,7 @@ the potential attack surface."
       - cis: ["4.1.2"]
       - cis_csc: ["6.2"]
       - pci_dss: ["10.1","10.7"]
+      - tsc: ["CC6.1","CC6.2","CC6.3","CC7.2","CC7.3","CC7.4"]
     condition: all
     rules:
       - 'c:chkconfig --list auditd -> r:2:on && r:3:on && r:4:on && r:5:on'
@@ -1971,6 +2067,7 @@ the potential attack surface."
       - pci_dss: ["10.2.6","10.7"]
       - gpg_13: ["7.9"]
       - gdpr_IV: ["35.7.d","32.2"]
+      - tsc: ["CC6.1","CC6.8","CC7.2","CC7.3","CC7.4"]
     condition: none
     rules:
       - 'f:/boot/grub2/grub.cfg -> r:^\s*\t*linux && !r:audit=1'
@@ -1989,6 +2086,7 @@ the potential attack surface."
       - gpg_13: ["7.9"]
       - gdpr_IV: ["32.2","35.7.d"]
       - hipaa: ["164.312.b"]
+      - tsc: ["CC6.1","CC6.8","CC7.2","CC7.3","CC7.4"]
     condition: all
     rules:
       - 'f:/etc/audit/audit.rules -> r:-a always,exit -F arch=b32 -S adjtimex -S settimeofday -S stime -k time-change'
@@ -2009,6 +2107,7 @@ the potential attack surface."
       - nist_800_53: ["AU.14", "AC.7"]
       - gpg_13: ["7.8"]
       - gdpr_IV: ["35.7","32.2"]
+      - tsc: ["CC6.1","CC6.8","CC7.2","CC7.3","CC7.4"]
     condition: all
     rules:
       - 'f:/etc/audit/audit.rules -> -w /etc/group -p wa -k identity'
@@ -2031,6 +2130,7 @@ the potential attack surface."
       - gpg_13: ["7.9"]
       - gdpr_IV: ["32.2","35.7.d"]
       - hipaa: ["164.312.b"]
+      - tsc: ["CC6.1","CC6.8","CC7.2","CC7.3","CC7.4"]
     condition: all
     rules:
       - 'f:/etc/audit/audit.rules -> r:-a always,exit -F arch=b32 -S sethostname -S setdomainname -k system-locale'
@@ -2054,6 +2154,7 @@ the potential attack surface."
       - nist_800_53: ["AU.14", "AC.7"]
       - gpg_13: ["7.8"]
       - gdpr_IV: ["35.7","32.2"]
+      - tsc: ["CC6.1","CC6.8","CC7.2","CC7.3","CC7.4"]
     condition: all
     rules:
       - 'f:/etc/audit/audit.rules -> r:-w /etc/selinux/ -p wa -k MAC-policy'
@@ -2073,6 +2174,7 @@ the potential attack surface."
       - gpg_13: ["7.8"]
       - gdpr_IV: ["32.2","35.7.d"]
       - hipaa: ["164.312.b"]
+      - tsc: ["CC6.1","CC6.8","CC7.2","CC7.3","CC7.4"]
     condition: all
     rules:
       - 'f:/etc/audit/audit.rules -> r:-w /var/log/lastlog -p wa -k logins'
@@ -2109,7 +2211,7 @@ the potential attack surface."
       - nist_800_53: ["AU.14", "AC.7"]
       - gpg_13: ["7.8"]
       - gdpr_IV: ["35.7","32.2"]
-
+      - tsc: ["CC6.1","CC6.8","CC7.2","CC7.3","CC7.4"]
     condition: all
     rules:
       - 'f:/etc/audit/audit.rules -> -a always,exit -F arch=b32 -S chmod -S fchmod -S fchmodat -F auid>=1000 -F auid!=4294967295 -k perm_mod'
@@ -2130,6 +2232,7 @@ the potential attack surface."
       - gpg_13: ["7.8"]
       - gdpr_IV: ["32.2","35.7.d"]
       - hipaa: ["164.312.b"]
+      - tsc: ["CC6.1","CC6.8","CC7.2","CC7.3","CC7.4"]
     condition: all
     rules:
       - 'f:/etc/audit/audit.rules -> -a always,exit -F arch=b32 -S creat -S open -S openat -S truncate -S ftruncate -F exit=-EACCES -F auid>=1000 -F auid!=4294967295 -k access'
@@ -2149,6 +2252,7 @@ the potential attack surface."
       - gpg_13: ["7.9"]
       - gdpr_IV: ["32.2","35.7.d"]
       - hipaa: ["164.312.b"]
+      - tsc: ["CC6.1","CC6.8","CC7.2","CC7.3","CC7.4"]
     condition: all
     rules:
       - 'f:/etc/audit/audit.rules -> -a always,exit -F arch=b32 -S mount -F auid>=1000 -F auid!=4294967295 -k mounts'
@@ -2163,6 +2267,7 @@ the potential attack surface."
     compliance:
       - cis: ["4.1.14"]
       - pci_dss: ["10.5.5"]
+      - tsc: ["PI1.4","PI1.5","CC7.1","CC7.2","CC7.3","CC8.1"]
     condition: all
     rules:
       - 'f:/etc/audit/audit.rules -> -a always,exit -F arch=b32 -S unlink -S unlinkat -S rename -S renameat -F auid>=1000 -F auid!=4294967295 -k delete'
@@ -2181,6 +2286,7 @@ the potential attack surface."
       - nist_800_53: ["AU.14", "AC.7"]
       - gpg_13: ["7.8"]
       - gdpr_IV: ["35.7","32.2"]
+      - tsc: ["CC6.1","CC6.8","CC7.2","CC7.3","CC7.4"]
     condition: all
     rules:
       - 'f:/etc/audit/audit.rules -> -w /etc/sudoers -p wa -k scope'
@@ -2200,6 +2306,7 @@ the potential attack surface."
       - gpg_13: ["7.8"]
       - gdpr_IV: ["32.2","35.7.d"]
       - hipaa: ["164.312.b"]
+      - tsc: ["CC6.1","CC6.8","CC7.2","CC7.3","CC7.4"]
     condition: all
     rules:
       - 'f:/etc/audit/audit.rules -> -w /var/log/sudo.log -p wa -k actions'
@@ -2218,6 +2325,7 @@ the potential attack surface."
       - gpg_13: ["7.9"]
       - gdpr_IV: ["32.2","35.7.d"]
       - hipaa: ["164.312.b"]
+      - tsc: ["CC6.1","CC6.8","CC7.2","CC7.3","CC7.4"]
     condition: all
     rules:
       - 'f:/etc/audit/audit.rules -> -w /sbin/insmod -p x -k modules'
@@ -2368,6 +2476,7 @@ the potential attack surface."
       - cis_csc: ["6"]
       - pci_dss: ["2.2.4"]
       - nist_800_53: ["CM.1"]
+      - tsc: ["CC5.2"]
     condition: all
     rules:
       - 'c:chkconfig --list crond -> r:2:on && r:3:on && r:4:on && r:5:on'
@@ -2382,10 +2491,8 @@ the potential attack surface."
       - cis: ["5.1.2"]
       - cis_csc: ["5.1"]
       - pci_dss: ["2.2.4"]
-      - hipaa: ["164.312.b"]
-      - nist_800_53: ["AU.14", "AC.7"]
-      - gpg_13: ["7.8"]
-      - gdpr_IV: ["35.7","32.2"]
+      - nist_800_53: ["CM.1"]
+      - tsc: ["CC5.2"]
     condition: all
     rules:
       - 'c:stat /etc/crontab -> r:^Access: \(0600/-rw-------\)  Uid: \(    0/    root\)   Gid: \(    0/    root\)$'
@@ -2401,7 +2508,7 @@ the potential attack surface."
       - cis_csc: ["5.1"]
       - pci_dss: ["2.2.4"]
       - nist_800_53: ["CM.1"]
-
+      - tsc: ["CC5.2"]
     condition: all
     rules:
       - 'c:stat /etc/cron.hourly -> r:^Access: \(0700/drwx------\)  Uid: \(    0/    root\)   Gid: \(    0/    root\)$'
@@ -2417,6 +2524,7 @@ the potential attack surface."
       - cis_csc: ["5.1"]
       - pci_dss: ["2.2.4"]
       - nist_800_53: ["CM.1"]
+      - tsc: ["CC5.2"]
     condition: all
     rules:
       - 'c:stat /etc/cron.daily -> r:^Access: \(0700/drwx------\)  Uid: \(    0/    root\)   Gid: \(    0/    root\)$'
@@ -2432,6 +2540,7 @@ the potential attack surface."
       - cis_csc: ["5.1"]
       - pci_dss: ["2.2.4"]
       - nist_800_53: ["CM.1"]
+      - tsc: ["CC5.2"]
     condition: all
     rules:
       - 'c:stat /etc/cron.weekly -> r:^Access: \(0700/drwx------\)  Uid: \(    0/    root\)   Gid: \(    0/    root\)$'
@@ -2448,6 +2557,7 @@ the potential attack surface."
       - cis_csc: ["5.1"]
       - pci_dss: ["2.2.4"]
       - nist_800_53: ["CM.1"]
+      - tsc: ["CC5.2"]
     condition: all
     rules:
       - 'c:stat /etc/cron.monthly -> r:^Access: \(0700/drwx------\)  Uid: \(    0/    root\)   Gid: \(    0/    root\)$'
@@ -2463,6 +2573,7 @@ the potential attack surface."
       - cis_csc: ["5.1"]
       - pci_dss: ["2.2.4"]
       - nist_800_53: ["CM.1"]
+      - tsc: ["CC5.2"]
     condition: all
     rules:
       - 'c:stat /etc/cron.d -> r:^Access: \(0700/drwx------\)  Uid: \(    0/    root\)   Gid: \(    0/    root\)$'
@@ -2478,6 +2589,7 @@ the potential attack surface."
       - cis_csc: ["16"]
       - pci_dss: ["2.2.4"]
       - nist_800_53: ["CM.1"]
+      - tsc: ["CC5.2"]
     condition: all
     rules:
       - 'c:stat /etc/cron.deny -> r:No such file or directory$'
@@ -2499,12 +2611,13 @@ the potential attack surface."
       - cis_csc: ["5.1"]
       - pci_dss: ["2.2.4"]
       - nist_800_53: ["CM.1"]
+      - tsc: ["CC5.2"]
     condition: all
     rules:
       - 'c:stat /etc/ssh/sshd_config -> r:^Access: \(0600/-rw-------\)  Uid: \(    0/    root\)   Gid: \(    0/    root\)$'
 
 # 5.2.2 Set SSH Protocol to 2 (Scored)
-  - id: 5048
+  - id: 5645 
     title: "Ensure SSH Protocol is set to 2"
     description: "SSH supports two different and incompatible protocols: SSH1 and SSH2. SSH1 was the original protocol and was subject to security issues. SSH2 is more advanced and secure."
     rationale: "SSH v1 suffers from insecurities that do not affect SSH v2."
@@ -2515,12 +2628,13 @@ the potential attack surface."
       - pci_dss: ["4.1"]
       - hipaa: ["164.312.a.2.IV", "164.312.e.1", "164.312.e.2.I", "164.312.e.2.II"]
       - nist_800_53: ["SC.8"]
+      - tsc: ["CC6.1","CC6.7","CC7.2"]
     condition: all
     rules:
       - 'f:$sshd_file -> !r:^# && r:Protocol\s*\t*2'
 
 # 5.2.3 Set LogLevel to INFO (Scored)
-  - id: 5049
+  - id: 5646 
     title: "Ensure SSH LogLevel is set to INFO"
     description: "The INFO parameter specifies that login and logout activity will be logged."
     rationale: "SSH provides several logging levels with varying amounts of verbosity. DEBUG is specifically not recommended other than strictly for debugging SSH communications since it provides so much data that it is difficult to identify important security information."
@@ -2531,12 +2645,13 @@ the potential attack surface."
       - pci_dss: ["4.1"]
       - hipaa: ["164.312.a.2.IV", "164.312.e.1", "164.312.e.2.I", "164.312.e.2.II"]
       - nist_800_53: ["SC.8"]
+      - tsc: ["CC6.1","CC6.7","CC7.2"]
     condition: all
     rules:
       - 'f:$sshd_file -> !r:^# && r:LogLevel\s*\t*INFO'
 
 # 5.2.5 Set SSH MaxAuthTries to 4 or Less (Scored)
-  - id: 5050
+  - id: 5647 
     title: "Ensure SSH MaxAuthTries is set to 4 or less"
     description: "The MaxAuthTries parameter specifies the maximum number of authentication attempts permitted per connection. When the login failure count reaches half the number, error messages will be written to the syslog file detailing the login failure."
     rationale: "Setting the MaxAuthTries parameter to a low number will minimize the risk of successful brute force attacks to the SSH server. While the recommended setting is 4, set the number based on site policy."
@@ -2546,12 +2661,13 @@ the potential attack surface."
       - cis_csc: ["16"]
       - pci_dss: ["2.2.4"]
       - nist_800_53: ["CM.1"]
+      - tsc: ["CC5.2"]
     condition: all
     rules:
       - 'f:$sshd_file -> !r:^# && n:^MaxAuthTries\s*\t*(\d+) compare <= 4'
 
 # 5.2.6 Set SSH IgnoreRhosts to Yes (Scored)
-  - id: 5051
+  - id: 5648 
     title: "Ensure SSH IgnoreRhosts is enabled"
     description: "The IgnoreRhosts parameter specifies that .rhosts and .shosts files will not be used in RhostsRSAAuthentication or HostbasedAuthentication."
     rationale: "Setting this parameter forces users to enter a password when authenticating with ssh."
@@ -2562,12 +2678,13 @@ the potential attack surface."
       - pci_dss: ["4.1"]
       - hipaa: ["164.312.a.2.IV", "164.312.e.1", "164.312.e.2.I", "164.312.e.2.II"]
       - nist_800_53: ["SC.8"]
+      - tsc: ["CC6.1","CC6.7","CC7.2"]
     condition: all
     rules:
       - 'f:$sshd_file -> !r:^# && r:IgnoreRhosts\s*\t*yes'
 
 # 5.2.7 Set SSH HostbasedAuthentication to No (Scored)
-  - id: 5052
+  - id: 5649 
     title: "Ensure SSH HostbasedAuthentication is disabled"
     description: "The HostbasedAuthentication parameter specifies if authentication is allowed through trusted hosts via the user of .rhosts , or /etc/hosts.equiv, along with successful public key client host authentication. This option only applies to SSH Protocol Version 2."
     rationale: "Even though the .rhosts files are ineffective if support is disabled in /etc/pam.conf, disabling the ability to use .rhosts files in SSH provides an additional layer of protection."
@@ -2578,12 +2695,13 @@ the potential attack surface."
       - pci_dss: ["4.1"]
       - hipaa: ["164.312.a.2.IV", "164.312.e.1", "164.312.e.2.I", "164.312.e.2.II"]
       - nist_800_53: ["SC.8"]
+      - tsc: ["CC6.1","CC6.7","CC7.2"]
     condition: all
     rules:
       - 'f:$sshd_file -> !r:^# && r:HostbasedAuthentication\s*\t*no'
 
 # 5.2.8 Disable SSH Root Login (Scored)
-  - id: 5053
+  - id: 5650 
     title: "Ensure SSH root login is disabled"
     description: "The PermitRootLogin parameter specifies if the root user can log in using ssh(1). The default is no."
     rationale: "Disallowing root logins over SSH requires system admins to authenticate using their own individual account, then escalating to root via sudo or su . This in turn limits opportunity for non-repudiation and provides a clear audit trail in the event of a security incident"
@@ -2594,12 +2712,13 @@ the potential attack surface."
       - pci_dss: ["4.1"]
       - hipaa: ["164.312.a.2.IV", "164.312.e.1", "164.312.e.2.I", "164.312.e.2.II"]
       - nist_800_53: ["SC.8"]
+      - tsc: ["CC6.1","CC6.7","CC7.2"]
     condition: all
     rules:
       - 'f:$sshd_file -> !r:^# && r:PermitRootLogin\s*\t*no'
 
 # 5.2.9 Set SSH PermitEmptyPasswords to No (Scored)
-  - id: 5054
+  - id: 5651 
     title: "Ensure SSH PermitEmptyPasswords is disabled"
     description: "The PermitEmptyPasswords parameter specifies if the SSH server allows login to accounts with empty password strings."
     rationale: "Disallowing remote shell access to accounts that have an empty password reduces the probability of unauthorized access to the system"
@@ -2610,12 +2729,13 @@ the potential attack surface."
       - pci_dss: ["4.1"]
       - hipaa: ["164.312.a.2.IV", "164.312.e.1", "164.312.e.2.I", "164.312.e.2.II"]
       - nist_800_53: ["SC.8"]
+      - tsc: ["CC6.1","CC6.7","CC7.2"]
     condition: all
     rules:
       - 'f:$sshd_file -> !r:^# && r:PermitEmptyPasswords\s*\t*no'
 
 # 5.2.10 Ensure SSH PermitUserEnvironment is disabled (Scored)
-  - id: 5653 
+  - id: 5652 
     title: "Ensure SSH PermitUserEnvironment is disabled"
     description: "The PermitUserEnvironment option allows users to present environment options to the ssh daemon."
     rationale: "Permitting users the ability to set environment variables through the SSH daemon could potentially allow users to bypass security controls (e.g. setting an execution path that has ssh executing trojan'd programs)"
@@ -2626,12 +2746,13 @@ the potential attack surface."
       - pci_dss: ["4.1"]
       - hipaa: ["164.312.a.2.IV", "164.312.e.1", "164.312.e.2.I", "164.312.e.2.II"]
       - nist_800_53: ["SC.8"]
+      - tsc: ["CC6.1","CC6.7","CC7.2"]
     condition: all
     rules:
       - 'f:/etc/ssh/sshd_config -> r:^\s*PermitUserEnvironment\s*\t*no'
 
 # 5.2.12 Ensure SSH Idle Timeout Interval is configured (Scored)
-  - id: 5654 
+  - id: 5653 
     title: "Ensure SSH Idle Timeout Interval is configured"
     description: "The two options ClientAliveInterval and ClientAliveCountMax control the timeout of ssh sessions. When the ClientAliveInterval variable is set, ssh sessions that have no activity for the specified length of time are terminated. When the ClientAliveCountMax variable is set, sshd will send client alive messages at every ClientAliveInterval interval. When the number of consecutive client alive messages are sent with no response from the client, the ssh session is terminated. For example, if the ClientAliveInterval is set to 15 seconds and the ClientAliveCountMax is set to 3, the client ssh session will be terminated after 45 seconds of idle time."
     rationale: "Having no timeout value associated with a connection could allow an unauthorized user access to another user's ssh session (e.g. user walks away from their computer and doesn't lock the screen). Setting a timeout value at least reduces the risk of this happening. While the recommended setting is 300 seconds (5 minutes), set this timeout value based on site policy. The recommended setting for ClientAliveCountMax is 0. In this case, the client session will be terminated after 5 minutes of idle time and no keepalive messages will be sent."
@@ -2646,7 +2767,7 @@ the potential attack surface."
       - 'f:/etc/ssh/sshd_config -> n:^\s*ClientAliveCountMax\s*\t*(\d+) compare <= 3'
 
 # 5.2.13 Ensure SSH LoginGraceTime is set to one minute or less (Scored)
-  - id: 5655 
+  - id: 5654 
     title: "Ensure SSH LoginGraceTime is set to one minute or less"
     description: "The LoginGraceTime parameter specifies the time allowed for successful authentication to the SSH server. The longer the Grace period is the more open unauthenticated connections can exist. Like other session controls in this session the Grace Period should be limited to appropriate organizational limits to ensure the service is available for needed access."
     rationale: "Setting the LoginGraceTime parameter to a low number will minimize the risk of successful brute force attacks to the SSH server. It will also limit the number of concurrent unauthenticated connections While the recommended setting is 60 seconds (1 Minute), set the number based on site policy."
@@ -2654,12 +2775,13 @@ the potential attack surface."
     compliance:
       - cis: ["5.2.13"]
       - pci_dss: ["8.1"]
+      - tsc: ["CC6.1"]
     condition: all
     rules:
       - 'f:/etc/ssh/sshd_config -> n:^\s*LoginGraceTime\s*\t*(\d+) compare <= 60'
 
 # 5.2.14 Ensure SSH access is limited (Scored)
-  - id: 5656 
+  - id: 5655 
     title: "Ensure SSH access is limited"
     description: "There are several options available to limit which users and group can access the system via SSH. It is recommended that at least one of the following options be leveraged: AllowUsers The AllowUsers variable gives the system administrator the option of allowing specific users to ssh into the system. The list consists of space separated user names. Numeric user IDs are not recognized with this variable. If a system administrator wants to restrict user access further by only allowing the allowed users to log in from a particular host, the entry can be specified in the form of user@host. AllowGroups The AllowGroups variable gives the system administrator the option of allowing specific groups of users to ssh into the system. The list consists of space separated group names. Numeric group IDs are not recognized with this variable. DenyUsers The DenyUsers variable gives the system administrator the option of denying specific users to ssh into the system. The list consists of space separated user names. Numeric user IDs are not recognized with this variable. If a system administrator wants to restrict user access further by specifically denying a user's access from a particular host, the entry can be specified in the form of user@host. DenyGroups The DenyGroups variable gives the system administrator the option of denying specific groups of users to ssh into the system. The list consists of space separated group names. Numeric group IDs are not recognized with this variable."
     rationale: "Restricting which users can remotely access the system via SSH will help ensure that only authorized users access the system."
@@ -2668,6 +2790,7 @@ the potential attack surface."
       - cis: ["5.2.14"]
       - cis_csc: ["5.1", "5.8"]
       - pci_dss: ["8.1"]
+      - tsc: ["CC6.1"]
     condition: any
     rules:
       - 'f:/etc/ssh/sshd_config -> r:^\s*AllowUsers'
@@ -2676,7 +2799,7 @@ the potential attack surface."
       - 'f:/etc/ssh/sshd_config -> r:^\s*DenyGroups'
 
 # 5.2.15 Ensure SSH warning banner is configured (Scored)
-  - id: 5657 
+  - id: 5656 
     title: "Ensure SSH warning banner is configured"
     description: "The Banner parameter specifies a file whose contents must be sent to the remote user before authentication is permitted. By default, no banner is displayed."
     rationale: "Banners are used to warn connecting users of the particular site's policy regarding connection. Presenting a warning message prior to the normal user login may assist the prosecution of trespassers on the computer system."
@@ -2685,6 +2808,7 @@ the potential attack surface."
       - cis: ["5.2.15"]
       - pci_dss: ["2.2.4"]
       - nist_800_53: ["CM.1"]
+      - tsc: ["CC5.2"]
     condition: all
     rules:
       - 'f:/etc/ssh/sshd_config -> r:^\s*Banner\s*\t*/etc/issue.net'
@@ -2693,7 +2817,7 @@ the potential attack surface."
 # 5.3 Configure PAM
 ###############################################
 # 5.3.1 Ensure password creation requirements are configured (Scored)
-  - id: 5658 
+  - id: 5657 
     title: "Ensure password creation requirements are configured"
     description: "The pam_cracklib.so module checks the strength of passwords. It performs checks such as making sure a password is not a dictionary word, it is a certain length, contains a mix of characters (e.g. alphabet, numeric, other) and more"
     rationale: "Strong passwords protect systems from being hacked through brute force methods."
@@ -2702,13 +2826,14 @@ the potential attack surface."
       - cis: ["5.3.1"]
       - cis_csc: ["5.7", "16.12"]
       - pci_dss: ["8.2.3"]
+      - tsc: ["CC6.1"]
     condition: all
     rules:
       - 'c:grep pam_cracklib.so /etc/pam.d/password-auth -> r:try_first_pass && n:minlen\s*\t*=\s*\t*(\d+) compare >= 14'
       - 'c:grep pam_cracklib.so /etc/pam.d/system-auth -> r:try_first_pass && n:minlen\s*\t*=\s*\t*(\d+) compare >= 14'
 
 # 5.3.3 Ensure password reuse is limited (Scored)
-  - id: 5659 
+  - id: 5658 
     title: "Ensure password reuse is limited"
     description: "The /etc/security/opasswd file stores the users' old passwords and can be checked to ensure that users are not recycling recent passwords."
     rationale: "Forcing users not to reuse their past 5 passwords make it less likely that an attacker will be able to guess the password. Note that these change only apply to accounts configured on the local system."
@@ -2717,13 +2842,14 @@ the potential attack surface."
       - cis: ["5.3.3"]
       - cis_csc: ["16"]
       - pci_dss: ["8.2.5"]
+      - tsc: ["CC6.1"]
     condition: all
     rules:
       - 'f:/etc/pam.d/password-auth -> n:^password\s+sufficient\s+pam_unix.so\.+remember=(\d+)|^password\s+required\s+pam_pwhistory.so\.+remember=(\d+) compare >= 5'
       - 'f:/etc/pam.d/system-auth -> n:^password\s+sufficient\s+pam_unix.so\.+remember=(\d+)|^password\s+required\s+pam_pwhistory.so\.+remember=(\d+) compare >= 5'
 
 # 5.3.4 Ensure password hashing algorithm is SHA-512 (Scored)
-  - id: 5660 
+  - id: 5659 
     title: "Ensure password hashing algorithm is SHA-512"
     description: "The commands below change password encryption from md5 to sha512 (a much stronger hashing algorithm). All existing accounts will need to perform a password change to upgrade the stored hashes to the new algorithm."
     rationale: "The SHA-512 algorithm provides much stronger hashing than MD5, thus providing additional protection to the system by increasing the level of effort for an attacker to successfully determine passwords. Note that these change only apply to accounts configured on the local system."
@@ -2731,7 +2857,8 @@ the potential attack surface."
     compliance:
       - cis: ["5.3.4"]
       - cis_csc: ["16.14"]
-      - pci_dss: ["3.6.1"]
+      - pci_dss: ["3.6.1","8.2.1"]
+      - tsc: ["CC6.1","CC6.7"]
     condition: all
     rules:
       - 'f:/etc/pam.d/password-auth -> r:^password\s*sufficient\s*pam_unix.so\s*sha512'
@@ -2743,7 +2870,7 @@ the potential attack surface."
 # 5.4.1 Set Shadow Password Suite Parameters
 ###############################################
 # 5.4.1.1 Ensure password expiration is 365 days or less (Scored)
-  - id: 5661 
+  - id: 5660 
     title: "Ensure password expiration is 365 days or less"
     description: "The PASS_MAX_DAYS parameter in /etc/login.defs allows an administrator to force passwords to expire once they reach a defined age. It is recommended that the PASS_MAX_DAYS parameter be set to less than or equal to 365 days."
     rationale: "The window of opportunity for an attacker to leverage compromised credentials or successfully compromise credentials via an online brute force attack is limited by the age of the password. Therefore, reducing the maximum age of a password also reduces an attacker's window of opportunity."
@@ -2752,12 +2879,13 @@ the potential attack surface."
       - cis: ["5.4.1.1"]
       - cis_csc: ["16"]
       - pci_dss: ["8.2.4"]
+      - tsc: ["CC6.1"]
     condition: all
     rules:
       - 'f:/etc/login.defs -> n:^\s*PASS_MAX_DAYS\s*\t*(\d+) compare <= 365'
 
 # 5.4.1.2 Ensure minimum days between password changes is 7 or more (Scored)
-  - id: 5662 
+  - id: 5661 
     title: "Ensure minimum days between password changes is 7 or more"
     description: "The PASS_MIN_DAYS parameter in /etc/login.defs allows an administrator to prevent users from changing their password until a minimum number of days have passed since the last time the user changed their password. It is recommended that PASS_MIN_DAYS parameter be set to 7 or more days."
     rationale: "By restricting the frequency of password changes, an administrator can prevent users from repeatedly changing their password in an attempt to circumvent password reuse controls."
@@ -2765,13 +2893,14 @@ the potential attack surface."
     compliance:
       - cis: ["5.4.1.2"]
       - cis_csc: ["16"]
-      - pci_dss: ["3.6.1"]
+      - pci_dss: ["8.2"]
+      - tsc: ["CC6.1"]
     condition: all
     rules:
       - 'f:/etc/login.defs -> n:^\s*PASS_MIN_DAYS\s*\t*(\d+) compare >= 7'
 
 # 5.4.1.3 Ensure password expiration warning days is 7 or more (Scored)
-  - id: 5663 
+  - id: 5662 
     title: "Ensure password expiration warning days is 7 or more"
     description: "The PASS_WARN_AGE parameter in /etc/login.defs allows an administrator to notify users that their password will expire in a defined number of days. It is recommended that the PASS_WARN_AGE parameter be set to 7 or more days."
     rationale: "Providing an advance warning that a password will be expiring gives users time to think of a secure password. Users caught unaware may choose a simple password or write it down where it may be discovered."
@@ -2779,13 +2908,14 @@ the potential attack surface."
     compliance:
       - cis: ["5.4.1.3"]
       - cis_csc: ["16"]
-      - pci_dss: ["3.6.1"]
+      - pci_dss: ["8.2"]
+      - tsc: ["CC6.1"]
     condition: all
     rules:
       - 'f:/etc/login.defs -> n:^\s*PASS_WARN_AGE\s*\t*(\d+) compare >= 7'
 
 # 5.4.1.4 Ensure inactive password lock is 30 days or less (Scored)
-  - id: 5664 
+  - id: 5663 
     title: "Ensure inactive password lock is 30 days or less"
     description: "User accounts that have been inactive for over a given period of time can be automatically disabled. It is recommended that accounts that are inactive for 30 days after password expiration be disabled."
     rationale: "Inactive accounts pose a threat to system security since the users are not logging in to notice failed login attempts or other anomalies."
@@ -2793,13 +2923,14 @@ the potential attack surface."
     compliance:
       - cis: ["5.4.1.4"]
       - cis_csc: ["16"]
-      - pci_dss: ["3.6.1"]
+      - pci_dss: ["8.2"]
+      - tsc: ["CC6.1"]
     condition: all
     rules:
       - 'c:useradd -D -> n:^\s*INACTIVE\s*=\s*(\d+) compare <= 30'
 
 # 5.4.3 Ensure default group for the root account is GID 0 (Scored)
-  - id: 5665 
+  - id: 5664 
     title: "Ensure default group for the root account is GID 0"
     description: "The usermod command can be used to specify which group the root user belongs to. This affects permissions of files that are created by the root user."
     rationale: "Using GID 0 for the root account helps prevent root -owned files from accidentally becoming accessible to non-privileged users."
@@ -2807,13 +2938,14 @@ the potential attack surface."
     compliance:
       - cis: ["5.4.3"]
       - cis_csc: ["5"]
-      - pci_dss: ["3.6.1"]
+      - pci_dss: ["8.2"]
+      - tsc: ["CC6.1"]
     condition: all
     rules:
       - 'f:/etc/passwd -> r:^root:\w:\w:0'
 
 # 5.4.4 Ensure default user umask is 027 or more restrictive (Scored)
-  - id: 5666 
+  - id: 5665 
     title: "Ensure default user umask is 027 or more restrictive"
     description: "The default umask determines the permissions of files created by users. The user creating the file has the discretion of making their files and directories readable by others via the chmod command. Users who wish to allow their files and directories to be readable by others by default may choose a different default umask by inserting the umask command into the standard shell configuration files ( .profile , .bashrc , etc.) in their home directories."
     rationale: "Setting a very secure default value for umask ensures that users make a conscious choice about their file permissions. A default umask setting of 077 causes files and directories created by users to not be readable by any other user on the system. A umask of 027 would make files and directories readable by users in the same Unix group, while a umask of 022 would make files readable by every user on the system."
@@ -2821,7 +2953,8 @@ the potential attack surface."
     compliance:
       - cis: ["5.4.4"]
       - cis_csc: ["13"]
-      - pci_dss: ["3.6.1"]
+      - pci_dss: ["8.2"]
+      - tsc: ["CC6.1"]
     condition: none
     rules:
       - 'f:/etc/bashrc -> n:^\s*\t*umask\s+(\d+) compare >= 027'
@@ -2829,7 +2962,7 @@ the potential attack surface."
       - 'd:/etc/profile.d -> .sh -> n:^\s*\t*umask\s+(\d+) compare >= 027'
 
 # 5.4.5 Ensure default user shell timeout is 900 seconds or less (Scored)
-  - id: 5667 
+  - id: 5666 
     title: "Ensure default user shell timeout is 900 seconds or less"
     description: "The default TMOUT determines the shell timeout for users. The TMOUT value is measured in seconds."
     rationale: "Having no timeout value associated with a shell could allow an unauthorized user access to another user's shell session (e.g. user walks away from their computer and doesn't lock the screen). Setting a timeout value at least reduces the risk of this happening."
@@ -2846,7 +2979,7 @@ the potential attack surface."
       - 'f:/etc/profile -> n:^\s*\t*TMOUT\s*\t*=\s*\t*(\d+) compare <= 900'
 
 # 5.6 Ensure access to the su command is restricted (Scored)
-  - id: 5668 
+  - id: 5667 
     title: "Ensure access to the su command is restricted."
     description: "The su command allows a user to run a command or shell as another user. The program has been superseded by sudo , which allows for more granular control over privileged access. Normally, the su command can be executed by any user. By uncommenting the pam_wheel.so statement in /etc/pam.d/su , the su command will only allow users in the wheel group to execute su ."
     rationale: "Restricting the use of su , and using sudo in its place, provides system administrators better control of the escalation of user privileges to execute privileged commands. The sudo utility also provides a better logging and audit mechanism, as it can log each command executed via sudo , whereas su can only record that a user executed the su program."
@@ -2859,6 +2992,7 @@ the potential attack surface."
       - nist_800_53: ["AU.14", "AC.7"]
       - gpg_13: ["7.8"]
       - gdpr_IV: ["35.7","32.2"]
+      - tsc: ["CC6.1","CC6.8","CC7.2","CC7.3","CC7.4"]
     condition: all
     rules:
       - 'f:/etc/pam.d/su -> r:^auth\s*\t*required\s*\t*pam_wheel.so\s*\t*use_uid'
@@ -2871,7 +3005,7 @@ the potential attack surface."
 ###############################################
 
 # 6.1.2 Configure /etc/passwd permissions (Scored)
-  - id: 5669 
+  - id: 5668 
     title: "Ensure permissions on /etc/passwd are configured"
     description: "The /etc/passwd file contains user account information that is used by many system utilities and therefore must be readable for these utilities to operate."
     rationale: "It is critical to ensure that the /etc/passwd file is protected from unauthorized write access. Although it is protected by default, the file permissions could be changed either inadvertently or through malicious actions."
@@ -2881,12 +3015,13 @@ the potential attack surface."
       - cis_csc: ["16.14"]
       - pci_dss: ["2.2.4"]
       - nist_800_53: ["CM.1"]
+      - tsc: ["CC5.2"]
     condition: all
     rules:
       - 'c:stat /etc/passwd -> r:Access:\s*\(0644/-rw-r--r--\)\s*Uid:\s*\(\s*\t*0/\s*\t*root\)\s*\t*Gid:\s*\(\s*\t*0/\s*\t*root\)'
 
 # 6.1.3 Configure /etc/shadow permissions (Scored)
-  - id: 5670 
+  - id: 5669 
     title: "Ensure permissions on /etc/shadow are configured"
     description: "The /etc/shadow file is used to store the information about user accounts that is critical to the security of those accounts, such as the hashed password and other security information."
     rationale: "If attackers can gain read access to the /etc/shadow file, they can easily run a password cracking program against the hashed password to break it. Other security information that is stored in the /etc/shadow file (such as expiration) could also be useful to subvert the user accounts."
@@ -2896,12 +3031,13 @@ the potential attack surface."
       - cis_csc: ["16.14"]
       - pci_dss: ["2.2.4"]
       - nist_800_53: ["CM.1"]
+      - tsc: ["CC5.2"]
     condition: all
     rules:
       - 'c:stat /etc/shadow -> r:Access:\s*\(0000/----------\)\s*Uid:\s*\(\s*\t*0/\s*\t*root\)\s*\t*Gid:\s*\(\s*\t*0/\s*\t*root\)'
 
 # 6.1.4 Configure /etc/group permissions (Scored)
-  - id: 5671 
+  - id: 5670 
     title: "Ensure permissions on /etc/group are configured"
     description: "The /etc/group file contains a list of all the valid groups defined in the system. The command below allows read/write access for root and read access for everyone else."
     rationale: "The /etc/group file needs to be protected from unauthorized changes by non-privileged users, but needs to be readable as this information is used with many non-privileged programs."
@@ -2911,12 +3047,13 @@ the potential attack surface."
       - cis_csc: ["16.14"]
       - pci_dss: ["2.2.4"]
       - nist_800_53: ["CM.1"]
+      - tsc: ["CC5.2"]
     condition: all
     rules:
       - 'c:stat /etc/group -> r:Access:\s*\(0644/-rw-r--r--\)\s*Uid:\s*\(\s*\t*0/\s*\t*root\)\s*\t*Gid:\s*\(\s*\t*0/\s*\t*root\)'
 
 # 6.1.5 Configure /etc/gshadow permissions (Scored)
-  - id: 5672 
+  - id: 5671 
     title: "Ensure permissions on /etc/gshadow are configured"
     description: "The /etc/gshadow file is used to store the information about groups that is critical to the security of those accounts, such as the hashed password and other security information."
     rationale: "If attackers can gain read access to the /etc/gshadow file, they can easily run a password cracking program against the hashed password to break it. Other security information that is stored in the /etc/gshadow file (such as group administrators) could also be useful to subvert the group"
@@ -2926,12 +3063,13 @@ the potential attack surface."
       - cis_csc: ["16.14"]
       - pci_dss: ["2.2.4"]
       - nist_800_53: ["CM.1"]
+      - tsc: ["CC5.2"]
     condition: all
     rules:
       - 'c:stat /etc/gshadow -> r:Access:\s*\(0000/----------\)\s*Uid:\s*\(\s*\t*0/\s*\t*root\)\s*\t*Gid:\s*\(\s*\t*0/\s*\t*root\)'
 
 # 6.1.6 Configure /etc/passwd- permissions (Scored)
-  - id: 5673 
+  - id: 5672 
     title: "Ensure permissions on /etc/passwd- are configured"
     description: "The /etc/passwd- file contains backup user account information."
     rationale: "It is critical to ensure that the /etc/passwd- file is protected from unauthorized access. Although it is protected by default, the file permissions could be changed either inadvertently or through malicious actions."
@@ -2941,12 +3079,13 @@ the potential attack surface."
       - cis_csc: ["16.14"]
       - pci_dss: ["2.2.4"]
       - nist_800_53: ["CM.1"]
+      - tsc: ["CC5.2"]
     condition: all
     rules:
       - 'c:stat /etc/passwd- -> r:Access:\s*\(0644/-rw-r--r--\)\s*Uid:\s*\(\s*\t*0/\s*\t*root\)\s*\t*Gid:\s*\(\s*\t*0/\s*\t*root\)|Access:\s*\(0640/-rw-r-----\)\s*Uid:\s*\(\s*\t*0/\s*\t*root\)\s*\t*Gid:\s*\(\s*\t*0/\s*\t*root\)|Access:\s*\(0604/-rw----r--\)\s*Uid:\s*\(\s*\t*0/\s*\t*root\)\s*\t*Gid:\s*\(\s*\t*0/\s*\t*root\)|Access:\s*\(0600/-rw-------\)\s*Uid:\s*\(\s*\t*0/\s*\t*root\)\s*\t*Gid:\s*\(\s*\t*0/\s*\t*root\)'
 
 # 6.1.7 Configure /etc/shadow- permissions (Scored)
-  - id: 5674 
+  - id: 5673 
     title: "Ensure permissions on /etc/shadow- are configured"
     description: "The /etc/shadow- file is used to store backup information about user accounts that is critical to the security of those accounts, such as the hashed password and other security information."
     rationale: "It is critical to ensure that the /etc/shadow- file is protected from unauthorized access. Although it is protected by default, the file permissions could be changed either inadvertently or through malicious actions."
@@ -2956,12 +3095,13 @@ the potential attack surface."
       - cis_csc: ["16.14"]
       - pci_dss: ["2.2.4"]
       - nist_800_53: ["CM.1"]
+      - tsc: ["CC5.2"]
     condition: all
     rules:
       - 'c:stat /etc/shadow- -> r:Access:\s*\(0000/----------\)\s*Uid:\s*\(\s*\t*0/\s*\t*root\)\s*\t*Gid:\s*\(\s*\t*0/\s*\t*root\)'
 
 # 6.1.8 Configure /etc/group- permissions (Scored)
-  - id: 5675 
+  - id: 5674 
     title: "Ensure permissions on /etc/group- are configured"
     description: "The /etc/group- file contains a backup list of all the valid groups defined in the system."
     rationale: "It is critical to ensure that the /etc/group- file is protected from unauthorized access. Although it is protected by default, the file permissions could be changed either inadvertently or through malicious actions."
@@ -2971,12 +3111,13 @@ the potential attack surface."
       - cis_csc: ["16.14"]
       - pci_dss: ["2.2.4"]
       - nist_800_53: ["CM.1"]
+      - tsc: ["CC5.2"]
     condition: all
     rules:
       - 'c:stat /etc/group- -> r:Access:\s*\(0644/-rw-r--r--\)\s*Uid:\s*\(\s*\t*0/\s*\t*root\)\s*\t*Gid:\s*\(\s*\t*0/\s*\t*root\)|Access:\s*\(0640/-rw-r-----\)\s*Uid:\s*\(\s*\t*0/\s*\t*root\)\s*\t*Gid:\s*\(\s*\t*0/\s*\t*root\)|Access:\s*\(0604/-rw----r--\)\s*Uid:\s*\(\s*\t*0/\s*\t*root\)\s*\t*Gid:\s*\(\s*\t*0/\s*\t*root\)|Access:\s*\(0600/-rw-------\)\s*Uid:\s*\(\s*\t*0/\s*\t*root\)\s*\t*Gid:\s*\(\s*\t*0/\s*\t*root\)'
 
 # 6.1.9 Configure /etc/gshadow- permissions (Scored)
-  - id: 5676 
+  - id: 5675 
     title: "Ensure permissions on /etc/gshadow- are configured"
     description: "The /etc/gshadow- file is used to store backup information about groups that is critical to the security of those accounts, such as the hashed password and other security information."
     rationale: "It is critical to ensure that the /etc/gshadow- file is protected from unauthorized access. Although it is protected by default, the file permissions could be changed either inadvertently or through malicious actions."
@@ -2986,6 +3127,7 @@ the potential attack surface."
       - cis_csc: ["16.14"]
       - pci_dss: ["2.2.4"]
       - nist_800_53: ["CM.1"]
+      - tsc: ["CC5.2"]
     condition: all
     rules:
       - 'c:stat /etc/gshadow- -> r:Access:\s*\(0000/----------\)\s*Uid:\s*\(\s*\t*0/\s*\t*root\)\s*\t*Gid:\s*\(\s*\t*0/\s*\t*root\)'
@@ -2994,7 +3136,7 @@ the potential attack surface."
 # 6.2 Review User and Group Settings
 ###############################################
 # 6.2.1 Check passwords fields (Scored)
-  - id: 5677 
+  - id: 5676 
     title: "Ensure password fields are not empty"
     description: "An account with an empty password field means that anybody may log in as that user without providing a password."
     rationale: "All accounts must have passwords or be locked to prevent the account from being used by an unauthorized user."
@@ -3003,12 +3145,13 @@ the potential attack surface."
       - cis: ["6.2.1"]
       - cis_csc: ["16"]
       - pci_dss: ["8.2"]
+      - tsc: ["CC6.1"]
     condition: none
     rules:
       - 'f:/etc/shadow -> !r:^# && r:^\w+::'
 
 # 6.2.2 Delete legacy entries in /etc/passwd (Scored)
-  - id: 5678 
+  - id: 5677 
     title: "Ensure no legacy \"+\" entries exist in /etc/passwd"
     description: "The character + in various files used to be markers for systems to insert data from NIS maps at a certain point in a system configuration file. These entries are no longer required on most systems, but may exist in files that have been imported from other platforms."
     rationale: "These entries may provide an avenue for attackers to gain privileged access on the system."
@@ -3021,12 +3164,13 @@ the potential attack surface."
       - gpg_13: ["4.3"]
       - gdpr_IV: ["35.7.d"]
       - hipaa: ["164.312.b"]
+      - tsc: ["CC5.2"]
     condition: none
     rules:
       - 'f:/etc/passwd -> !r:^# && r:^+:'
 
 # 6.2.3 Delete legacy entries in /etc/shadow (Scored)
-  - id: 5679 
+  - id: 5678 
     title: "Ensure no legacy \"+\" entries exist in /etc/shadow"
     description: "The character + in various files used to be markers for systems to insert data from NIS maps at a certain point in a system configuration file. These entries are no longer required on most systems, but may exist in files that have been imported from other platforms."
     rationale: "These entries may provide an avenue for attackers to gain privileged access on the system."
@@ -3039,12 +3183,13 @@ the potential attack surface."
       - gpg_13: ["4.3"]
       - gdpr_IV: ["35.7.d"]
       - hipaa: ["164.312.b"]
+      - tsc: ["CC5.2"]
     condition: none
     rules:
       - 'f:/etc/shadow -> !r:^# && r:^+:'
 
 # 6.2.4 Delete legacy entries in /etc/group (Scored)
-  - id: 5680 
+  - id: 5679 
     title: "Ensure no legacy \"+\" entries exist in /etc/group"
     description: "The character + in various files used to be markers for systems to insert data from NIS maps at a certain point in a system configuration file. These entries are no longer required on most systems, but may exist in files that have been imported from other platforms."
     rationale: "These entries may provide an avenue for attackers to gain privileged access on the system."
@@ -3057,12 +3202,13 @@ the potential attack surface."
       - gpg_13: ["4.3"]
       - gdpr_IV: ["35.7.d"]
       - hipaa: ["164.312.b"]
+      - tsc: ["CC5.2"]
     condition: none
     rules:
       - 'f:/etc/group -> !r:^# && r:^+:'
 
 # 6.2.5 Verify No UID 0 Accounts Exist Other Than root (Scored)
-  - id: 5681 
+  - id: 5680 
     title: "Ensure root is the only UID 0 account"
     description: "Any account with UID 0 has superuser privileges on the system."
     rationale: "This access must be limited to only the default root account and only from the system console. Administrative access must be through an unprivileged account using an approved mechanism as noted in Item 5.6 Ensure access to the su command is restricted."
@@ -3075,6 +3221,7 @@ the potential attack surface."
       - nist_800_53: ["AU.14", "AC.7"]
       - gpg_13: ["7.8"]
       - gdpr_IV: ["35.7","32.2"]
+      - tsc: ["CC6.1","CC6.8","CC7.2","CC7.3","CC7.4"]
     condition: none
     rules:
       - 'f:/etc/passwd -> !r:^# && !r:^\s*\t*root: && r:^\w+:\w+:0:'
