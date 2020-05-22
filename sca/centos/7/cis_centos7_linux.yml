@@ -23,13 +23,8 @@ requirements:
   description: "Requirements for running the policy against CentOS 7."
   condition: any
   rules:
-#    - 'f:/etc/redhat-release -> r:^Red Hat Enterprise Linux && r:release 7'
     - 'f:/etc/redhat-release -> r:^CentOS && r:release 7'
-#    - 'f:/etc/redhat-release -> r:^Cloud && r:release 7'
-#    - 'f:/etc/redhat-release -> r:^Oracle && r:release 7'
-#    - 'f:/etc/redhat-release -> r:^Better && r:release 7'
-#    - 'f:/etc/redhat-release -> r:^OpenVZ && r:release 7'
-#    - 'f:/etc/system-release -> r:^Amazon && r:release 2'
+
 
 variables:
   $sshd_file: /etc/ssh/sshd_config
@@ -46,6 +41,7 @@ checks:
       - cis: ["1.1.1.1"]
       - cis_csc: ["13"]
       - pci_dss: ["2.2.5"]
+      - tsc: ["CC6.3"]
     references:
       - AJ Lewis, "LVM HOWTO", https://tldp.org/HOWTO/LVM-HOWTO/
     condition: all
@@ -63,6 +59,7 @@ checks:
       - cis: ["1.1.1.2"]
       - cis_csc: ["13"]
       - pci_dss: ["2.2.5"]
+      - tsc: ["CC6.3"]
     references:
       - AJ Lewis, "LVM HOWTO", https://tldp.org/HOWTO/LVM-HOWTO/
     condition: all
@@ -80,6 +77,7 @@ checks:
       - cis: ["1.1.1.3"]
       - cis_csc: ["13"]
       - pci_dss: ["2.2.5"]
+      - tsc: ["CC6.3"]
     references:
       - AJ Lewis, "LVM HOWTO", https://tldp.org/HOWTO/LVM-HOWTO/
     condition: all
@@ -97,6 +95,7 @@ checks:
       - cis: ["1.1.1.4"]
       - cis_csc: ["13"]
       - pci_dss: ["2.2.5"]
+      - tsc: ["CC6.3"]
     references:
       - AJ Lewis, "LVM HOWTO", https://tldp.org/HOWTO/LVM-HOWTO/
     condition: all
@@ -113,6 +112,7 @@ checks:
       - cis: ["1.1.1.5"]
       - cis_csc: ["13"]
       - pci_dss: ["2.2.5"]
+      - tsc: ["CC6.3"]
     references:
       - AJ Lewis, "LVM HOWTO", https://tldp.org/HOWTO/LVM-HOWTO/
     condition: all
@@ -129,6 +129,7 @@ checks:
       - cis: ["1.1.1.6"]
       - cis_csc: ["13"]
       - pci_dss: ["2.2.5"]
+      - tsc: ["CC6.3"]
     references:
       - AJ Lewis, "LVM HOWTO", https://tldp.org/HOWTO/LVM-HOWTO/
     condition: all
@@ -145,6 +146,7 @@ checks:
       - cis: ["1.1.1.7"]
       - cis_csc: ["13"]
       - pci_dss: ["2.2.5"]
+      - tsc: ["CC6.3"]
     references:
       - AJ Lewis, "LVM HOWTO", https://tldp.org/HOWTO/LVM-HOWTO/
     condition: all
@@ -161,6 +163,7 @@ checks:
       - cis: ["1.1.1.8"]
       - cis_csc: ["13"]
       - pci_dss: ["2.2.5"]
+      - tsc: ["CC6.3"]
     references:
       - AJ Lewis, "LVM HOWTO", https://tldp.org/HOWTO/LVM-HOWTO/
     condition: all
@@ -178,6 +181,7 @@ checks:
       - cis: ["1.1.2"]
       - pci_dss: ["2.2.4"]
       - nist_800_53: ["CM.1"]
+      - tsc: ["CC5.2"]
     references:
       - AJ Lewis, "LVM HOWTO", https://tldp.org/HOWTO/LVM-HOWTO/
     condition: all
@@ -194,6 +198,7 @@ checks:
       - cis: ["1.1.3"]
       - pci_dss: ["2.2.4"]
       - nist_800_53: ["CM.1"]
+      - tsc: ["CC5.2"]
     condition: all
     rules:
       - 'c:mount -> r:\s/tmp\s && r:nodev'
@@ -208,6 +213,7 @@ checks:
       - cis: ["1.1.4"]
       - pci_dss: ["2.2.4"]
       - nist_800_53: ["CM.1"]
+      - tsc: ["CC5.2"]
     condition: all
     rules:
       - 'c:mount -> r:\s/tmp\s && r:nosuid'
@@ -223,6 +229,7 @@ checks:
       - cis_csc: ["2"]
       - pci_dss: ["2.2.4"]
       - nist_800_53: ["CM.1"]
+      - tsc: ["CC5.2"]
     condition: all
     rules:
       - 'c:mount -> r:\s/tmp\s && r:noexec'
@@ -237,6 +244,7 @@ checks:
       - cis: ["1.1.6"]
       - pci_dss: ["2.2.4"]
       - nist_800_53: ["CM.1"]
+      - tsc: ["CC5.2"]
     references:
       - AJ Lewis, "LVM HOWTO", https://tldp.org/HOWTO/LVM-HOWTO/
     condition: all
@@ -253,6 +261,7 @@ checks:
       - cis: ["1.1.7"]
       - pci_dss: ["2.2.4"]
       - nist_800_53: ["CM.1"]
+      - tsc: ["CC5.2"]
     condition: all
     rules:
       - 'c:mount -> r:\s/var/tmp\s'
@@ -267,6 +276,7 @@ checks:
       - cis: ["1.1.8"]
       - pci_dss: ["2.2.4"]
       - nist_800_53: ["CM.1"]
+      - tsc: ["CC5.2"]
     condition: all
     rules:
       - 'c:mount -> r:\s/var/tmp\s && r:nodev'
@@ -281,6 +291,7 @@ checks:
       - cis: ["1.1.9"]
       - pci_dss: ["2.2.4"]
       - nist_800_53: ["CM.1"]
+      - tsc: ["CC5.2"]
     condition: all
     rules:
       - 'c:mount -> r:\s/var/tmp\s && r:nosuid'
@@ -296,6 +307,7 @@ checks:
       - cis_csc: ["2"]
       - pci_dss: ["2.2.4"]
       - nist_800_53: ["CM.1"]
+      - tsc: ["CC5.2"]
     condition: all
     rules:
       - 'c:mount -> r:\s/var/tmp\s && r:noexec'
@@ -311,7 +323,7 @@ checks:
       - cis_csc: ["6.3"]
       - pci_dss: ["2.2.4","10.7"]
       - nist_800_53: ["CM.1"]
-
+      - tsc: ["CC5.2"]
     references:
       - AJ Lewis, "LVM HOWTO", https://tldp.org/HOWTO/LVM-HOWTO/
     condition: all
@@ -329,6 +341,7 @@ checks:
       - cis_csc: ["6.3"]
       - pci_dss: ["2.2.4","10.7"]
       - nist_800_53: ["CM.1"]
+      - tsc: ["CC5.2"]
     references:
       - AJ Lewis, "LVM HOWTO", https://tldp.org/HOWTO/LVM-HOWTO/
     condition: all
@@ -345,6 +358,7 @@ checks:
       - cis: ["1.1.13"]
       - pci_dss: ["2.2.4"]
       - nist_800_53: ["CM.1"]
+      - tsc: ["CC5.2"]
     references:
       - AJ Lewis, "LVM HOWTO", https://tldp.org/HOWTO/LVM-HOWTO/
     condition: all
@@ -361,6 +375,7 @@ checks:
       - cis: ["1.1.14"]
       - pci_dss: ["2.2.4"]
       - nist_800_53: ["CM.1"]
+      - tsc: ["CC5.2"]
     condition: all
     rules:
       - 'c:mount -> r:\s/home\s && r:nodev'
@@ -375,6 +390,7 @@ checks:
       - cis: ["1.1.15"]
       - pci_dss: ["2.2.4"]
       - nist_800_53: ["CM.1"]
+      - tsc: ["CC5.2"]
     condition: all
     rules:
       - 'c:mount -> r:\s/dev/shm\s && r:nodev'
@@ -389,6 +405,7 @@ checks:
       - cis: ["1.1.16"]
       - pci_dss: ["2.2.4"]
       - nist_800_53: ["CM.1"]
+      - tsc: ["CC5.2"]
     condition: all
     rules:
       - 'c:mount -> r:\s/dev/shm\s && r:nosuid'
@@ -404,6 +421,7 @@ checks:
       - cis_csc: ["2"]
       - pci_dss: ["2.2.4"]
       - nist_800_53: ["CM.1"]
+      - tsc: ["CC5.2"]
     condition: all
     rules:
       - 'c:mount -> r:\s/dev/shm\s && r:noexec'
@@ -419,6 +437,7 @@ checks:
       - cis_csc: ["8.3"]
       - pci_dss: ["2.2.4"]
       - nist_800_53: ["CM.1"]
+      - tsc: ["CC5.2"]
     condition: none
     rules:
       - 'c:systemctl is-enabled autofs -> r:enabled'
@@ -441,7 +460,7 @@ checks:
       - gpg_13: ["4.3"]
       - gdpr_IV: ["35.7.d"]
       - hipaa: ["164.312.b"]
-      
+      - tsc: ["A1.2","CC6.8"]
     condition: all
     rules:
       - 'f:/etc/yum.conf -> r:gpgcheck=1'
@@ -462,6 +481,7 @@ checks:
       - cis: ["1.3.1"]
       - cis_csc: ["3.5"]
       - pci_dss: ["11.5"]
+      - tsc: ["PI1.4","PI1.5","CC6.8","CC7.2","CC7.3","CC7.4"]
     references: "AIDE stable manual: http://aide.sourceforge.net/stable/manual.html"
     condition: all
     rules:
@@ -477,6 +497,7 @@ checks:
       - cis: ["1.3.2"]
       - cis_csc: ["3.5"]
       - pci_dss: ["11.5"]
+      - tsc: ["PI1.4","PI1.5","CC6.8","CC7.2","CC7.3","CC7.4"]
     condition: any
     rules:
       - 'c:crontab -u root -l -> r:aide'
@@ -496,6 +517,7 @@ checks:
       - cis_csc: ["5.1"]
       - pci_dss: ["2.2.4"]
       - nist_800_53: ["CM.1"]
+      - tsc: ["CC5.2"]
     condition: all
     rules:
       - 'c:stat /boot/grub2/grub.cfg -> r:Access:\s*\(0600/-rw-------\)\s*Uid:\s*\(\s*\t*0/\s*\t*root\)\s*\t*Gid:\s*\(\s*\t*0/\s*\t*root\)'
@@ -512,6 +534,7 @@ checks:
       - cis_csc: ["5.1"]
       - pci_dss: ["2.2.4"]
       - nist_800_53: ["CM.1"]
+      - tsc: ["CC5.2"]
     condition: all
     rules:
       - 'f:/boot/grub2/grub.cfg -> r:^GRUB2_PASSWORD\s*=\.+'
@@ -527,6 +550,7 @@ checks:
       - cis_csc: ["5.1"]
       - pci_dss: ["2.2.4"]
       - nist_800_53: ["CM.1"]
+      - tsc: ["CC5.2"]
     condition: all
     rules:
       - 'f:/usr/lib/systemd/system/rescue.service -> r:ExecStart=-/bin/sh -c "/sbin/sulogin; /usr/bin/systemctl --fail --no-block default"|ExecStart=-/bin/sh -c "/usr/sbin/sulogin; /usr/bin/systemctl --fail --no-block default"'
@@ -546,6 +570,7 @@ checks:
       - cis_csc: ["13"]
       - pci_dss: ["2.2.4"]
       - nist_800_53: ["CM.1"]
+      - tsc: ["CC5.2"]
     condition: all
     rules:
       - 'c:grep -Rh ^*[[:space:]]*hard[[:space:]][[:space:]]*core[[:space:]][[:space:]]* /etc/security/limits.conf /etc/security/limits.d -> r:\s*\t*0$'
@@ -563,6 +588,7 @@ checks:
       - cis_csc: ["8.4"]
       - pci_dss: ["2.2.4"]
       - nist_800_53: ["CM.1"]
+      - tsc: ["CC5.2"]
     condition: all
     rules:
       - 'c:dmesg -> r:NX \(Execute Disable\) protection: active'
@@ -578,6 +604,7 @@ checks:
       - cis_csc: ["8.4"]
       - pci_dss: ["2.2.4"]
       - nist_800_53: ["CM.1"]
+      - tsc: ["CC5.2"]
     condition: all
     rules:
       - 'c:grep -Rh ^kernel\.randomize_va_space /etc/sysctl.conf /etc/sysctl.d -> r:^\s*kernel.randomize_va_space\s*=\s*2$'
@@ -594,6 +621,7 @@ checks:
       - cis_csc: ["3.5"]
       - pci_dss: ["2.2.4"]
       - nist_800_53: ["CM.1"]
+      - tsc: ["CC5.2"]
     condition: all
     rules:
       - 'c:rpm -q prelink -> package prelink is not installed'
@@ -614,6 +642,7 @@ checks:
       - cis_csc: ["14.4"]
       - pci_dss: ["2.2.4"]
       - nist_800_53: ["CM.1"]
+      - tsc: ["CC5.2"]
     condition: none
     rules:
       - 'f:/boot/grub2/grub.cfg -> r:linux\.*selinux=0|linux\.*enforcing=0'
@@ -628,6 +657,7 @@ checks:
       - cis_csc: ["14.4"]
       - pci_dss: ["2.2.4"]
       - nist_800_53: ["CM.1"]
+      - tsc: ["CC5.2"]
     condition: all
     rules:
       - 'c:sestatus -> r:^SELinux status:\s+enabled$'
@@ -645,6 +675,7 @@ checks:
       - cis: ["1.6.1.3"]
       - pci_dss: ["2.2.4"]
       - nist_800_53: ["CM.1"]
+      - tsc: ["CC5.2"]
     condition: all
     rules:
       - 'c:sestatus -> r:^Loaded policy name:\s+targeted$'
@@ -660,6 +691,7 @@ checks:
       - cis: ["1.6.1.4"]
       - pci_dss: ["2.2.4"]
       - nist_800_53: ["CM.1"]
+      - tsc: ["CC5.2"]
     condition: none
     rules:
       - 'c:rpm -qa setroubleshoot -> r:setroubleshoot'
@@ -674,6 +706,7 @@ checks:
       - cis: ["1.6.1.5"]
       - pci_dss: ["2.2.4"]
       - nist_800_53: ["CM.1"]
+      - tsc: ["CC5.2"]
     condition: none
     rules:
       - 'c:rpm -qa mcstrans -> r:mcstrans'
@@ -689,6 +722,7 @@ checks:
       - cis_csc: ["14.4"]
       - pci_dss: ["2.2.4"]
       - nist_800_53: ["CM.1"]
+      - tsc: ["CC5.2"]
     condition: none
     rules:
       - 'c:ps -eZ -> r:initrc && !r:tr|ps|egrep|bash|awk'
@@ -703,6 +737,7 @@ checks:
       - cis_csc: ["14.4"]
       - pci_dss: ["2.2.4"]
       - nist_800_53: ["CM.1"]
+      - tsc: ["CC5.2"]
     condition: all
     rules:
       - 'c:rpm -q libselinux -> r:libselinux-\S+'
@@ -783,6 +818,7 @@ checks:
       - nist_800_53: ["AU.14", "AC.7"]
       - gpg_13: ["7.8"]
       - gdpr_IV: ["35.7","32.2"]
+      - tsc: ["CC6.1","CC6.8","CC7.2","CC7.3","CC7.4"]
     condition: all
     rules:
       - 'c:stat /etc/issue -> r:Access:\s*\(0644/-rw-r--r--\)\s*Uid:\s*\(\s*\t*0/\s*\t*root\)\s*\t*Gid:\s*\(\s*\t*0/\s*\t*root\)'
@@ -800,6 +836,7 @@ checks:
       - nist_800_53: ["AU.14", "AC.7"]
       - gpg_13: ["7.8"]
       - gdpr_IV: ["35.7","32.2"]
+      - tsc: ["CC6.1","CC6.8","CC7.2","CC7.3","CC7.4"]
     condition: all
     rules:
       - 'c:stat /etc/issue.net -> r:Access:\s*\(0644/-rw-r--r--\)\s*Uid:\s*\(\s*\t*0/\s*\t*root\)\s*\t*Gid:\s*\(\s*\t*0/\s*\t*root\)'
@@ -836,6 +873,7 @@ checks:
       - gpg_13: ["4.2"]
       - gdpr_IV: ["35.7.d"]
       - hipaa: ["164.312.b"]
+      - tsc: ["A1.2"]
     condition: all
     rules:
       - 'c:yum check-update --security -> r:No packages needed for security'
@@ -863,6 +901,7 @@ checks:
       - gpg_13: ["4.3"]
       - gdpr_IV: ["35.7.d"]
       - hipaa: ["164.312.b"]
+      - tsc: ["CC5.2"]
     condition: none
     rules:
       - 'c:chkconfig --list -> r:^\s*\t*chargen-dgram:\s*\t*on'
@@ -882,6 +921,7 @@ checks:
       - gpg_13: ["4.3"]
       - gdpr_IV: ["35.7.d"]
       - hipaa: ["164.312.b"]
+      - tsc: ["CC5.2"]
     condition: none
     rules:
       - 'c:chkconfig --list -> r:^\s*\t*daytime-dgram:\s*\t*on'
@@ -901,6 +941,7 @@ checks:
       - gpg_13: ["4.3"]
       - gdpr_IV: ["35.7.d"]
       - hipaa: ["164.312.b"]
+      - tsc: ["CC5.2"]
     condition: none
     rules:
       - 'c:chkconfig --list -> r:^\s*\t*discard-dgram:\s*\t*on'
@@ -920,6 +961,7 @@ checks:
       - gpg_13: ["4.3"]
       - gdpr_IV: ["35.7.d"]
       - hipaa: ["164.312.b"]
+      - tsc: ["CC5.2"]
     condition: none
     rules:
       - 'c:chkconfig --list -> r:^\s*\t*echo-dgram:\s*\t*on'
@@ -939,6 +981,7 @@ checks:
       - gpg_13: ["4.3"]
       - gdpr_IV: ["35.7.d"]
       - hipaa: ["164.312.b"]
+      - tsc: ["CC5.2"]
     condition: none
     rules:
       - 'c:chkconfig --list -> r:^\s*\t*time-dgram:\s*\t*on'
@@ -958,6 +1001,7 @@ checks:
       - gpg_13: ["4.3"]
       - gdpr_IV: ["35.7.d"]
       - hipaa: ["164.312.b"]
+      - tsc: ["CC5.2"]
     condition: none
     rules:
       - 'c:chkconfig --list -> r:^\s*\t*tftp:\s*\t*on'
@@ -976,6 +1020,7 @@ checks:
       - gpg_13: ["4.3"]
       - gdpr_IV: ["35.7.d"]
       - hipaa: ["164.312.b"]
+      - tsc: ["CC5.2"]
     condition: none
     rules:
       - 'c:systemctl is-enabled xinetd -> r:^enabled'
@@ -991,10 +1036,11 @@ checks:
     rationale: "Time synchronization is important to support time sensitive security mechanisms like Kerberos and also ensures log files have consistent time records across the enterprise, which aids in forensic investigations."
     remediation: "On physical systems or virtual systems where host based time synchronization is not available run the following commands and verify either ntp or chrony is installed: # rpm -q ntp # rpm -q chrony  On virtual systems where host based time synchronization is available consult your virtualization software documentation and verify that host based synchronization is in use."
     compliance:
-      - cis: ["2.2.2.1"]
+      - cis: ["2.2.1.1"]
       - cis_csc: ["6.1"]
       - pci_dss: ["10.4"]
       - nist_800_53: ["AU.8"]
+      - tsc: ["CC6.1","CC6.8","CC7.2","CC7.3","CC7.4"]
     condition: any
     rules:
       - 'not c:rpm -q ntp -> r:^package ntp is not installed'
@@ -1011,6 +1057,7 @@ checks:
       - cis_csc: ["6.1"]
       - pci_dss: ["2.2.2"]
       - nist_800_53: ["CM.1"]
+      - tsc: ["CC5.2"]
     condition: all
     rules:
       - 'f:/etc/ntp.conf -> r:^restrict\s+-4\s+default|^restrict\s+default && r:\s+kod\s+ && r:\s+nomodify\s+ && r:\s+notrap\s+ && r:\s+nopeer\s+ && r:\s+noquery'
@@ -1030,6 +1077,7 @@ checks:
       - cis_csc: ["6.1"]
       - pci_dss: ["2.2.2"]
       - nist_800_53: ["CM.1"]
+      - tsc: ["CC5.2"]
     condition: all
     rules:
       - 'f:/etc/chrony.conf -> r:^server\.+$|^pool\.+$'
@@ -1046,6 +1094,7 @@ checks:
       - cis_csc: ["2"]
       - pci_dss: ["2.2.2"]
       - nist_800_53: ["CM.1"]
+      - tsc: ["CC5.2"]
     condition: none
     rules:
       - 'c:rpm -qa xorg-x11* -> r:^xorg-x11'
@@ -1061,6 +1110,7 @@ checks:
       - cis_csc: ["9.1"]
       - pci_dss: ["2.2.2"]
       - nist_800_53: ["CM.1"]
+      - tsc: ["CC5.2"]
     condition: none
     rules:
       - 'c:systemctl is-enabled avahi-daemon -> r:^enabled'
@@ -1076,6 +1126,7 @@ checks:
       - cis_csc: ["9.1"]
       - pci_dss: ["2.2.2"]
       - nist_800_53: ["CM.1"]
+      - tsc: ["CC5.2"]
     condition: none
     rules:
       - 'c:systemctl is-enabled cups -> r:^enabled'
@@ -1091,6 +1142,7 @@ checks:
       - cis_csc: ["9.1"]
       - pci_dss: ["2.2.2"]
       - nist_800_53: ["CM.1"]
+      - tsc: ["CC5.2"]
     references:
       - More detailed documentation on DHCP is available at https://www.isc.org/software/dhcp
     condition: none
@@ -1108,6 +1160,7 @@ checks:
       - cis_csc: ["9.1"]
       - pci_dss: ["2.2.2"]
       - nist_800_53: ["CM.1"]
+      - tsc: ["CC5.2"]
     references:
       - More detailed documentation on OpenLDAP is available at https://www.openldap.org
     condition: none
@@ -1127,6 +1180,7 @@ checks:
       - cis_csc: ["9.1"]
       - pci_dss: ["2.2.2"]
       - nist_800_53: ["CM.1"]
+      - tsc: ["CC5.2"]
     condition: none
     rules:
       - 'c:systemctl is-enabled nfs -> r:^enabled'
@@ -1144,6 +1198,7 @@ checks:
       - cis_csc: ["9.1"]
       - pci_dss: ["2.2.2"]
       - nist_800_53: ["CM.1"]
+      - tsc: ["CC5.2"]
     condition: none
     rules:
       - 'c:systemctl is-enabled named -> r:^enabled'
@@ -1159,6 +1214,7 @@ checks:
       - cis_csc: ["9.1"]
       - pci_dss: ["2.2.2"]
       - nist_800_53: ["CM.1"]
+      - tsc: ["CC5.2"]
     condition: none
     rules:
       - 'c:systemctl is-enabled vsftpd -> r:^enabled'
@@ -1174,6 +1230,7 @@ checks:
       - cis_csc: ["9.1"]
       - pci_dss: ["2.2.2"]
       - nist_800_53: ["CM.1"]
+      - tsc: ["CC5.2"]
     condition: none
     rules:
       - 'c:systemctl is-enabled httpd -> r:^enabled'
@@ -1189,6 +1246,7 @@ checks:
       - cis_csc: ["9.1"]
       - pci_dss: ["2.2.2"]
       - nist_800_53: ["CM.1"]
+      - tsc: ["CC5.2"]
     condition: none
     rules:
       - 'c:systemctl is-enabled dovecot -> r:^enabled'
@@ -1204,6 +1262,7 @@ checks:
       - cis_csc: ["9.1"]
       - pci_dss: ["2.2.2"]
       - nist_800_53: ["CM.1"]
+      - tsc: ["CC5.2"]
     condition: none
     rules:
       - 'c:systemctl is-enabled smb -> r:^enabled'
@@ -1219,6 +1278,7 @@ checks:
       - cis_csc: ["9.1"]
       - pci_dss: ["2.2.2"]
       - nist_800_53: ["CM.1"]
+      - tsc: ["CC5.2"]
     condition: none
     rules:
       - 'c:systemctl is-enabled squid -> r:^enabled'
@@ -1234,6 +1294,7 @@ checks:
       - cis_csc: ["9.1"]
       - pci_dss: ["2.2.2"]
       - nist_800_53: ["CM.1"]
+      - tsc: ["CC5.2"]
     condition: none
     rules:
       - 'c:systemctl is-enabled snmpd -> r:^enabled'
@@ -1242,13 +1303,14 @@ checks:
   - id: 5573 
     title: "Ensure mail transfer agent is configured for local-only mode"
     description: "Mail Transfer Agents (MTA), such as sendmail and Postfix, are used to listen for incoming mail and transfer the messages to the appropriate user or mail server. If the system is not intended to be a mail server, it is recommended that the MTA be configured to only process local mail."
-    rationale: "Mail Transfer Agents (MTA), such as sendmail and Postfix, are used to listen for incoming mail and transfer the messages to the appropriate user or mail server. If the system is not intended to be a mail server, it is recommended that the MTA be configured to only process local mail."
+    rationale: "The software for all Mail Transfer Agents is complex and most have a long history of security issues. While it is important to ensure that the system can process local mail messages, it is not necessary to have the MTA's daemon listening on a port unless the server is intended to be a mail server that receives and processes mail from other systems."
     remediation: "Edit /etc/postfix/main.cf and add the following line to the RECEIVING MAIL section. If the line already exists, change it to look like the line below: inet_interfaces = loopback-only . Restart postfix: # systemctl restart postfix"
     compliance:
       - cis: ["2.2.15"]
       - cis_csc: ["9.1"]
       - pci_dss: ["2.2.2"]
       - nist_800_53: ["CM.1","AC.4","SC.7"]
+      - tsc: ["CC5.2","CC6.4","CC6.6","CC6.7"]
     condition: none
     rules:
       - 'c:netstat -an -> r:\.*:25\.*LISTEN && !r:127.0.0.1:25\.+LISTEN|::1:25\.*LISTEN'
@@ -1267,6 +1329,7 @@ checks:
       - gpg_13: ["4.3"]
       - gdpr_IV: ["35.7.d"]
       - hipaa: ["164.312.b"]
+      - tsc: ["CC5.2"]
     condition: none
     rules:
       - 'c:systemctl is-enabled ypserv -> r:^enabled'
@@ -1285,6 +1348,7 @@ checks:
       - gpg_13: ["4.3"]
       - gdpr_IV: ["35.7.d"]
       - hipaa: ["164.312.b"]
+      - tsc: ["CC5.2"]
     condition: none
     rules:
       - 'c:systemctl is-enabled rsh.socket -> r:^enabled'
@@ -1305,6 +1369,7 @@ checks:
       - gpg_13: ["4.3"]
       - gdpr_IV: ["35.7.d"]
       - hipaa: ["164.312.b"]
+      - tsc: ["CC5.2"]
     condition: none
     rules:
       - 'c:systemctl is-enabled telnet.socket -> r:^enabled'
@@ -1323,6 +1388,7 @@ checks:
       - gpg_13: ["4.3"]
       - gdpr_IV: ["35.7.d"]
       - hipaa: ["164.312.b"]
+      - tsc: ["CC5.2"]
     condition: none
     rules:
       - 'c:systemctl is-enabled tftp.socket -> r:^enabled'
@@ -1341,6 +1407,7 @@ checks:
       - gpg_13: ["4.3"]
       - gdpr_IV: ["35.7.d"]
       - hipaa: ["164.312.b"]
+      - tsc: ["CC5.2"]
     condition: none
     rules:
       - 'c:systemctl is-enabled rsyncd -> r:^enabled'
@@ -1359,6 +1426,7 @@ checks:
       - gpg_13: ["4.3"]
       - gdpr_IV: ["35.7.d"]
       - hipaa: ["164.312.b"]
+      - tsc: ["CC5.2"]
     condition: none
     rules:
       - 'c:systemctl is-enabled ntalk -> r:^enabled'
@@ -1380,6 +1448,7 @@ checks:
       - gpg_13: ["4.3"]
       - gdpr_IV: ["35.7.d"]
       - hipaa: ["164.312.b"]
+      - tsc: ["CC5.2"]
     condition: none
     rules:
       - 'c:rpm -qa ypbind -> r:ypbind'
@@ -1398,6 +1467,7 @@ checks:
       - gpg_13: ["4.3"]
       - gdpr_IV: ["35.7.d"]
       - hipaa: ["164.312.b"]
+      - tsc: ["CC5.2"]
     condition: all
     rules:
       - 'c:rpm -q rsh -> r:^package rsh is not installed'
@@ -1416,6 +1486,7 @@ checks:
       - gpg_13: ["4.3"]
       - gdpr_IV: ["35.7.d"]
       - hipaa: ["164.312.b"]
+      - tsc: ["CC5.2"]
     condition: all
     rules:
       - 'c:rpm -q talk -> r:^package talk is not installed'
@@ -1434,6 +1505,7 @@ checks:
       - gpg_13: ["4.3"]
       - gdpr_IV: ["35.7.d"]
       - hipaa: ["164.312.b"]
+      - tsc: ["CC5.2"]
     condition: all
     rules:
       - 'c:rpm -q telnet -> r:^package telnet is not installed'
@@ -1452,6 +1524,7 @@ checks:
       - gpg_13: ["4.3"]
       - gdpr_IV: ["35.7.d"]
       - hipaa: ["164.312.b"]
+      - tsc: ["CC5.2"]
     condition: all
     rules:
       - 'c:rpm -q openldap-clients -> r:^package openldap-clients is not installed'
@@ -1475,6 +1548,7 @@ checks:
       - cis_csc: ["3", "11"]
       - pci_dss: ["2.2.4"]
       - nist_800_53: ["CM.1"]
+      - tsc: ["CC5.2"]
     condition: all
     rules:
       - 'c:sysctl net.ipv4.ip_forward -> r:^net.ipv4.ip_forward\s*=\s*0$'
@@ -1491,6 +1565,7 @@ checks:
       - cis_csc: ["3", "11"]
       - pci_dss: ["2.2.4"]
       - nist_800_53: ["CM.1"]
+      - tsc: ["CC5.2"]
     condition: all
     rules:
       - 'c:sysctl net.ipv4.conf.all.send_redirects -> r:^net.ipv4.conf.all.send_redirects\s*=\s*0$'
@@ -1512,6 +1587,7 @@ checks:
       - cis_csc: ["3", "11"]
       - pci_dss: ["2.2.4"]
       - nist_800_53: ["CM.1"]
+      - tsc: ["CC5.2"]
     condition: all
     rules:
       - 'c:sysctl net.ipv4.conf.all.accept_source_route -> r:^net.ipv4.conf.all.accept_source_route\s*=\s*0$'
@@ -1530,6 +1606,7 @@ checks:
       - cis_csc: ["3", "11"]
       - pci_dss: ["2.2.4"]
       - nist_800_53: ["CM.1"]
+      - tsc: ["CC5.2"]
     condition: all
     rules:
       - 'c:sysctl net.ipv4.conf.all.accept_redirects -> r:^net.ipv4.conf.all.accept_redirects\s*=\s*0$'
@@ -1548,6 +1625,7 @@ checks:
       - cis_csc: ["3", "11"]
       - pci_dss: ["2.2.4"]
       - nist_800_53: ["CM.1"]
+      - tsc: ["CC5.2"]
     condition: all
     rules:
       - 'c:sysctl net.ipv4.conf.all.secure_redirects -> r:^net.ipv4.conf.all.secure_redirects\s*=\s*0$'
@@ -1566,6 +1644,7 @@ checks:
       - cis_csc: ["6"]
       - pci_dss: ["2.2.4"]
       - nist_800_53: ["CM.1"]
+      - tsc: ["CC5.2"]
     condition: all
     rules:
       - 'c:sysctl net.ipv4.conf.all.log_martians -> r:^net.ipv4.conf.all.log_martians\s*=\s*1$'
@@ -1584,6 +1663,7 @@ checks:
       - cis_csc: ["3", "11"]
       - pci_dss: ["2.2.4"]
       - nist_800_53: ["CM.1"]
+      - tsc: ["CC5.2"]
     condition: all
     rules:
       - 'c:sysctl net.ipv4.icmp_echo_ignore_broadcasts -> r:^net.ipv4.icmp_echo_ignore_broadcasts\s*=\s*1$'
@@ -1600,6 +1680,7 @@ checks:
       - cis_csc: ["3", "11"]
       - pci_dss: ["2.2.4"]
       - nist_800_53: ["CM.1"]
+      - tsc: ["CC5.2"]
     condition: all
     rules:
       - 'c:sysctl net.ipv4.icmp_ignore_bogus_error_responses -> r:^net.ipv4.icmp_ignore_bogus_error_responses\s*=\s*1$'
@@ -1616,6 +1697,7 @@ checks:
       - cis_csc: ["3", "11"]
       - pci_dss: ["2.2.4"]
       - nist_800_53: ["CM.1"]
+      - tsc: ["CC5.2"]
     condition: all
     rules:
       - 'c:sysctl net.ipv4.conf.all.rp_filter -> r:^net.ipv4.conf.all.rp_filter\s*=\s*1$'
@@ -1634,6 +1716,7 @@ checks:
       - cis_csc: ["3", "11"]
       - pci_dss: ["2.2.4"]
       - nist_800_53: ["CM.1"]
+      - tsc: ["CC5.2"]
     condition: all
     rules:
       - 'c:sysctl net.ipv4.tcp_syncookies -> r:^net.ipv4.tcp_syncookies\s*=\s*1$'
@@ -1656,6 +1739,7 @@ checks:
       - gpg_13: ["4.3"]
       - gdpr_IV: ["35.7.d"]
       - hipaa: ["164.312.b"]
+      - tsc: ["CC5.2"]
     condition: all
     rules:
       - 'c:sysctl net.ipv6.conf.all.accept_ra -> r:^net.ipv6.conf.all.accept_ra\s*=\s*0$'
@@ -1678,6 +1762,7 @@ checks:
       - gpg_13: ["4.3"]
       - gdpr_IV: ["35.7.d"]
       - hipaa: ["164.312.b"]
+      - tsc: ["CC5.2"]
     condition: all
     rules:
       - 'c:sysctl net.ipv6.conf.all.accept_redirects -> r:^net.ipv6.conf.all.accept_redirects\s*=\s*0$'
@@ -1699,6 +1784,7 @@ checks:
       - gpg_13: ["4.3"]
       - gdpr_IV: ["35.7.d"]
       - hipaa: ["164.312.b"]
+      - tsc: ["CC5.2"]
     condition: none
     rules:
       - 'f:/boot/grub2/grub.cfg -> r:^\s*\t*linux && !r:ipv6.disable=1'
@@ -1761,6 +1847,7 @@ checks:
       - cis: ["3.4.5"]
       - cis_csc: ["5.1"]
       - pci_dss: ["2.2.4"]
+      - tsc: ["CC5.2"]
     condition: all
     rules:
       - 'c:stat /etc/hosts.deny -> r:^Access: \(0644/-rw-r--r--\)  Uid: \(    0/    root\)   Gid: \(    0/    root\)$'
@@ -1784,6 +1871,7 @@ the potential attack surface."
       - gpg_13: ["4.3"]
       - gdpr_IV: ["35.7.d"]
       - hipaa: ["164.312.b"]
+      - tsc: ["CC5.2"]
     condition: all
     rules:
       - 'c:modprobe -n -v dccp -> r:install /bin/true'
@@ -1805,6 +1893,7 @@ the potential attack surface."
       - gpg_13: ["4.3"]
       - gdpr_IV: ["35.7.d"]
       - hipaa: ["164.312.b"]
+      - tsc: ["CC5.2"]
     condition: all
     rules:
       - 'c:modprobe -n -v sctp -> r:install /bin/true'
@@ -1825,6 +1914,7 @@ the potential attack surface."
       - gpg_13: ["4.3"]
       - gdpr_IV: ["35.7.d"]
       - hipaa: ["164.312.b"]
+      - tsc: ["CC5.2"]
     condition: all
     rules:
       - 'c:modprobe -n -v rds -> r:install /bin/true'
@@ -1845,6 +1935,7 @@ the potential attack surface."
       - gpg_13: ["4.3"]
       - gdpr_IV: ["35.7.d"]
       - hipaa: ["164.312.b"]
+      - tsc: ["CC5.2"]
     condition: all
     rules:
       - 'c:modprobe -n -v tipc -> r:install /bin/true'
@@ -1863,6 +1954,7 @@ the potential attack surface."
       - cis: ["3.6.1"]
       - cis_csc: ["9.2"]
       - pci_dss: ["1.1"]
+      - tsc: ["CC8.1"]
     condition: all
     rules:
       - 'c:rpm -q iptables -> r:iptables-'
@@ -1877,6 +1969,7 @@ the potential attack surface."
       - cis: ["3.6.2"]
       - cis_csc: ["9.2"]
       - pci_dss: ["1.2.1"]
+      - tsc: ["CC8.1"]
     condition: all
     rules:
       - 'c:iptables -L -> r:Chain INPUT \(policy DROP\)'
@@ -1893,6 +1986,7 @@ the potential attack surface."
       - cis: ["3.6.3"]
       - cis_csc: ["9.2"]
       - pci_dss: ["1.2.1"]
+      - tsc: ["CC8.1"]
     condition: all
     rules:
       - 'c:iptables -L INPUT -v -n -> r:\.*ACCEPT\.*all\.*lo\.**\.*0.0.0.0/0\.*0.0.0.0/0'
@@ -1961,6 +2055,7 @@ the potential attack surface."
       - cis: ["4.1.2"]
       - cis_csc: ["6.2"]
       - pci_dss: ["10.1","10.7"]
+      - tsc: ["CC6.1","CC6.2","CC6.3","CC7.2","CC7.3","CC7.4"]
     condition: all
     rules:
       - 'c:systemctl is-enabled auditd -> r:^enabled'
@@ -1978,6 +2073,7 @@ the potential attack surface."
       - pci_dss: ["10.2.6","10.7"]
       - gpg_13: ["7.9"]
       - gdpr_IV: ["35.7.d","32.2"]
+      - tsc: ["CC6.1","CC6.8","CC7.2","CC7.3","CC7.4"]
     condition: none
     rules:
       - 'f:/boot/grub2/grub.cfg -> r:^\s*\t*linux && !r:audit=1'
@@ -1996,6 +2092,7 @@ the potential attack surface."
       - gpg_13: ["7.9"]
       - gdpr_IV: ["32.2","35.7.d"]
       - hipaa: ["164.312.b"]
+      - tsc: ["CC6.1","CC6.8","CC7.2","CC7.3","CC7.4"]
     condition: all
     rules:
       - 'f:/etc/audit/audit.rules -> r:-a always,exit -F arch=b32 -S adjtimex -S settimeofday -S stime -k time-change'
@@ -2016,6 +2113,7 @@ the potential attack surface."
       - nist_800_53: ["AU.14", "AC.7"]
       - gpg_13: ["7.8"]
       - gdpr_IV: ["35.7","32.2"]
+      - tsc: ["CC6.1","CC6.8","CC7.2","CC7.3","CC7.4"]
     condition: all
     rules:
       - 'f:/etc/audit/audit.rules -> -w /etc/group -p wa -k identity'
@@ -2038,6 +2136,7 @@ the potential attack surface."
       - gpg_13: ["7.9"]
       - gdpr_IV: ["32.2","35.7.d"]
       - hipaa: ["164.312.b"]
+      - tsc: ["CC6.1","CC6.8","CC7.2","CC7.3","CC7.4"]
     condition: all
     rules:
       - 'f:/etc/audit/audit.rules -> r:-a always,exit -F arch=b32 -S sethostname -S setdomainname -k system-locale'
@@ -2061,6 +2160,7 @@ the potential attack surface."
       - nist_800_53: ["AU.14", "AC.7"]
       - gpg_13: ["7.8"]
       - gdpr_IV: ["35.7","32.2"]
+      - tsc: ["CC6.1","CC6.8","CC7.2","CC7.3","CC7.4"]
     condition: all
     rules:
       - 'f:/etc/audit/audit.rules -> r:-w /etc/selinux/ -p wa -k MAC-policy'
@@ -2080,6 +2180,7 @@ the potential attack surface."
       - gpg_13: ["7.8"]
       - gdpr_IV: ["32.2","35.7.d"]
       - hipaa: ["164.312.b"]
+      - tsc: ["CC6.1","CC6.8","CC7.2","CC7.3","CC7.4"]
     condition: all
     rules:
       - 'f:/etc/audit/audit.rules -> r:-w /var/log/lastlog -p wa -k logins'
@@ -2116,7 +2217,7 @@ the potential attack surface."
       - nist_800_53: ["AU.14", "AC.7"]
       - gpg_13: ["7.8"]
       - gdpr_IV: ["35.7","32.2"]
-
+      - tsc: ["CC6.1","CC6.8","CC7.2","CC7.3","CC7.4"]
     condition: all
     rules:
       - 'f:/etc/audit/audit.rules -> -a always,exit -F arch=b32 -S chmod -S fchmod -S fchmodat -F auid>=1000 -F auid!=4294967295 -k perm_mod'
@@ -2137,6 +2238,7 @@ the potential attack surface."
       - gpg_13: ["7.8"]
       - gdpr_IV: ["32.2","35.7.d"]
       - hipaa: ["164.312.b"]
+      - tsc: ["CC6.1","CC6.8","CC7.2","CC7.3","CC7.4"]
     condition: all
     rules:
       - 'f:/etc/audit/audit.rules -> -a always,exit -F arch=b32 -S creat -S open -S openat -S truncate -S ftruncate -F exit=-EACCES -F auid>=1000 -F auid!=4294967295 -k access'
@@ -2156,6 +2258,7 @@ the potential attack surface."
       - gpg_13: ["7.9"]
       - gdpr_IV: ["32.2","35.7.d"]
       - hipaa: ["164.312.b"]
+      - tsc: ["CC6.1","CC6.8","CC7.2","CC7.3","CC7.4"]
     condition: all
     rules:
       - 'f:/etc/audit/audit.rules -> -a always,exit -F arch=b32 -S mount -F auid>=1000 -F auid!=4294967295 -k mounts'
@@ -2170,6 +2273,7 @@ the potential attack surface."
     compliance:
       - cis: ["4.1.14"]
       - pci_dss: ["10.5.5"]
+      - tsc: ["PI1.4","PI1.5","CC7.1","CC7.2","CC7.3","CC8.1"]
     condition: all
     rules:
       - 'f:/etc/audit/audit.rules -> -a always,exit -F arch=b32 -S unlink -S unlinkat -S rename -S renameat -F auid>=1000 -F auid!=4294967295 -k delete'
@@ -2188,6 +2292,7 @@ the potential attack surface."
       - nist_800_53: ["AU.14", "AC.7"]
       - gpg_13: ["7.8"]
       - gdpr_IV: ["35.7","32.2"]
+      - tsc: ["CC6.1","CC6.8","CC7.2","CC7.3","CC7.4"]
     condition: all
     rules:
       - 'f:/etc/audit/audit.rules -> -w /etc/sudoers -p wa -k scope'
@@ -2207,6 +2312,7 @@ the potential attack surface."
       - gpg_13: ["7.8"]
       - gdpr_IV: ["32.2","35.7.d"]
       - hipaa: ["164.312.b"]
+      - tsc: ["CC6.1","CC6.8","CC7.2","CC7.3","CC7.4"]
     condition: all
     rules:
       - 'f:/etc/audit/audit.rules -> -w /var/log/sudo.log -p wa -k actions'
@@ -2225,6 +2331,7 @@ the potential attack surface."
       - gpg_13: ["7.9"]
       - gdpr_IV: ["32.2","35.7.d"]
       - hipaa: ["164.312.b"]
+      - tsc: ["CC6.1","CC6.8","CC7.2","CC7.3","CC7.4"]
     condition: all
     rules:
       - 'f:/etc/audit/audit.rules -> -w /sbin/insmod -p x -k modules'
@@ -2375,6 +2482,7 @@ the potential attack surface."
       - cis_csc: ["6"]
       - pci_dss: ["2.2.4"]
       - nist_800_53: ["CM.1"]
+      - tsc: ["CC5.2"]
     condition: all
     rules:
       - 'c:systemctl is-enabled crond -> enabled'
@@ -2389,10 +2497,8 @@ the potential attack surface."
       - cis: ["5.1.2"]
       - cis_csc: ["5.1"]
       - pci_dss: ["2.2.4"]
-      - hipaa: ["164.312.b"]
-      - nist_800_53: ["AU.14", "AC.7"]
-      - gpg_13: ["7.8"]
-      - gdpr_IV: ["35.7","32.2"]
+      - nist_800_53: ["CM.1"]
+      - tsc: ["CC5.2"]
     condition: all
     rules:
       - 'c:stat /etc/crontab -> r:^Access: \(0600/-rw-------\)  Uid: \(    0/    root\)   Gid: \(    0/    root\)$'
@@ -2409,7 +2515,7 @@ the potential attack surface."
       - cis_csc: ["5.1"]
       - pci_dss: ["2.2.4"]
       - nist_800_53: ["CM.1"]
-
+      - tsc: ["CC5.2"]
     condition: all
     rules:
       - 'c:stat /etc/cron.hourly -> r:^Access: \(0700/drwx------\)  Uid: \(    0/    root\)   Gid: \(    0/    root\)$'
@@ -2425,6 +2531,7 @@ the potential attack surface."
       - cis_csc: ["5.1"]
       - pci_dss: ["2.2.4"]
       - nist_800_53: ["CM.1"]
+      - tsc: ["CC5.2"]
     condition: all
     rules:
       - 'c:stat /etc/cron.daily -> r:^Access: \(0700/drwx------\)  Uid: \(    0/    root\)   Gid: \(    0/    root\)$'
@@ -2440,6 +2547,7 @@ the potential attack surface."
       - cis_csc: ["5.1"]
       - pci_dss: ["2.2.4"]
       - nist_800_53: ["CM.1"]
+      - tsc: ["CC5.2"]
     condition: all
     rules:
       - 'c:stat /etc/cron.weekly -> r:^Access: \(0700/drwx------\)  Uid: \(    0/    root\)   Gid: \(    0/    root\)$'
@@ -2456,6 +2564,7 @@ the potential attack surface."
       - cis_csc: ["5.1"]
       - pci_dss: ["2.2.4"]
       - nist_800_53: ["CM.1"]
+      - tsc: ["CC5.2"]
     condition: all
     rules:
       - 'c:stat /etc/cron.monthly -> r:^Access: \(0700/drwx------\)  Uid: \(    0/    root\)   Gid: \(    0/    root\)$'
@@ -2471,6 +2580,7 @@ the potential attack surface."
       - cis_csc: ["5.1"]
       - pci_dss: ["2.2.4"]
       - nist_800_53: ["CM.1"]
+      - tsc: ["CC5.2"]
     condition: all
     rules:
       - 'c:stat /etc/cron.d -> r:^Access: \(0700/drwx------\)  Uid: \(    0/    root\)   Gid: \(    0/    root\)$'
@@ -2486,6 +2596,7 @@ the potential attack surface."
       - cis_csc: ["16"]
       - pci_dss: ["2.2.4"]
       - nist_800_53: ["CM.1"]
+      - tsc: ["CC5.2"]
     condition: all
     rules:
       - 'c:stat /etc/cron.deny -> r:No such file or directory$'
@@ -2513,6 +2624,7 @@ the potential attack surface."
       - cis_csc: ["5.1"]
       - pci_dss: ["2.2.4"]
       - nist_800_53: ["CM.1"]
+      - tsc: ["CC5.2"]
     condition: all
     rules:
       - 'c:stat /etc/ssh/sshd_config -> r:^Access: \(0600/-rw-------\)  Uid: \(    0/    root\)   Gid: \(    0/    root\)$'
@@ -2529,6 +2641,7 @@ the potential attack surface."
       - pci_dss: ["4.1"]
       - hipaa: ["164.312.a.2.IV", "164.312.e.1", "164.312.e.2.I", "164.312.e.2.II"]
       - nist_800_53: ["SC.8"]
+      - tsc: ["CC6.1","CC6.7","CC7.2"]
     condition: all
     rules:
       - 'f:$sshd_file -> !r:^# && r:Protocol\s*\t*2'
@@ -2545,6 +2658,7 @@ the potential attack surface."
       - pci_dss: ["4.1"]
       - hipaa: ["164.312.a.2.IV", "164.312.e.1", "164.312.e.2.I", "164.312.e.2.II"]
       - nist_800_53: ["SC.8"]
+      - tsc: ["CC6.1","CC6.7","CC7.2"]
     condition: all
     rules:
       - 'f:$sshd_file -> !r:^# && r:LogLevel\s*\t*INFO'
@@ -2562,6 +2676,7 @@ the potential attack surface."
       - gpg_13: ["4.3"]
       - gdpr_IV: ["35.7.d"]
       - hipaa: ["164.312.b"]
+      - tsc: ["CC5.2"]
     condition: all
     rules:
       - 'f:/etc/ssh/sshd_config -> r:^\s*X11Forwarding\s*\t*no'
@@ -2577,6 +2692,7 @@ the potential attack surface."
       - cis_csc: ["16"]
       - pci_dss: ["2.2.4"]
       - nist_800_53: ["CM.1"]
+      - tsc: ["CC5.2"]
     condition: all
     rules:
       - 'f:$sshd_file -> !r:^# && n:^MaxAuthTries\s*\t*(\d+) compare <= 4'
@@ -2593,6 +2709,7 @@ the potential attack surface."
       - pci_dss: ["4.1"]
       - hipaa: ["164.312.a.2.IV", "164.312.e.1", "164.312.e.2.I", "164.312.e.2.II"]
       - nist_800_53: ["SC.8"]
+      - tsc: ["CC6.1","CC6.7","CC7.2"]
     condition: all
     rules:
       - 'f:$sshd_file -> !r:^# && r:IgnoreRhosts\s*\t*yes'
@@ -2609,6 +2726,7 @@ the potential attack surface."
       - pci_dss: ["4.1"]
       - hipaa: ["164.312.a.2.IV", "164.312.e.1", "164.312.e.2.I", "164.312.e.2.II"]
       - nist_800_53: ["SC.8"]
+      - tsc: ["CC6.1","CC6.7","CC7.2"]
     condition: all
     rules:
       - 'f:$sshd_file -> !r:^# && r:HostbasedAuthentication\s*\t*no'
@@ -2625,6 +2743,7 @@ the potential attack surface."
       - pci_dss: ["4.1"]
       - hipaa: ["164.312.a.2.IV", "164.312.e.1", "164.312.e.2.I", "164.312.e.2.II"]
       - nist_800_53: ["SC.8"]
+      - tsc: ["CC6.1","CC6.7","CC7.2"]
     condition: all
     rules:
       - 'f:$sshd_file -> !r:^# && r:PermitRootLogin\s*\t*no'
@@ -2641,6 +2760,7 @@ the potential attack surface."
       - pci_dss: ["4.1"]
       - hipaa: ["164.312.a.2.IV", "164.312.e.1", "164.312.e.2.I", "164.312.e.2.II"]
       - nist_800_53: ["SC.8"]
+      - tsc: ["CC6.1","CC6.7","CC7.2"]
     condition: all
     rules:
       - 'f:$sshd_file -> !r:^# && r:PermitEmptyPasswords\s*\t*no'
@@ -2657,6 +2777,7 @@ the potential attack surface."
       - pci_dss: ["4.1"]
       - hipaa: ["164.312.a.2.IV", "164.312.e.1", "164.312.e.2.I", "164.312.e.2.II"]
       - nist_800_53: ["SC.8"]
+      - tsc: ["CC6.1","CC6.7","CC7.2"]
     condition: all
     rules:
       - 'f:/etc/ssh/sshd_config -> r:^\s*PermitUserEnvironment\s*\t*no'
@@ -2685,6 +2806,7 @@ the potential attack surface."
     compliance:
       - cis: ["5.2.13"]
       - pci_dss: ["8.1"]
+      - tsc: ["CC6.1"]
     condition: all
     rules:
       - 'f:/etc/ssh/sshd_config -> n:^\s*LoginGraceTime\s*\t*(\d+) compare <= 60'
@@ -2700,6 +2822,7 @@ the potential attack surface."
       - cis: ["5.2.14"]
       - cis_csc: ["5.1", "5.8"]
       - pci_dss: ["8.1"]
+      - tsc: ["CC6.1"]
     condition: any
     rules:
       - 'f:/etc/ssh/sshd_config -> r:^\s*AllowUsers'
@@ -2717,6 +2840,7 @@ the potential attack surface."
       - cis: ["5.2.15"]
       - pci_dss: ["2.2.4"]
       - nist_800_53: ["CM.1"]
+      - tsc: ["CC5.2"]
     condition: all
     rules:
       - 'f:/etc/ssh/sshd_config -> r:^\s*Banner\s*\t*/etc/issue.net'
@@ -2735,6 +2859,7 @@ the potential attack surface."
       - cis: ["5.3.1"]
       - cis_csc: ["5.7", "16.12"]
       - pci_dss: ["8.2.3"]
+      - tsc: ["CC6.1"]
     condition: all
     rules:
       - 'c:grep pam_pwquality.so /etc/pam.d/password-auth -> r:try_first_pass'
@@ -2751,6 +2876,7 @@ the potential attack surface."
       - cis: ["5.3.3"]
       - cis_csc: ["16"]
       - pci_dss: ["8.2.5"]
+      - tsc: ["CC6.1"]
     condition: all
     rules:
       - 'f:/etc/pam.d/password-auth -> n:^password\s+sufficient\s+pam_unix.so\.+remember=(\d+)|^password\s+required\s+pam_pwhistory.so\.+remember=(\d+) compare >= 5'
@@ -2765,7 +2891,8 @@ the potential attack surface."
     compliance:
       - cis: ["5.3.4"]
       - cis_csc: ["16.14"]
-      - pci_dss: ["3.6.1"]
+      - pci_dss: ["3.6.1","8.2.1"]
+      - tsc: ["CC6.1","CC6.7"]
     condition: all
     rules:
       - 'f:/etc/pam.d/password-auth -> r:^password\s*sufficient\s*pam_unix.so\s*sha512'
@@ -2786,6 +2913,7 @@ the potential attack surface."
       - cis: ["5.4.1.1"]
       - cis_csc: ["16"]
       - pci_dss: ["8.2.4"]
+      - tsc: ["CC6.1"]
     condition: all
     rules:
       - 'f:/etc/login.defs -> n:^\s*PASS_MAX_DAYS\s*\t*(\d+) compare <= 365'
@@ -2799,7 +2927,8 @@ the potential attack surface."
     compliance:
       - cis: ["5.4.1.2"]
       - cis_csc: ["16"]
-      - pci_dss: ["3.6.1"]
+      - pci_dss: ["8.2"]
+      - tsc: ["CC6.1"]
     condition: all
     rules:
       - 'f:/etc/login.defs -> n:^\s*PASS_MIN_DAYS\s*\t*(\d+) compare >= 7'
@@ -2813,7 +2942,8 @@ the potential attack surface."
     compliance:
       - cis: ["5.4.1.3"]
       - cis_csc: ["16"]
-      - pci_dss: ["3.6.1"]
+      - pci_dss: ["8.2"]
+      - tsc: ["CC6.1"]
     condition: all
     rules:
       - 'f:/etc/login.defs -> n:^\s*PASS_WARN_AGE\s*\t*(\d+) compare >= 7'
@@ -2827,7 +2957,8 @@ the potential attack surface."
     compliance:
       - cis: ["5.4.1.4"]
       - cis_csc: ["16"]
-      - pci_dss: ["3.6.1"]
+      - pci_dss: ["8.2"]
+      - tsc: ["CC6.1"]
     condition: all
     rules:
       - 'c:useradd -D -> n:^\s*INACTIVE\s*=\s*(\d+) compare <= 30'
@@ -2842,7 +2973,8 @@ the potential attack surface."
     compliance:
       - cis: ["5.4.3"]
       - cis_csc: ["5"]
-      - pci_dss: ["3.6.1"]
+      - pci_dss: ["8.2"]
+      - tsc: ["CC6.1"]
     condition: all
     rules:
       - 'f:/etc/passwd -> r:^root:\w:\w:0'
@@ -2856,7 +2988,8 @@ the potential attack surface."
     compliance:
       - cis: ["5.4.4"]
       - cis_csc: ["13"]
-      - pci_dss: ["3.6.1"]
+      - pci_dss: ["8.2"]
+      - tsc: ["CC6.1"]
     condition: none
     rules:
       - 'f:/etc/bashrc -> n:^\s*\t*umask\s+(\d+) compare >= 027'
@@ -2896,6 +3029,7 @@ the potential attack surface."
       - nist_800_53: ["AU.14", "AC.7"]
       - gpg_13: ["7.8"]
       - gdpr_IV: ["35.7","32.2"]
+      - tsc: ["CC6.1","CC6.8","CC7.2","CC7.3","CC7.4"]
     condition: all
     rules:
       - 'f:/etc/pam.d/su -> r:^auth\s*\t*required\s*\t*pam_wheel.so\s*\t*use_uid'
@@ -2919,6 +3053,7 @@ the potential attack surface."
       - cis_csc: ["16.14"]
       - pci_dss: ["2.2.4"]
       - nist_800_53: ["CM.1"]
+      - tsc: ["CC5.2"]
     condition: all
     rules:
       - 'c:stat /etc/passwd -> r:Access:\s*\(0644/-rw-r--r--\)\s*Uid:\s*\(\s*\t*0/\s*\t*root\)\s*\t*Gid:\s*\(\s*\t*0/\s*\t*root\)'
@@ -2934,6 +3069,7 @@ the potential attack surface."
       - cis_csc: ["16.14"]
       - pci_dss: ["2.2.4"]
       - nist_800_53: ["CM.1"]
+      - tsc: ["CC5.2"]
     condition: all
     rules:
       - 'c:stat /etc/shadow -> r:Access:\s*\(0000/----------\)\s*Uid:\s*\(\s*\t*0/\s*\t*root\)\s*\t*Gid:\s*\(\s*\t*0/\s*\t*root\)'
@@ -2949,6 +3085,7 @@ the potential attack surface."
       - cis_csc: ["16.14"]
       - pci_dss: ["2.2.4"]
       - nist_800_53: ["CM.1"]
+      - tsc: ["CC5.2"]
     condition: all
     rules:
       - 'c:stat /etc/group -> r:Access:\s*\(0644/-rw-r--r--\)\s*Uid:\s*\(\s*\t*0/\s*\t*root\)\s*\t*Gid:\s*\(\s*\t*0/\s*\t*root\)'
@@ -2964,6 +3101,7 @@ the potential attack surface."
       - cis_csc: ["16.14"]
       - pci_dss: ["2.2.4"]
       - nist_800_53: ["CM.1"]
+      - tsc: ["CC5.2"]
     condition: all
     rules:
       - 'c:stat /etc/gshadow -> r:Access:\s*\(0000/----------\)\s*Uid:\s*\(\s*\t*0/\s*\t*root\)\s*\t*Gid:\s*\(\s*\t*0/\s*\t*root\)'
@@ -2979,6 +3117,7 @@ the potential attack surface."
       - cis_csc: ["16.14"]
       - pci_dss: ["2.2.4"]
       - nist_800_53: ["CM.1"]
+      - tsc: ["CC5.2"]
     condition: all
     rules:
       - 'c:stat /etc/passwd- -> r:Access:\s*\(0644/-rw-r--r--\)\s*Uid:\s*\(\s*\t*0/\s*\t*root\)\s*\t*Gid:\s*\(\s*\t*0/\s*\t*root\)|Access:\s*\(0640/-rw-r-----\)\s*Uid:\s*\(\s*\t*0/\s*\t*root\)\s*\t*Gid:\s*\(\s*\t*0/\s*\t*root\)|Access:\s*\(0604/-rw----r--\)\s*Uid:\s*\(\s*\t*0/\s*\t*root\)\s*\t*Gid:\s*\(\s*\t*0/\s*\t*root\)|Access:\s*\(0600/-rw-------\)\s*Uid:\s*\(\s*\t*0/\s*\t*root\)\s*\t*Gid:\s*\(\s*\t*0/\s*\t*root\)'
@@ -2994,6 +3133,7 @@ the potential attack surface."
       - cis_csc: ["16.14"]
       - pci_dss: ["2.2.4"]
       - nist_800_53: ["CM.1"]
+      - tsc: ["CC5.2"]
     condition: all
     rules:
       - 'c:stat /etc/shadow- -> r:Access:\s*\(0000/----------\)\s*Uid:\s*\(\s*\t*0/\s*\t*root\)\s*\t*Gid:\s*\(\s*\t*0/\s*\t*root\)'
@@ -3009,6 +3149,7 @@ the potential attack surface."
       - cis_csc: ["16.14"]
       - pci_dss: ["2.2.4"]
       - nist_800_53: ["CM.1"]
+      - tsc: ["CC5.2"]
     condition: all
     rules:
       - 'c:stat /etc/group- -> r:Access:\s*\(0644/-rw-r--r--\)\s*Uid:\s*\(\s*\t*0/\s*\t*root\)\s*\t*Gid:\s*\(\s*\t*0/\s*\t*root\)|Access:\s*\(0640/-rw-r-----\)\s*Uid:\s*\(\s*\t*0/\s*\t*root\)\s*\t*Gid:\s*\(\s*\t*0/\s*\t*root\)|Access:\s*\(0604/-rw----r--\)\s*Uid:\s*\(\s*\t*0/\s*\t*root\)\s*\t*Gid:\s*\(\s*\t*0/\s*\t*root\)|Access:\s*\(0600/-rw-------\)\s*Uid:\s*\(\s*\t*0/\s*\t*root\)\s*\t*Gid:\s*\(\s*\t*0/\s*\t*root\)'
@@ -3024,6 +3165,7 @@ the potential attack surface."
       - cis_csc: ["16.14"]
       - pci_dss: ["2.2.4"]
       - nist_800_53: ["CM.1"]
+      - tsc: ["CC5.2"]
     condition: all
     rules:
       - 'c:stat /etc/gshadow- -> r:Access:\s*\(0000/----------\)\s*Uid:\s*\(\s*\t*0/\s*\t*root\)\s*\t*Gid:\s*\(\s*\t*0/\s*\t*root\)'
@@ -3041,6 +3183,7 @@ the potential attack surface."
       - cis: ["6.2.1"]
       - cis_csc: ["16"]
       - pci_dss: ["8.2"]
+      - tsc: ["CC6.1"]
     condition: none
     rules:
       - 'f:/etc/shadow -> !r:^# && r:^\w+::'
@@ -3059,6 +3202,7 @@ the potential attack surface."
       - gpg_13: ["4.3"]
       - gdpr_IV: ["35.7.d"]
       - hipaa: ["164.312.b"]
+      - tsc: ["CC5.2"]
     condition: none
     rules:
       - 'f:/etc/passwd -> !r:^# && r:^+:'
@@ -3077,6 +3221,7 @@ the potential attack surface."
       - gpg_13: ["4.3"]
       - gdpr_IV: ["35.7.d"]
       - hipaa: ["164.312.b"]
+      - tsc: ["CC5.2"]
     condition: none
     rules:
       - 'f:/etc/shadow -> !r:^# && r:^+:'
@@ -3095,6 +3240,7 @@ the potential attack surface."
       - gpg_13: ["4.3"]
       - gdpr_IV: ["35.7.d"]
       - hipaa: ["164.312.b"]
+      - tsc: ["CC5.2"]
     condition: none
     rules:
       - 'f:/etc/group -> !r:^# && r:^+:'
@@ -3113,6 +3259,7 @@ the potential attack surface."
       - nist_800_53: ["AU.14", "AC.7"]
       - gpg_13: ["7.8"]
       - gdpr_IV: ["35.7","32.2"]
+      - tsc: ["CC6.1","CC6.8","CC7.2","CC7.3","CC7.4"]
     condition: none
     rules:
       - 'f:/etc/passwd -> !r:^# && !r:^\s*\t*root: && r:^\w+:\w+:0:'
