@@ -112,6 +112,7 @@ checks:
       - cis: ["1.1.1.5"]
       - cis_csc: ["13"]
       - pci_dss: ["2.2.5"]
+      - tsc: ["CC6.3"]
     references:
       - AJ Lewis, "LVM HOWTO", https://tldp.org/HOWTO/LVM-HOWTO/
     condition: all
