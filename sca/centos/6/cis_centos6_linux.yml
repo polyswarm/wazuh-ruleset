@@ -885,7 +885,7 @@ checks:
       - gpg_13: ["4.2"]
       - gdpr_IV: ["35.7.d"]
       - hipaa: ["164.312.b"]
-       tsc: ["A1.2"]
+      - tsc: ["A1.2"]
     condition: all
     rules:
       - 'c:yum check-update --security -> r:No packages needed for security'
