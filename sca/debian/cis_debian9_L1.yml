@@ -968,7 +968,7 @@ checks:
     remediation: "For hosts that are designated as log hosts, edit the /etc/rsyslog.conf file and un-comment or add the following lines:$ModLoad imtcp & $InputTCPServerRun 514. For hosts that are not designated as log hosts, edit the /etc/rsyslog.conf file and comment or remove the following lines: # $ModLoad imtcp # $InputTCPServerRun 514. Run the following command to reload the rsyslogd configuration: # pkill -HUP rsyslogd"
     compliance:
       - cis: ["4.2.1.5"]
-      - cis_csc: ["9.1", "9.2"]
+      - cis_csc: ["9.2"]
       - pci_dss: ["10.5.1"]
     references:
       - rsyslog.conf(8) man page
@@ -1056,7 +1056,7 @@ checks:
     remediation: "Run the following command to enable cron: systemctl enable cron"
     compliance:
       - cis: ["5.1.1"]
-      - cis_csc: ["6", "5.1"]
+      - cis_csc: ["5.1"]
       - pci_dss: ["2.2.4"]
       - nist_800_53: ["CM.1"]
       - tsc: ["CC5.2"]
@@ -1211,7 +1211,7 @@ checks:
     remediation: "Edit the /etc/ssh/sshd_config file to set the parameter as follows: Protocol 2"
     compliance:
       - cis: ["5.2.4"]
-      - cis_csc: ["3.4", "4.5"]
+      - cis_csc: ["14.4"]
       - pci_dss: ["4.1"]
       - hipaa: ["164.312.a.2.IV", "164.312.e.1", "164.312.e.2.I", "164.312.e.2.II"]
       - nist_800_53: ["SC.8"]
@@ -1229,7 +1229,7 @@ checks:
       - https://www.ssh.com/ssh/sshd_config/
     compliance:
       - cis: ["5.2.5"]
-      - cis_csc: ["16", "6.2", "6.3"]
+      - cis_csc: ["6.2", "6.3"]
       - pci_dss: ["4.1"]
       - hipaa: ["164.312.a.2.IV", "164.312.e.1", "164.312.e.2.I", "164.312.e.2.II"]
       - nist_800_53: ["SC.8"]
@@ -1245,7 +1245,7 @@ checks:
     remediation: "Edit the /etc/ssh/sshd_configfile to set the parameter as follows: X11Forwarding no"
     compliance:
       - cis: ["5.2.6"]
-      - cis_csc: ["16", "9.2"]
+      - cis_csc: ["9.2"]
       - pci_dss: ["2.2.3"]
       - nist_800_53: ["CM.1"]
       - tsc: ["CC5.2"]
@@ -1263,7 +1263,7 @@ checks:
     remediation: "Edit the /etc/ssh/sshd_config file to set the parameter as follows: MaxAuthTries 4"
     compliance:
       - cis: ["5.2.7"]
-      - cis_csc: ["16", "16.13"]
+      - cis_csc: ["16.13"]
       - pci_dss: ["2.2.4"]
       - nist_800_53: ["CM.1"]
       - tsc: ["CC5.2"]
@@ -1278,7 +1278,7 @@ checks:
     remediation: "Edit the /etc/ssh/sshd_config file to set the parameter as follows: IgnoreRhosts yes"
     compliance:
       - cis: ["5.2.8"]
-      - cis_csc: ["9", "9.2"]
+      - cis_csc: ["9.2"]
       - pci_dss: ["4.1"]
       - hipaa: ["164.312.a.2.IV", "164.312.e.1", "164.312.e.2.I", "164.312.e.2.II"]
       - nist_800_53: ["SC.8"]
@@ -1294,7 +1294,7 @@ checks:
     remediation: "Edit the /etc/ssh/sshd_config file to set the parameter as follows: HostbasedAuthentication no"
     compliance:
       - cis: ["5.2.9"]
-      - cis_csc: ["9", "16.3"]
+      - cis_csc: ["16.3"]
       - pci_dss: ["4.1"]
       - hipaa: ["164.312.a.2.IV", "164.312.e.1", "164.312.e.2.I", "164.312.e.2.II"]
       - nist_800_53: ["SC.8"]
@@ -1310,7 +1310,7 @@ checks:
     remediation: "Edit the /etc/ssh/sshd_config file to set the parameter as follows: PermitRootLogin no"
     compliance:
       - cis: ["5.2.10"]
-      - cis_csc: ["5.8", "4.3"]
+      - cis_csc: ["4.3"]
       - pci_dss: ["4.1"]
       - hipaa: ["164.312.a.2.IV", "164.312.e.1", "164.312.e.2.I", "164.312.e.2.II"]
       - nist_800_53: ["SC.8"]
@@ -1326,7 +1326,7 @@ checks:
     remediation: "Edit the /etc/ssh/sshd_config file to set the parameter as follows: PermitEmptyPasswords no"
     compliance:
       - cis: ["5.2.11"]
-      - cis_csc: ["16", "16.3"]
+      - cis_csc: ["16.3"]
       - pci_dss: ["4.1"]
       - hipaa: ["164.312.a.2.IV", "164.312.e.1", "164.312.e.2.I", "164.312.e.2.II"]
       - nist_800_53: ["SC.8"]
@@ -1342,7 +1342,7 @@ checks:
     remediation: "Edit the /etc/ssh/sshd_config file to set the parameter as follows: PermitUserEnvironment no"
     compliance:
       - cis: ["5.2.12"]
-      - cis_csc: ["16", "5.1"]
+      - cis_csc: ["5.1"]
       - pci_dss: ["4.1"]
       - hipaa: ["164.312.a.2.IV", "164.312.e.1", "164.312.e.2.I", "164.312.e.2.II"]
       - nist_800_53: ["SC.8"]
@@ -1358,7 +1358,7 @@ checks:
     remediation: "Edit the /etc/ssh/sshd_config file add/modify the Ciphers line to contain a comma separated list of the site approved ciphers Example: Ciphers chacha20-poly1305@openssh.com,aes256-gcm@openssh.com,aes128-gcm@openssh.com,aes256-ctr,aes192-ctr,aes128-ctr"
     compliance:
       - cis: ["5.2.13"]
-      - cis_csc: ["3.4"]
+      - cis_csc: ["14.4"]
       - pci_dss: ["4.1"]
       - hipaa: ["164.312.a.2.IV", "164.312.e.1", "164.312.e.2.I", "164.312.e.2.II"]
       - nist_800_53: ["SC.8"]
@@ -1381,7 +1381,7 @@ checks:
     remediation: "Edit the /etc/ssh/sshd_config file and add/modify the MACs line to contain a comma separated list of the site approved MACs Example: MACs hmac-sha2-512-etm@openssh.com,hmac-sha2-256-etm@openssh.com,hmac-sha2- 512,hmac-sha2-256"
     compliance:
       - cis: ["5.2.14"]
-      - cis_csc: ["3.4"]
+      - cis_csc: ["14.4","16.5"]
       - pci_dss: ["4.1"]
       - hipaa: ["164.312.a.2.IV", "164.312.e.1", "164.312.e.2.I", "164.312.e.2.II"]
       - nist_800_53: ["SC.8"]
@@ -1399,7 +1399,7 @@ checks:
     remediation: "Edit the /etc/ssh/sshd_config file add/modify the KexAlgorithms line to contain a comma separated list of the site approved key exchange algorithms Example: KexAlgorithms curve25519-sha256,curve25519-sha256@libssh.org,diffie-hellman- group14-sha256,diffie-hellman-group16-sha512,diffie-hellman-group18- sha512,ecdh-sha2-nistp521,ecdh-sha2-nistp384,ecdh-sha2-nistp256,diffie- hellman-group-exchange-sha256"
     compliance:
       - cis: ["5.2.15"]
-      - cis_csc: ["3.4"]
+      - cis_csc: ["14.4"]
       - pci_dss: ["4.1"]
       - hipaa: ["164.312.a.2.IV", "164.312.e.1", "164.312.e.2.I", "164.312.e.2.II"]
       - nist_800_53: ["SC.8"]
@@ -1416,7 +1416,7 @@ checks:
     remediation: "Edit the /etc/ssh/sshd_config file to set the parameters according to site policy: ClientAliveInterval 300    ClientAliveCountMax 0"
     compliance:
       - cis: ["5.2.16"]
-      - cis_csc: ["16.4", "16.11"]
+      - cis_csc: ["16.11"]
       - pci_dss: ["12.3.8"]
     condition: all
     rules:
@@ -1430,7 +1430,7 @@ checks:
     remediation: "Edit the /etc/ssh/sshd_config file to set the parameter as follows: LoginGraceTime 60"
     compliance:
       - cis: ["5.2.17"]
-      - cis_csc: ["16"]
+      - cis_csc: ["5.1"]
       - pci_dss: ["8.1"]
     condition: all
     rules:
@@ -1443,7 +1443,7 @@ checks:
     remediation: "Edit the /etc/ssh/sshd_config file to set one or more of the parameter as follows: AllowUsers <userlist>    AllowGroups <grouplist>    DenyUsers <userlist>    DenyGroups <grouplist>"
     compliance:
       - cis: ["5.2.18"]
-      - cis_csc: ["5.1", "5.8", "4.3"]
+      - cis_csc: ["5.1"]
       - pci_dss: ["8.1"]
     condition: all
     rules:
@@ -1473,7 +1473,7 @@ checks:
     remediation: "1) Run the following command to install the pam_pwquality module: apt-get install libpam-pwquality 2) Edit the /etc/pam.d/common-password file to include the appropriate options for pam_pwquality.so and to conform to site policy: password requisite pam_pwquality.so retry=3 3) Edit /etc/security/pwquality.conf to add or update the following settings to conform to site policy: minlen = 14 dcredit = -1 ucredit = -1 ocredit = -1 lcredit = -1. Notes: Additional module options may be set, recommendation requirements only cover including try_first_pass and minlen set to 14 or more. Settings in /etc/security/pwquality.conf must use spaces around the = symbol."
     compliance:
       - cis: ["5.3.1"]
-      - cis_csc: ["5.7", "16.12", "4.4"]
+      - cis_csc: ["4.4"]
       - pci_dss: ["8.2.3"]
     condition: all
     rules:
@@ -1587,7 +1587,7 @@ checks:
     remediation: "Run the following command to set the root user default group to GID 0: # usermod -g 0 root"
     compliance:
       - cis: ["5.4.3"]
-      - cis_csc: ["5", "5.1"]
+      - cis_csc: ["5.1"]
       - pci_dss: ["3.6.1"]
     condition: all
     rules:
@@ -1641,7 +1641,7 @@ checks:
     remediation: "Run the following commands to set permissions on /etc/gshadow : # chown root:shadow /etc/gshadow # chmod o-rwx,g-rw /etc/gshadow"
     compliance:
       - cis: ["6.1.2"]
-      - cis_csc: ["16.14"]
+      - cis_csc: ["16.4"]
       - pci_dss: ["2.2.4"]
       - nist_800_53: ["CM.1"]
       - tsc: ["CC5.2"]
@@ -1656,7 +1656,7 @@ checks:
     remediation: "Run the one of the following chown commands as appropriate and the chmod to set permissions on /etc/shadow- : # chown root:root /etc/shadow- # chown root:shadow /etc/shadow- # chmod o-rwx,g-rw /etc/shadow-"
     compliance:
       - cis: ["6.1.3"]
-      - cis_csc: ["16.14"]
+      - cis_csc: ["16.4"]
       - pci_dss: ["2.2.4"]
       - nist_800_53: ["CM.1"]
       - tsc: ["CC5.2"]
@@ -1671,7 +1671,7 @@ checks:
     remediation: "# chown root:root /etc/gshadow- # chown root:shadow /etc/gshadow- # chmod o-rwx,g-rw /etc/gshadow-"
     compliance:
       - cis: ["6.1.4"]
-      - cis_csc: ["16.14"]
+      - cis_csc: ["16.4"]
       - pci_dss: ["2.2.4"]
       - nist_800_53: ["CM.1"]
       - tsc: ["CC5.2"]
@@ -1686,7 +1686,7 @@ checks:
     remediation: "Run the following command to set permissions on /etc/passwd: # chown root:root /etc/passwd # chmod 644 /etc/passwd"
     compliance:
       - cis: ["6.1.5"]
-      - cis_csc: ["16.14"]
+      - cis_csc: ["16.4"]
       - pci_dss: ["2.2.4"]
       - nist_800_53: ["CM.1"]
       - tsc: ["CC5.2"]
@@ -1701,7 +1701,7 @@ checks:
     remediation: "Run the one following commands to set permissions on /etc/shadow : # chown root:shadow /etc/shadow # chmod o-rwx,g-wx /etc/shadow"
     compliance:
       - cis: ["6.1.6"]
-      - cis_csc: ["16.14"]
+      - cis_csc: ["16.4"]
       - pci_dss: ["2.2.4"]
       - nist_800_53: ["CM.1"]
       - tsc: ["CC5.2"]
@@ -1716,7 +1716,7 @@ checks:
     remediation: "Run the following command to set permissions on /etc/group: # chown root:root /etc/group # chmod 644 /etc/group"
     compliance:
       - cis: ["6.1.7"]
-      - cis_csc: ["16.14"]
+      - cis_csc: ["16.4"]
       - pci_dss: ["2.2.4"]
       - nist_800_53: ["CM.1"]
       - tsc: ["CC5.2"]
@@ -1731,7 +1731,7 @@ checks:
     remediation: "Run the following command to set permissions on /etc/passwd-: # chown root:root /etc/passwd- # chmod 644 /etc/passwd-"
     compliance:
       - cis: ["6.1.8"]
-      - cis_csc: ["16.14"]
+      - cis_csc: ["16.4"]
       - pci_dss: ["2.2.4"]
       - nist_800_53: ["CM.1"]
       - tsc: ["CC5.2"]
@@ -1747,7 +1747,7 @@ checks:
     remediation: "Run the following command to set permissions on /etc/group-: # chown root:root /etc/group- # chmod 644 /etc/group-"
     compliance:
       - cis: ["6.1.9"]
-      - cis_csc: ["16.14"]
+      - cis_csc: ["16.4"]
       - pci_dss: ["2.2.4"]
       - nist_800_53: ["CM.1"]
       - tsc: ["CC5.2"]
@@ -1765,7 +1765,7 @@ checks:
     remediation: "If any accounts in the /etc/shadow file do not have a password, run the following command to lock the account until it can be determined why it does not have a password: # passwd -l <em><username></em>. Also, check to see if the account is logged in and investigate what it is being used for to determine if it needs to be forced off."
     compliance:
       - cis: ["6.2.1"]
-      - cis_csc: ["16", "4.4"]
+      - cis_csc: ["4.4"]
       - pci_dss: ["8.2"]
     condition: none
     rules:
@@ -1778,7 +1778,7 @@ checks:
     remediation: "Remove any legacy + entries from /etc/passwd if they exist."
     compliance:
       - cis: ["6.2.2"]
-      - cis_csc: ["16.9", "16.2"]
+      - cis_csc: ["16.2"]
       - pci_dss: ["2.2.3"]
       - nist_800_53: ["CM.1"]
       - tsc: ["CC5.2"]
@@ -1796,7 +1796,7 @@ checks:
     remediation: "Remove any legacy + entries from /etc/shadow if they exist."
     compliance:
       - cis: ["6.2.3"]
-      - cis_csc: ["16.9", "16.2"]
+      - cis_csc: ["16.2"]
       - pci_dss: ["2.2.3"]
       - nist_800_53: ["CM.1"]
       - tsc: ["CC5.2"]
@@ -1814,7 +1814,7 @@ checks:
     remediation: "Remove any legacy + entries from /etc/group if they exist."
     compliance:
       - cis: ["6.2.4"]
-      - cis_csc: ["16.9", "16.2"]
+      - cis_csc: ["16.2"]
       - pci_dss: ["2.2.3"]
       - nist_800_53: ["CM.1"]
       - tsc: ["CC5.2"]
