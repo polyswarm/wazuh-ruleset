@@ -38,6 +38,8 @@ checks:
     compliance:
       - cis: ["1.1.2"]
       - cis_csc: ["16.5"]
+      - pci_dss: ["8.2.4"]
+      - tsc: ["CC6.1"]
     references:
       - 'CCE-37167-4'
     condition: all
@@ -55,6 +57,7 @@ checks:
       - cis: ["2.3.1.2"]
       - cis_csc: ["16"]
       - pci_dss: ["8.1"]
+      - tsc: ["CC6.1"]
     references:
       - 'CCE-36147-7'
     condition: all
@@ -70,6 +73,7 @@ checks:
       - cis: ["2.3.1.4"]
       - cis_csc: ["16"]
       - pci_dss: ["8.2"]
+      - tsc: ["CC6.1"]
     references:
       - 'CCE-37615-2'
     condition: all
@@ -85,6 +89,11 @@ checks:
       - cis: ["2.3.2.1"]
       - cis_csc: ["6.2"]
       - pci_dss: ["2.2.3"]
+      - nist_800_53: ["CM.1"]
+      - gpg_13: ["4.3"]
+      - gdpr_IV: ["35.7.d"]
+      - hipaa: ["164.312.b"]
+      - tsc: ["CC5.2"]
     references:
       - 'CCE-37850-5'
     condition: all
@@ -100,7 +109,9 @@ checks:
     compliance:
       - cis: ["2.3.2.2"]
       - cis_csc: ["6"]
-      - pci_dss: ["10.7"]
+      - pci_dss: ["2.2.4","10.7"]
+      - nist_800_53: ["CM.1"]
+      - tsc: ["CC5.2"]
     references:
       - 'CCE-35907-5'
     condition: all
@@ -130,11 +141,9 @@ checks:
     compliance:
       - cis: ["2.3.4.2"]
       - cis_csc: ["5.1"]
-      - pci_dss: ["6"]
-      - nist_800_53: ["SI.2","SA.11","SI.4"]
-      - gpg_13: ["4.3"]
-      - gdpr_IV: ["35.7.d"]
-      - hipaa: ["164.312.b"]
+      - pci_dss: ["2.2.4","2,2,5"]
+      - nist_800_53: ["CM.1"]
+      - tsc: ["CC6.3","CC5.2"]
     references:
       - 'CCE-37942-0'
     condition: all
@@ -152,6 +161,7 @@ checks:
       - pci_dss: ["4.1"]
       - hipaa: ["164.312.a.2.IV", "164.312.e.1", "164.312.e.2.I", "164.312.e.2.II"]
       - nist_800_53: ["SC.8"]
+      - tsc: ["CC6.1","CC6.7","CC7.2"]
     references:
       - 'CCE-36142-8'
     condition: all
@@ -169,6 +179,7 @@ checks:
       - pci_dss: ["4.1"]
       - hipaa: ["164.312.a.2.IV", "164.312.e.1", "164.312.e.2.I", "164.312.e.2.II"]
       - nist_800_53: ["SC.8"]
+      - tsc: ["CC6.1","CC6.7","CC7.2"]
     references:
       - 'CCE-37130-2'
     condition: all
@@ -186,6 +197,7 @@ checks:
       - pci_dss: ["4.1"]
       - hipaa: ["164.312.a.2.IV", "164.312.e.1", "164.312.e.2.I", "164.312.e.2.II"]
       - nist_800_53: ["SC.8"]
+      - tsc: ["CC6.1","CC6.7","CC7.2"]
     references:
       - 'CCE-37222-7'
     condition: all
@@ -201,6 +213,7 @@ checks:
       - cis: ["2.3.6.4"]
       - cis_csc: ["16"]
       - pci_dss: ["8.2.4"]
+      - tsc: ["CC6.1"]
     references:
       - 'CCE-37508-9'
     condition: all
@@ -218,6 +231,7 @@ checks:
       - pci_dss: ["4.1"]
       - hipaa: ["164.312.a.2.IV", "164.312.e.1", "164.312.e.2.I", "164.312.e.2.II"]
       - nist_800_53: ["SC.8"]
+      - tsc: ["CC6.1","CC6.7","CC7.2"]
     references:
       - 'CCE-37614-5'
     condition: all
@@ -233,6 +247,11 @@ checks:
       - cis: ["2.3.7.1"]
       - cis_csc: ["13"]
       - pci_dss: ["2.2.3"]
+      - nist_800_53: ["CM.1"]
+      - gpg_13: ["4.3"]
+      - gdpr_IV: ["35.7.d"]
+      - hipaa: ["164.312.b"]
+      - tsc: ["CC5.2"]
     references:
       - 'CCE-36056-0'
     condition: all
@@ -248,6 +267,11 @@ checks:
       - cis: ["2.3.7.2"]
       - cis_csc: ["8"]
       - pci_dss: ["2.2.3"]
+      - nist_800_53: ["CM.1"]
+      - gpg_13: ["4.3"]
+      - gdpr_IV: ["35.7.d"]
+      - hipaa: ["164.312.b"]
+      - tsc: ["CC5.2"]
     references:
       - 'CCE-37637-6'
     condition: all
@@ -263,6 +287,7 @@ checks:
       - cis: ["2.3.7.3"]
       - cis_csc: ["16.5"]
       - pci_dss: ["8.1.8"]
+      - tsc: ["CC6.1"]
     references:
       - 'CCE-38235-8'
     condition: all
@@ -279,6 +304,7 @@ checks:
       - cis: ["2.3.7.7"]
       - cis_csc: ["16"]
       - pci_dss: ["8.2.4"]
+      - tsc: ["CC6.1"]
     references:
       - 'CCE-37622-8'
     condition: all
@@ -294,7 +320,8 @@ checks:
     compliance:
       - cis: ["2.3.7.8"]
       - cis_csc: ["16.9"]
-      - pci_dss: ["8"]
+      - pci_dss: ["8.6"]
+      - tsc: ["CC6.1"]
     references:
       - 'CCE-38240-8'
     condition: all
@@ -310,6 +337,7 @@ checks:
       - cis: ["2.3.7.9"]
       - cis_csc: ["16.5"]
       - pci_dss: ["8.6"]
+      - tsc: ["CC6.1"]
     references:
       - 'CCE-38333-1'
     condition: all
@@ -327,6 +355,7 @@ checks:
       - pci_dss: ["4.1"]
       - hipaa: ["164.312.a.2.IV", "164.312.e.1", "164.312.e.2.I", "164.312.e.2.II"]
       - nist_800_53: ["SC.8"]
+      - tsc: ["CC6.1","CC6.7","CC7.2"]
     references:
       - 'CCE-36325-9'
     condition: all
@@ -344,6 +373,7 @@ checks:
       - pci_dss: ["4.1"]
       - hipaa: ["164.312.a.2.IV", "164.312.e.1", "164.312.e.2.I", "164.312.e.2.II"]
       - nist_800_53: ["SC.8"]
+      - tsc: ["CC6.1","CC6.7","CC7.2"]
     references:
       - 'CCE-36269-9'
     condition: all
@@ -361,6 +391,7 @@ checks:
       - pci_dss: ["4.1"]
       - hipaa: ["164.312.a.2.IV", "164.312.e.1", "164.312.e.2.I", "164.312.e.2.II"]
       - nist_800_53: ["SC.8"]
+      - tsc: ["CC6.1","CC6.7","CC7.2"]
     references:
       - 'CCE-37863-8'
     condition: all
@@ -376,6 +407,7 @@ checks:
       - cis: ["2.3.9.1"]
       - cis_csc: ["3"]
       - pci_dss: ["8.1.8"]
+      - tsc: ["CC6.1"]
     references:
       - 'CCE-38046-9'
     condition: all
@@ -394,6 +426,7 @@ checks:
       - pci_dss: ["4.1"]
       - hipaa: ["164.312.a.2.IV", "164.312.e.1", "164.312.e.2.I", "164.312.e.2.II"]
       - nist_800_53: ["SC.8"]
+      - tsc: ["CC6.1","CC6.7","CC7.2"]
     references:
       - 'CCE-37864-6'
     condition: all
@@ -411,6 +444,7 @@ checks:
       - pci_dss: ["4.1"]
       - hipaa: ["164.312.a.2.IV", "164.312.e.1", "164.312.e.2.I", "164.312.e.2.II"]
       - nist_800_53: ["SC.8"]
+      - tsc: ["CC6.1","CC6.7","CC7.2"]
     references:
       - 'CCE-35988-5'
     condition: all
@@ -426,6 +460,7 @@ checks:
       - cis: ["2.3.9.4"]
       - cis_csc: ["16"]
       - pci_dss: ["7.1"]
+      - tsc: ["CC6.4"]
     references:
       - 'CCE-37972-7'
     condition: all
@@ -441,6 +476,7 @@ checks:
       - cis: ["2.3.9.5"]
       - cis_csc: ["14"]
       - pci_dss: ["7.1"]
+      - tsc: ["CC6.4"]
     references:
       - https://support.microsoft.com/en-us/help/3161561/ms16-075-and-ms16-076-description-of-the-security-update-for-windows-n
       - 'CCE-36170-9'
@@ -456,6 +492,8 @@ checks:
     compliance:
       - cis: ["2.3.10.2"]
       - cis_csc: ["16"]
+      - pci_dss: ["7.1"]
+      - tsc: ["CC6.4"]
     references:
       - 'CCE-36316-8'
     condition: all
@@ -471,6 +509,7 @@ checks:
       - cis: ["2.3.10.3"]
       - cis_csc: ["16"]
       - pci_dss: ["7.1"]
+      - tsc: ["CC6.4"]
     references:
       - 'CCE-36316-8'
     condition: all
@@ -486,6 +525,7 @@ checks:
       - cis: ["2.3.10.5"]
       - cis_csc: ["14", "16"]
       - pci_dss: ["7.1"]
+      - tsc: ["CC6.4"]
     references:
       - 'CCE-36148-5'
     condition: all
@@ -501,6 +541,7 @@ checks:
       - cis: ["2.3.10.6"]
       - cis_csc: ["14.1", "16"]
       - pci_dss: ["7.1"]
+      - tsc: ["CC6.4"]
     references:
       - 'CCE-38258-0'
     condition: all
@@ -516,6 +557,7 @@ checks:
       - cis: ["2.3.10.7"]
       - cis_csc: ["14", "16"]
       - pci_dss: ["7.1"]
+      - tsc: ["CC6.4"]
     references:
       - 'CCE-37194-8'
     condition: all
@@ -530,6 +572,8 @@ checks:
     compliance:
       - cis: ["2.3.10.8"]
       - cis_csc: ["14", "16"]
+      - pci_dss: ["7.1"]
+      - tsc: ["CC6.4"]
     references:
       - 'CCE-36347-3'
     condition: all
@@ -545,6 +589,7 @@ checks:
       - cis: ["2.3.10.9"]
       - cis_csc: ["14", "16"]
       - pci_dss: ["7.1"]
+      - tsc: ["CC6.4"]
     references:
       - 'CCE-36021-4'
     condition: all
@@ -560,6 +605,7 @@ checks:
       - cis: ["2.3.10.10"]
       - cis_csc: ["14", "16"]
       - pci_dss: ["7.1"]
+      - tsc: ["CC6.4"]
     references:
       - 'CCE-38095-6'
     condition: all
@@ -575,6 +621,7 @@ checks:
       - cis: ["2.3.10.11"]
       - cis_csc: ["14", "16"]
       - pci_dss: ["7.1.3"]
+      - tsc: ["CC6.4"]
     references:
       - 'CCE-37623-6'
     condition: all
@@ -592,6 +639,7 @@ checks:
       - pci_dss: ["4.1"]
       - hipaa: ["164.312.a.2.IV", "164.312.e.1", "164.312.e.2.I", "164.312.e.2.II"]
       - nist_800_53: ["SC.8"]
+      - tsc: ["CC6.1","CC6.7","CC7.2"]
     references:
       - 'CCE-38341-4'
     condition: all
@@ -609,6 +657,7 @@ checks:
       - pci_dss: ["4.1"]
       - hipaa: ["164.312.a.2.IV", "164.312.e.1", "164.312.e.2.I", "164.312.e.2.II"]
       - nist_800_53: ["SC.8"]
+      - tsc: ["CC6.1","CC6.7","CC7.2"]
     references:
       - 'CCE-37035-3'
     condition: all
@@ -626,6 +675,7 @@ checks:
       - pci_dss: ["4.1"]
       - hipaa: ["164.312.a.2.IV", "164.312.e.1", "164.312.e.2.I", "164.312.e.2.II"]
       - nist_800_53: ["SC.8"]
+      - tsc: ["CC6.1","CC6.7","CC7.2"]
     references:
       - 'CCE-38047-7'
     condition: all
@@ -643,6 +693,7 @@ checks:
       - pci_dss: ["4.1"]
       - hipaa: ["164.312.a.2.IV", "164.312.e.1", "164.312.e.2.I", "164.312.e.2.II"]
       - nist_800_53: ["SC.8"]
+      - tsc: ["CC6.1","CC6.7","CC7.2"]
     references:
       - 'CCE-37755-6'
     condition: all
@@ -658,6 +709,7 @@ checks:
       - cis: ["2.3.11.5"]
       - cis_csc: ["16.14"]
       - pci_dss: ["8.2.1"]
+      - tsc: ["CC6.1"]
     references:
       - 'CCE-36326-7'
     condition: all
@@ -673,6 +725,7 @@ checks:
       - cis: ["2.3.11.6"]
       - cis_csc: ["16"]
       - pci_dss: ["7.1"]
+      - tsc: ["CC6.4"]
     references:
       - 'CCE-36270-7'
     condition: all
@@ -690,6 +743,7 @@ checks:
       - pci_dss: ["4.1"]
       - hipaa: ["164.312.a.2.IV", "164.312.e.1", "164.312.e.2.I", "164.312.e.2.II"]
       - nist_800_53: ["SC.8"]
+      - tsc: ["CC6.1","CC6.7","CC7.2"]
     references:
       - 'CCE-36173-3'
     condition: all
@@ -706,6 +760,7 @@ checks:
       - pci_dss: ["4.1"]
       - hipaa: ["164.312.a.2.IV", "164.312.e.1", "164.312.e.2.I", "164.312.e.2.II"]
       - nist_800_53: ["SC.8"]
+      - tsc: ["CC6.1","CC6.7","CC7.2"]
     references:
       - 'CCE-36858-9'
     condition: all
@@ -723,6 +778,7 @@ checks:
       - pci_dss: ["4.1"]
       - hipaa: ["164.312.a.2.IV", "164.312.e.1", "164.312.e.2.I", "164.312.e.2.II"]
       - nist_800_53: ["SC.8"]
+      - tsc: ["CC6.1","CC6.7","CC7.2"]
     references:
       - 'CCE-37553-5'
     condition: all
@@ -740,6 +796,7 @@ checks:
       - pci_dss: ["4.1"]
       - hipaa: ["164.312.a.2.IV", "164.312.e.1", "164.312.e.2.I", "164.312.e.2.II"]
       - nist_800_53: ["SC.8"]
+      - tsc: ["CC6.1","CC6.7","CC7.2"]
     references:
       - https://workbench.cisecurity.org/benchmarks/288
       - 'CCE-37835-6'
@@ -755,6 +812,9 @@ checks:
     compliance:
       - cis: ["2.3.13.1"]
       - cis_csc: ["5.1"]
+      - pci_dss: ["2.2.4"]
+      - nist_800_53: ["CM.1"]
+      - tsc: ["CC5.2"]
     references:
       - 'CCE-36788-8'
     condition: all
@@ -768,6 +828,9 @@ checks:
     remediation: "To establish the recommended configuration via GP, set the following UI path to Enabled: Computer Configuration\\Policies\\Windows Settings\\Security Settings\\Local Policies\\Security Options\\System objects: Require case insensitivity for non- Windows subsystems."
     compliance:
       - cis: ["2.3.15.1"]
+      - pci_dss: ["2.2.4"]
+      - nist_800_53: ["CM.1"]
+      - tsc: ["CC5.2"]
     references:
       - 'CCE-37885-1'
     condition: all
@@ -783,6 +846,7 @@ checks:
       - cis: ["2.3.15.2"]
       - cis_csc: ["14.4"]
       - pci_dss: ["7.1"]
+      - tsc: ["CC6.4"]
     references:
       - 'CCE-37644-2'
     condition: all
@@ -798,6 +862,7 @@ checks:
       - cis: ["2.3.17.1"]
       - cis_csc: ["5.1"]
       - pci_dss: ["7.1"]
+      - tsc: ["CC6.4"]
     references:
       - 'CCE-36494-3'
     condition: all
@@ -813,6 +878,7 @@ checks:
       - cis: ["2.3.17.2"]
       - cis_csc: ["16"]
       - pci_dss: ["7.1"]
+      - tsc: ["CC6.4"]
     references:
       - 'CCE-36863-9'
     condition: all
@@ -827,6 +893,8 @@ checks:
     compliance:
       - cis: ["2.3.17.3"]
       - cis_csc: ["5.1"]
+      - pci_dss: ["7.1"]
+      - tsc: ["CC6.4"]
     references:
       - 'CCE-37029-6'
     condition: all
@@ -842,6 +910,7 @@ checks:
       - cis: ["2.3.17.4"]
       - cis_csc: ["5.1"]
       - pci_dss: ["7.1.2"]
+      - tsc: ["CC6.4"]
     references:
       - 'CCE-36864-7'
     condition: all
@@ -856,6 +925,8 @@ checks:
     compliance:
       - cis: ["2.3.17.5"]
       - cis_csc: ["5.1"]
+      - pci_dss: ["7.1"]
+      - tsc: ["CC6.4"]
     references:
       - 'CCE-36533-8'
     condition: all
@@ -872,6 +943,7 @@ checks:
       - cis_csc: ["5.1"]
       - pci_dss: ["2.2.4"]
       - nist_800_53: ["CM.1"]
+      - tsc: ["CC5.2"]
     references:
       - 'CCE-37057-7'
     condition: all
@@ -887,6 +959,7 @@ checks:
       - cis: ["2.3.17.7"]
       - cis_csc: ["5.1"]
       - pci_dss: ["7.1"]
+      - tsc: ["CC6.4"]
     references:
       - 'CCE-36869-6'
     condition: all
@@ -903,6 +976,7 @@ checks:
       - cis_csc: ["5.1"]
       - pci_dss: ["2.2.4"]
       - nist_800_53: ["CM.1"]
+      - tsc: ["CC5.2"]
     references:
       - 'CCE-36866-2'
     condition: all
@@ -916,6 +990,8 @@ checks:
     remediation: "To establish the recommended configuration via GP, set the following UI path to Enabled: Computer Configuration\\Policies\\Windows Settings\\Security Settings\\Local Policies\\Security Options\\User Account Control: Virtualize file and registry write failures to per-user locations."
     compliance:
       - cis: ["2.3.17.9"]
+      - pci_dss: ["6.5.8"]
+      - tsc: ["CC6.1"]
     references:
       - 'CCE-37064-3'
     condition: all
