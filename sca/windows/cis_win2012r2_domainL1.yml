@@ -1621,7 +1621,9 @@ checks:
     compliance:
       - cis: ["18.4.4"]
       - cis_csc: ["9"]
+      - pci_dss: ["1.3.3"]
       - nist_800_53: ["SC.5"]
+      - tsc: ["A1.1","CC6.1","CC7.2"]
     references:
       - https://blogs.technet.microsoft.com/secguide/2016/10/02/the-mss-settings/
       - 'CCE-37988-3'
@@ -2525,6 +2527,8 @@ checks:
     compliance:
       - cis: ["18.9.81.2.1"]
       - cis_csc: ["13"]
+      - pci_dss: ["7.1"]
+      - tsc: ["CC6.4"]
     references:
       - 'CCE-37112-0'
     condition: all
@@ -2539,6 +2543,8 @@ checks:
     compliance:
       - cis: ["18.9.81.3"]
       - cis_csc: ["13"]
+      - pci_dss: ["7.1"]
+      - tsc: ["CC6.4"]
     references:
       - 'CCE-36978-5'
     condition: all
