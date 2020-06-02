@@ -8,7 +8,7 @@
 # Foundation
 #
 # Based on:
-# Center for Internet Security Benchmark for Microsoft Windows Server 2016 RTM (Release 1607) v1.1.0 - 10-31-2018
+# Center for Internet Security Benchmark for Microsoft Windows Server 2019 RTM (Release 1809) v1.0.1 - 11-22-2019
 
 
 policy:
@@ -80,6 +80,7 @@ checks:
       - cis: ["18.8.22.1.2"]
       - cis_csc: ["13"]
       - pci_dss: ["2.2.5"]
+      - tsc: ["CC6.3"]
     references:
       - 'CCE-37911-5'
     condition: all
@@ -96,6 +97,7 @@ checks:
       - cis: ["18.8.22.1.3"]
       - cis_csc: ["13"]
       - pci_dss: ["2.2.5"]
+      - tsc: ["CC6.3"]
     references:
       - 'CCE-36203-8'
     condition: all
@@ -112,6 +114,7 @@ checks:
       - cis: ["18.8.22.1.4"]
       - cis_csc: ["13"]
       - pci_dss: ["2.2.5"]
+      - tsc: ["CC6.3"]
     references:
       - 'CCE-37163-3'
     condition: all
@@ -128,6 +131,7 @@ checks:
     compliance:
       - cis: ["18.8.22.1.7"]
       - pci_dss: ["2.2.5"]
+      - tsc: ["CC6.3"]
     references:
       - 'CCE-36352-3'
     condition: all
@@ -144,6 +148,7 @@ checks:
       - cis: ["18.8.22.1.8"]
       - cis_csc: ["13"]
       - pci_dss: ["2.2.5"]
+      - tsc: ["CC6.3"]
     references:
       - 'CCE-36884-5'
     condition: all
@@ -160,6 +165,7 @@ checks:
       - cis: ["18.8.22.1.9"]
       - cis_csc: ["13"]
       - pci_dss: ["2.2.5"]
+      - tsc: ["CC6.3"]
     references:
       - 'CCE-38275-4'
     condition: all
@@ -176,6 +182,7 @@ checks:
       - cis: ["18.8.22.1.10"]
       - cis_csc: ["13"]
       - pci_dss: ["2.2.5"]
+      - tsc: ["CC6.3"]
     references:
       - 'CCE-37090-8'
     condition: all
@@ -192,6 +199,7 @@ checks:
       - cis: ["18.8.22.1.11"]
       - cis_csc: ["13"]
       - pci_dss: ["2.2.5"]
+      - tsc: ["CC6.3"]
     references:
       - 'CCE-36628-6'
     condition: all
@@ -208,6 +216,7 @@ checks:
       - cis: ["18.8.22.1.12"]
       - cis_csc: ["13"]
       - pci_dss: ["2.2.5"]
+      - tsc: ["CC6.3"]
     references:
       - 'CCE-36174-1'
     condition: all
@@ -224,6 +233,7 @@ checks:
       - cis: ["18.8.22.1.13"]
       - cis_csc: ["13"]
       - pci_dss: ["2.2.5"]
+      - tsc: ["CC6.3"]
     references:
       - 'CCE-35964-6'
     condition: all
@@ -245,6 +255,7 @@ checks:
       - pci_dss: ["4.1"]
       - hipaa: ["164.312.a.2.IV", "164.312.e.1", "164.312.e.2.I", "164.312.e.2.II"]
       - nist_800_53: ["SC.8"]
+      - tsc: ["CC6.1","CC6.7","CC7.2"]
     condition: all
     rules:
       - 'r:HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System\kerberos\parameters -> DevicePKInitBehavior -> 0'
@@ -264,6 +275,7 @@ checks:
       - cis: ["18.8.26.1"]
       - cis_csc: ["16.5"]
       - pci_dss: ["2.2.5"]
+      - tsc: ["CC6.3"]
     references:
       - 'CCE-36343-2'
     condition: all
@@ -283,6 +295,7 @@ checks:
       - cis: ["18.8.31.1"]
       - cis_csc: ["13"]
       - pci_dss: ["2.2.5"]
+      - tsc: ["CC6.3"]
     condition: all
     rules:
       - 'r:HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\System -> AllowCrossDeviceClipboard -> 0'
@@ -297,6 +310,7 @@ checks:
       - cis: ["18.8.31.2"]
       - cis_csc: ["13"]
       - pci_dss: ["2.2.5"]
+      - tsc: ["CC6.3"]
     condition: all
     rules:
       - 'r:HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\System -> UploadUserActivities -> 0'
@@ -317,6 +331,8 @@ checks:
       - cis: ["18.8.34.6.1"]
       - cis_csc: ["9"]
       - pci_dss: ["2.2.4"]
+      - nist_800_53: ["CM.1"]
+      - tsc: ["CC5.2"]
     condition: all
     rules:
       - 'r:HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Power\PowerSettings\f15576e8-98b7-4186-b944-eafa664402d9 -> DCSettingIndex -> 0'
@@ -331,6 +347,8 @@ checks:
       - cis: ["18.8.34.6.2"]
       - cis_csc: ["9"]
       - pci_dss: ["2.2.4"]
+      - nist_800_53: ["CM.1"]
+      - tsc: ["CC5.2"]
     condition: all
     rules:
       - 'r:HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Power\PowerSettings\f15576e8-98b7-4186-b944-eafa664402d9 -> ACSettingIndex -> 0'
@@ -346,6 +364,7 @@ checks:
       - cis: ["18.8.45.5.1"]
       - cis_csc: ["13"]
       - pci_dss: ["2.2.5"]
+      - tsc: ["CC6.3"]
     references:
       - 'CCE-38161-6'
     condition: all
@@ -363,6 +382,7 @@ checks:
       - cis: ["18.8.45.11.1"]
       - cis_csc: ["13"]
       - pci_dss: ["2.2.5"]
+      - tsc: ["CC6.3"]
     references:
       - 'CCE-36648-4'
     condition: all
@@ -380,6 +400,7 @@ checks:
       - cis: ["18.8.47.1"]
       - cis_csc: ["13"]
       - pci_dss: ["2.2.5"]
+      - tsc: ["CC6.3"]
     references:
       - 'CCE-36931-4'
     condition: all
@@ -398,6 +419,7 @@ checks:
       - cis_csc: ["6.1"]
       - pci_dss: ["10.4"]
       - nist_800_53: ["AU.8"]
+      - tsc: ["CC7.2"]
     references:
       - 'CCE-37843-0'
     condition: all
@@ -415,6 +437,7 @@ checks:
       - cis_csc: ["9.1"]
       - pci_dss: ["2.2.5"]
       - nist_800_53: ["AU.8"]
+      - tsc: ["CC6.3"]
     references:
       - 'CCE-37319-1'
     condition: all
@@ -436,6 +459,7 @@ checks:
       - pci_dss: ["4.1"]
       - hipaa: ["164.312.a.2.IV", "164.312.e.1", "164.312.e.2.I", "164.312.e.2.II"]
       - nist_800_53: ["SC.8"]
+      - tsc: ["CC6.1","CC6.7","CC7.2"]
     condition: all
     rules:
       - 'r:HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\CurrentVersion\AppModel\StateManager -> AllowSharedLocalAppData -> 0'
@@ -450,6 +474,7 @@ checks:
       - cis: ["18.9.12.1"]
       - cis_csc: ["13"]
       - pci_dss: ["2.2.5"]
+      - tsc: ["CC6.3"]
     condition: all
     rules:
       - 'r:HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Camera -> AllowCamera -> 0'
@@ -466,6 +491,7 @@ checks:
       - pci_dss: ["4.1"]
       - hipaa: ["164.312.a.2.IV", "164.312.e.1", "164.312.e.2.I", "164.312.e.2.II"]
       - nist_800_53: ["SC.8"]
+      - tsc: ["CC6.1","CC6.7","CC7.2"]
     condition: all
     rules:
       - 'r:HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\DataCollection -> DisableEnterpriseAuthProxy -> 1'
@@ -480,6 +506,7 @@ checks:
       - cis: ["18.9.39.2"]
       - cis_csc: ["13"]
       - pci_dss: ["2.2.5"]
+      - tsc: ["CC6.3"]
     references:
       - 'CCE-36886-0'
     condition: all
@@ -498,6 +525,7 @@ checks:
       - pci_dss: ["4.1"]
       - hipaa: ["164.312.a.2.IV", "164.312.e.1", "164.312.e.2.I", "164.312.e.2.II"]
       - nist_800_53: ["SC.8"]
+      - tsc: ["CC6.1","CC6.7","CC7.2"]
     condition: all
     rules:
       - 'r:HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\Messaging -> AllowMessageSync -> 0'
@@ -511,6 +539,7 @@ checks:
     compliance:
       - cis: ["18.9.59.3.2.1"]
       - pci_dss: ["7.2"]
+      - tsc: ["CC6.4"]
     references:
       - 'CCE-37708-5'
     condition: all
@@ -527,6 +556,7 @@ checks:
       - cis: ["18.9.59.3.3.1"]
       - cis_csc: ["9.1"]
       - pci_dss: ["2.2.5"]
+      - tsc: ["CC6.3"]
     references:
       - 'CCE-37696-2'
     condition: all
@@ -543,6 +573,7 @@ checks:
       - cis: ["18.9.59.3.3.3"]
       - cis_csc: ["9.1"]
       - pci_dss: ["2.2.5"]
+      - tsc: ["CC6.3"]
     references:
       - 'CCE-37778-8'
     condition: all
@@ -559,6 +590,7 @@ checks:
       - cis: ["18.9.59.3.3.4"]
       - cis_csc: ["9.1"]
       - pci_dss: ["2.2.5"]
+      - tsc: ["CC6.3"]
     references:
       - 'CCE-37477-7'
     condition: all
@@ -575,6 +607,7 @@ checks:
       - cis: ["18.9.59.3.10.1"]
       - cis_csc: ["16.5"]
       - pci_dss: ["8.1.8"]
+      - tsc: ["CC6.1"]
     references:
       - 'CCE-37562-6'
       - https://workbench.cisecurity.org/benchmarks/766
@@ -592,6 +625,7 @@ checks:
       - cis: ["18.9.59.3.10.2"]
       - cis_csc: ["16.5"]
       - pci_dss: ["8.1"]
+      - tsc: ["CC6.1"]
     references:
       - 'CCE-37949-5'
     condition: all
@@ -608,6 +642,7 @@ checks:
       - cis: ["18.9.61.2"]
       - cis_csc: ["9.1"]
       - pci_dss: ["2.2.5"]
+      - tsc: ["CC6.3"]
     condition: all
     rules:
       - 'r:HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\Windows Search -> AllowCloudSearch -> 0'
@@ -621,6 +656,7 @@ checks:
     compliance:
       - cis: ["18.9.66.1"]
       - pci_dss: ["2.2.5"]
+      - tsc: ["CC6.3"]
     condition: all
     rules:
       - 'r:HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows NT\CurrentVersion\Software Protection Platform -> NoGenTicket -> 1'
@@ -634,6 +670,7 @@ checks:
     compliance:
       - cis: ["18.9.77.3.2"]
       - pci_dss: ["2.2.5"]
+      - tsc: ["CC6.3"]
     condition: all
     rules:
       - 'r:HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows Defender\Spynet -> SpynetReporting -> 0'
@@ -648,6 +685,7 @@ checks:
       - cis: ["18.9.84.1"]
       - cis_csc: ["13"]
       - pci_dss: ["2.2.5"]
+      - tsc: ["CC6.3"]
     condition: all
     rules:
       - 'r:HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\WindowsInkWorkspace -> AllowSuggestedAppsInWindowsInkWorkspace -> 0'
@@ -662,6 +700,7 @@ checks:
       - cis: ["18.9.85.3"]
       - cis_csc: ["7"]
       - pci_dss: ["2.2.5"]
+      - tsc: ["CC6.3"]
     references:
       - 'CCE-37524-6'
     condition: all
@@ -678,6 +717,9 @@ checks:
       - cis: ["18.9.97.2.2"]
       - cis_csc: ["3.4"]
       - pci_dss: ["4.1"]
+      - hipaa: ["164.312.a.2.IV", "164.312.e.1", "164.312.e.2.I", "164.312.e.2.II"]
+      - nist_800_53: ["SC.8"]
+      - tsc: ["CC6.1","CC6.7","CC7.2"]
     references:
       - 'CCE-37927-1'
     condition: all
@@ -694,6 +736,9 @@ checks:
       - cis: ["18.9.98.1"]
       - cis_csc: ["3.4"]
       - pci_dss: ["4.1"]
+      - hipaa: ["164.312.a.2.IV", "164.312.e.1", "164.312.e.2.I", "164.312.e.2.II"]
+      - nist_800_53: ["SC.8"]
+      - tsc: ["CC6.1","CC6.7","CC7.2"]
     references:
       - 'CCE-36499-2'
     condition: all
